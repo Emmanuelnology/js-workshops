@@ -1,10 +1,11 @@
 var firstName = "George";
 var lastname = "Webster";
 var myAge = 23;
-var yourAge =23;
+var yourAge = 23;
 
 console.log("Hello " + firstName + " " + lastname);
 console.log("You are " + yourAge + " years old!");
+
 if(yourAge > myAge){
     console.log("You are " + (yourAge - myAge) + " years older than me!");
 }
