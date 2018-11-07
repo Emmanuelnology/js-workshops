@@ -1,7 +1,7 @@
 var firstName = "Ben";
 var lastName = "Tomaney";
 var myAge = 22;
-var yourAge = 33;
+var yourAge = 11;
 
 console.log('Hello, my name is',firstName + " " + lastName + ".");
 
