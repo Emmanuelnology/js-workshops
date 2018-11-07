@@ -17,7 +17,6 @@ function test(expression, expectedResult, testName){
 
 function showResults(){
     console.log("Successfully ran " + passedTests +"/" + total + " tests")
-
 }
 
 

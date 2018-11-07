@@ -1,14 +1,10 @@
 var colors = ['violet', 'green', 'blue', 'yellow'];
-var primary = ['blue', 'red', 'yellow']
 
 function replace(array, index) {
-    if (array[index] == 'red' || array[index] == 'blue'  || array[index] == 'yellow') {
-        console.log("no changes");
-    }
-    else {
+    if (array[index] != 'red' || array[index] != 'blue'  || array[index] != 'yellow') {
         array[index] = 'red';
-        console.log(array);
-    }
-}
+        return array;
+    }   
+}   
 
-replace(colors, 1);
+console.log(replace(colors, 1));
