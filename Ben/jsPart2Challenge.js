@@ -59,6 +59,6 @@ test ( name != ('Aaran' || 'Steve'), true, 'Name is not Aaran or Steve' );
 test ( name == 'Craig' && numberOfPets == 5, true, 'Name is Craig and number of pets is 5' );
 test ( name.length >= 4 && name.length <= 6, true, 'Name has between 4 and 6 characters (inclusive)' );
 test ( !(name.length >= 4 && name.length <= 6), false, 'Name is not between 4 and 6 characters (inclusive using the not operator)' );
-test ( name == 'Craig' && numberOfPets % 2 == 0, false, 'Name is Craig and number of pets is an even number' );
+test ( name == 'Craig' && (numberOfPets % 2) == 0, false, 'Name is Craig and number of pets is an even number' );
 
 showResults ();
