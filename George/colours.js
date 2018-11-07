@@ -1,16 +1,17 @@
-function checkPrimaryColour(arrayOCcolors, indexPosition){
-    if(arrayOCcolors[indexPosition] == "red" ||arrayOCcolors[indexPosition] == "yellow" ||arrayOCcolors[indexPosition] == "blue")
-        console.log("In this array at posotion " + indexPosition + " is a primary colour as it is " + arrayOCcolors[indexPosition] + ".");
-    else{
-        console.log("In this array at posotion " + indexPosition + " is NOT primary colour as it is " + arrayOCcolors[indexPosition] + ".");
-        arrayOCcolors[indexPosition] = "red";
-        console.log("It is now: " + arrayOCcolors[indexPosition]);
+function checkPrimaryColour(arrayOfColours, indexPosition){
+    if(!(arrayOfColours[indexPosition] == "red" ||arrayOfColours[indexPosition] == "yellow" ||arrayOfColours[indexPosition] == "blue"))
+        arrayOfColours[indexPosition] = "red";
+
+    console.log("New array: ");
+    for(i = 0; i < colors.length; i++){
+        console.log("Position " + i + " is now " + arrayOfColours[i]);
     }
-    return arrayOCcolors;
+    return arrayOfColours;
 }
 
 var colors = ["violet", "green", "yellow", "blue"];
-checkPrimaryColour(colors, 0);
-checkPrimaryColour(colors, 1);
-checkPrimaryColour(colors, 2);
-checkPrimaryColour(colors, 3);
+
+// checkPrimaryColour(colors, 0);
+colors = checkPrimaryColour(colors, 1);
+// checkPrimaryColour(colors, 2);
+// checkPrimaryColour(colors, 3);
