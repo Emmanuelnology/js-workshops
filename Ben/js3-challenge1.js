@@ -59,3 +59,59 @@ var people = [
       "address": "350 Remsen Avenue, Abrams, Ohio, 6355"
     }
   ];
+
+function listActive () {
+  var countActive = 0;
+  for (var i = 0; i < people.length; i++) {
+    if (people[i].isActive) {
+      countActive++;
+      console.log (people[i].name);
+    }
+  }
+  console.log("Number of active users :" + countActive);
+}
+
+function eyeColorMatches (personObject) {
+  for (var i=0; i < people.length; i++) {
+    if (people[i].eyeColor === personObject.eyeColor && people[i] !== personObject) {
+      console.log (people[i].name)
+    }
+  }
+}
+
+function emailAddress (personID) {
+  var i=0;
+  while (i < people.length && people[i].id !== personID) {
+    i++;
+  }
+  if (i < people.length) {
+    console.log (people[i].email);
+  }
+  else {
+    console.log ("No person has this ID");
+  }
+}
+
+function activeWithInvalidEmail () {
+  for (var i = 0; i < people.length; i++) {
+    if (people[i].isActive && people[i].email.indexOf("@") < 1) {
+      console.log (people[i].name);
+    }
+  }
+}
+
+function addRandomMobileNumber () {
+  for (var i = 0; i < people.length; i++) {
+    people[i].mobile = 1432;
+    for (var j = 2; j < people[i].mobile.length; j++) {
+      people[i].mobile[j] = Math.floor(Math.random() * 10);
+    }
+    console.log (people[i].mobile);
+  }
+}
+
+listActive();
+eyeColorMatches(people[4]);
+emailAddress ("856");
+activeWithInvalidEmail ();
+addRandomMobileNumber ();
