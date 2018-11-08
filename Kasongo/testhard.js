@@ -61,19 +61,35 @@ var people = [
   ];
 
   
-  var  i =0;
-  function active(variable) {
-    var list =[];
-    var n = 0;
-    while (i >= 0) {
-      if (variable[i][2] == true) {
-        list.push(people[i][1]);
-        n = n + 1 ;
-      } else {
-        n = n;
+  
+  function active() {
+    var  index = 0;
+    var activePeople = [];
+    var count = 0;
+    while (index < people.length) {
+      if (people[index].isActive) {
+        activePeople.push(people[index].name);
+        count++ ;
       }
-      return list + n;
+      index++
     }
+    console.log('They are ' + count + ' active people.');
+    return activePeople;
   }
 
-  console.log(active(people));
+  console.log(active());
+
+  function sameColor(position) {
+    var  index = 0;
+    var colorPrincipal = people[position].eyeColor;
+    var numberEye =[];
+    while (index < people.length) {
+      if (people[index].eyeColor === colorPrincipal) {
+        numberEye.push(people[index].name);      
+      }
+      index++
+    }
+    return numberEye;
+  }
+  console.log(sameColor(3));
+
