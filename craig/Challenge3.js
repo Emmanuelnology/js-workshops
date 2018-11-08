@@ -105,6 +105,6 @@ function showSummary(personID) {
 
     console.log(
         name + " " + vegetarianMessage + ", he is "+height+"cm tall, and " + deadMessage
-        )
+        );
     }
 
