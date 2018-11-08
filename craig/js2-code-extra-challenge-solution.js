@@ -17,7 +17,7 @@ function isPrimary(color) {
 
 function fixColors(array, index) {
     if (!isPrimary(array[index])) {
-        array[index]="violet"
+        array[index]="red";
     }
     return array;
 }
