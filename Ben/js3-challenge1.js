@@ -102,9 +102,13 @@ function activeWithInvalidEmail () {
 
 function addRandomMobileNumber () {
   for (var i = 0; i < people.length; i++) {
-    people[i].mobile = 1432;
-    for (var j = 2; j < people[i].mobile.length; j++) {
-      people[i].mobile[j] = Math.floor(Math.random() * 10);
+    people[i].mobile = "07";
+    for (var j = 2; j < 5; j++) {
+      people[i].mobile = people[i].mobile + Math.floor(Math.random() * 10);
+    }
+    people[i].mobile = people[i].mobile + " ";
+    for (var j = 6; j < 12; j++) {
+      people[i].mobile = people[i].mobile + Math.floor(Math.random() * 10);
     }
     console.log (people[i].mobile);
   }
