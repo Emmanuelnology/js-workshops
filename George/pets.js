@@ -57,7 +57,7 @@ test(name != 'Aaran' || name != 'Steve', true, "'Name is not Aaran or Steve'");
 test(name == 'Craig' && pets == 5, true, "'Name is Craig and X is 5'");
 
 test(name.length >= 4 && name.length <= 6, true, "'Name has between 4 and 6 characters (inclusive)'");
-test(name.length > 4 && name.length < 6, true, "'Name is not between 4 and 6 characters (inclusive using the not operator)'");
+test(name.length < 4 && name.length > 6, false, "'Name is not between 4 and 6 characters (inclusive using the not operator)'");
 
 test(name == 'Craig' && pets % 2 == 0, false, "'Name is Craig and x is an even number'");
 

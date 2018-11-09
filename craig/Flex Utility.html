@@ -1,0 +1,56 @@
+<style>
+div {
+    border: 1px black solid;
+    padding: 15px;
+    background-color:#eee;
+    text-align: center;
+}
+
+.u-flex-2, .u-flex-3{
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.u-flex-2 > *{
+  flex-basis:50%;
+  box-sizing:border-box;
+}
+
+.u-flex-3 > *{
+  flex-basis:33.3333%;
+  box-sizing:border-box;
+}
+
+@media only screen and (max-width:600px) {
+  .u-flex-2 > *, .u-flex-3 > * {
+    flex-basis:100%;
+  }
+}
+</style>
+<body>
+<main>
+  <div class="u-flex-2">
+    <div>
+      First 1
+    </div>
+    <div>
+      First 2
+    </div>
+  </div>
+  <div class="u-flex-3">
+      <div>
+        Different 1
+      </div>
+      <div>
+        Different 2
+      </div>
+      <div>
+        Different 3
+      </div>
+    </div>
+    <div class="u-flex-2">
+        <p>1</p>
+        <p>2</p>
+    </div>
+</main>
+</body>
