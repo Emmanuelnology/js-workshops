@@ -2,7 +2,7 @@
 
 JS3 Challenge 1: Objects and Iteration
 
-Create 4 functions that:
+Create 5 functions that:
 Print a list of active users, with a summary of the total count of active users
 Take a person object and will return the names of all people who have matching eye colors
 Takes an ID and returns an email address
