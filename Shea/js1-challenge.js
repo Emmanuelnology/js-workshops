@@ -23,11 +23,13 @@ function greet(){
 }
 
 function maryAgeDifference() {
-// ... your code here
+    var ageDif = maryAge - myAge;
+    return "Mary is " + ageDif + "years younger than me"
 }
 
 function nameLength() {
-// ... your code here
+    var totalNameLength = firstName.length + lastName.length;
+    return "The total length of both names is " + totalNameLength + " characters";
 }
 
 test.run(greet, "Hello, My name is Bob Smith");
