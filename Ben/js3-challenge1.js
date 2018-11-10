@@ -68,54 +68,49 @@ function listActive () {
       console.log (people[i].name);
     }
   }
-  console.log("Number of active users :" + countActive);
+  console.log("Number of active users: " + countActive);
 }
 
 function eyeColorMatches (personObject) {
+  var matchingPeople = [];
   for (var i=0; i < people.length; i++) {
     if (people[i].eyeColor === personObject.eyeColor && people[i] !== personObject) {
-      console.log (people[i].name)
+      matchingPeople.push(people[i].name);
     }
   }
+  return matchingPeople;
 }
 
 function emailAddress (personID) {
-  var i=0;
-  while (i < people.length && people[i].id !== personID) {
-    i++;
-  }
-  if (i < people.length) {
-    console.log (people[i].email);
-  }
-  else {
-    console.log ("No person has this ID");
+  for (var i=0; i < people.length; i++) {
+    if (people[i].id === personID) {
+      return people[i].email;
+    }
   }
 }
 
 function activeWithInvalidEmail () {
+  var activeInvalidPeople = [];
   for (var i = 0; i < people.length; i++) {
     if (people[i].isActive && people[i].email.indexOf("@") < 1) {
-      console.log (people[i].name);
+      activeInvalidPeople.push(people[i].name);
     }
   }
+  return activeInvalidPeople;
 }
 
 function addRandomMobileNumber () {
   for (var i = 0; i < people.length; i++) {
-    people[i].mobile = "07";
-    for (var j = 2; j < 5; j++) {
-      people[i].mobile = people[i].mobile + Math.floor(Math.random() * 10);
-    }
-    people[i].mobile = people[i].mobile + " ";
-    for (var j = 6; j < 12; j++) {
-      people[i].mobile = people[i].mobile + Math.floor(Math.random() * 10);
-    }
-    console.log (people[i].mobile);
-  }
+    people[i].mobile = "07" + randomNumber(100,999) + " " + randomNumber(100000,999999);
+  };
+}
+
+function randomNumber(min,max) {
+  return Math.floor(Math.random()*(max-min+1)) + min;
 }
 
 listActive();
-eyeColorMatches(people[4]);
-emailAddress ("856");
-activeWithInvalidEmail ();
+console.log(eyeColorMatches(people[4]));
+console.log(emailAddress ("581"));
+console.log(activeWithInvalidEmail ());
 addRandomMobileNumber ();
