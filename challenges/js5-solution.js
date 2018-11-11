@@ -44,28 +44,30 @@ function getEmailAddress(people, id){
     }
 }
 
-function getActiveUsersWithInvalidEmail() {
-    var activeUsers=getActiveUsers();
-    var invalidPeople=[];
+function getActiveUsersWithInvalidEmail(people) {
+    var activeUsers = getActiveUsers(people);
+    var invalidPeople = [];
     for(personIndex = 0; personIndex < activeUsers.length; personIndex++){
       var person = activeUsers[personIndex];
-      if(!person.email.includes('@')) {
-          invalidPeople.push(person);
+      if (person.hasOwnProperty('email')){
+        if(!person.email.includes('@')) invalidPeople.push(person);
       }
+      else invalidPeople.push(person);
     }
     return invalidPeople;
 }
 
-function addRandomMobileNumbers(){
+function addRandomMobileNumbers(people){
   for(personIndex = 0; personIndex < people.length; personIndex++){
       people[personIndex].mobileNumber=generateRandomMobileNumber();
   }
+  return people;
 }
 
 function generateRandomMobileNumber() {
   var prefix="07";
-  var firstBit=getRandomInteger(100,1000);
-  var secondBit=getRandomInteger(100000,1000000);
+  var firstBit=getRandomInteger(100, 1000);
+  var secondBit=getRandomInteger(100000, 1000000);
   return prefix + firstBit + " " + secondBit;
 }
 
@@ -73,14 +75,9 @@ function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-// printActiveUsersV2();
-// console.log(findMatchingEyeColours(people[0]));
-// console.log(getEmailAddress(2321));
-// console.log(getActiveUsersWithInvalidEmail());
-//addRandomMobileNumbers();
-//console.log(people);
-
 test.getActiveUsers(getActiveUsers);
 test.findMatchingEyeColours(findMatchingEyeColours);
 test.getEmailAddress(getEmailAddress);
+test.getActiveUsersWithInvalidEmail(getActiveUsersWithInvalidEmail);
+test.addRandomMobileNumbers(addRandomMobileNumbers);
 test.summary();

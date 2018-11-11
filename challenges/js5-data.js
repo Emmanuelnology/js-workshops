@@ -45,7 +45,7 @@ exports.people = [
   },
   {
     "id": "4138",
-    "isActive": false,
+    "isActive": true,
     "eyeColor": "blue",
     "name": "Maria Stanley",
     "company": "EYERIS",

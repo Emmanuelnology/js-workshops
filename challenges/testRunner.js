@@ -1,30 +1,41 @@
 "use strict";
 exports.__esModule = true;
-var total = 0;
-var success = 0;
-var suiteName = "";
-var showPasses = false;
-function setSuiteName(name) {
-    suiteName = name;
-}
-exports.setSuiteName = setSuiteName;
-function assertEqual(test) {
-    if (JSON.stringify(test.compare) === JSON.stringify(test.to)) {
-        success++;
-        if (showPasses)
-            log("/: " + test.name, 'green');
+var Suite = /** @class */ (function () {
+    function Suite(name) {
+        this.name = name;
+        this.total = 0;
+        this.success = 0;
+        this.showPasses = true;
     }
-    else {
-        log("X: " + test.name + "\n" + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
-    }
-    total++;
-}
-exports.assertEqual = assertEqual;
-function getSummary() {
-    console.log("\nRan " + success + "/" + total + " tests successfully");
-}
-exports.getSummary = getSummary;
-function log(message, color) {
+    Suite.prototype.assertEqual = function (test) {
+        if (JSON.stringify(test.compare) === JSON.stringify(test.to)) {
+            this.success++;
+            if (this.showPasses)
+                colorLog(this.groupName + ": / " + test.name, 'green');
+        }
+        else {
+            colorLog(this.groupName + ": X " + test.name + "\n" + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+        }
+        this.total++;
+    };
+    Suite.prototype.assertRegex = function (test) {
+        if (test.regex.test(test.string)) {
+            this.success++;
+            if (this.showPasses)
+                colorLog(this.groupName + ": / " + test.name, 'green');
+        }
+        else {
+            colorLog(this.groupName + ": X " + test.name + "\n" + test.string + " !== " + test.regex.toString(), 'red');
+        }
+        this.total++;
+    };
+    Suite.prototype.getSummary = function () {
+        console.log("\nRan " + this.success + "/" + this.total + " tests successfully");
+    };
+    return Suite;
+}());
+exports.Suite = Suite;
+function colorLog(message, color) {
     var colors = {
         reset: '\x1b[0m',
         black: "\x1b[30m",
@@ -36,5 +47,5 @@ function log(message, color) {
         cyan: "\x1b[36m",
         white: "\x1b[37m"
     };
-    console.log(colors[color] + suiteName + ": " + message + colors.reset);
+    console.log(colors[color] + message + colors.reset);
 }

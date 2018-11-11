@@ -1,34 +1,51 @@
-let total = 0;
-let success = 0;
-let suiteName="";
-let showPasses=false;
-
-interface Test {
+interface AssertTrueTest {
   name: string,
   compare: any,
   to: any
 }
 
-export function setSuiteName(name:string) {
-  suiteName=name;
+interface AssertRegexTest {
+  name: string,
+  string: any,
+  regex: RegExp
 }
 
-export function assertEqual(test:Test){  
-  if(JSON.stringify(test.compare) === JSON.stringify(test.to)){
-    success++;
-    if(showPasses) log("/: " + test.name,'green');  
+export class Suite {
+  private total=0;
+  private success = 0;
+  public showPasses = true;
+  public groupName;
+  constructor(public name){}
+
+  assertEqual(test:AssertTrueTest){  
+    if(JSON.stringify(test.compare) === JSON.stringify(test.to)){
+      this.success++;
+      if(this.showPasses) colorLog(this.groupName + ": / " + test.name,'green');  
+    }
+    else {
+      colorLog(this.groupName + ": X " + test.name + "\n" + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+    }
+    this.total++;
   }
-  else {
-    log("X: " + test.name + "\n" + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+
+  assertRegex(test:AssertRegexTest){  
+    if(test.regex.test(test.string)){
+      this.success++;
+      if(this.showPasses) colorLog(this.groupName + ": / " + test.name,'green');  
+    }
+    else {
+      colorLog(this.groupName + ": X " + test.name + "\n" + test.string + " !== " + test.regex.toString(), 'red');
+    }
+    this.total++;
   }
-  total++;
-}
+
+  getSummary() {
+    console.log("\nRan " + this.success + "/" + this.total + " tests successfully");
+  }
+
+} 
   
-export function getSummary() {
-    console.log("\nRan " + success + "/" + total + " tests successfully");
-  }
-  
-  function log( message: string, color: "reset" | "red" | "green" | "black" | "yellow" | "blue" | "cyan" | "magenta" | "white") {
+  function colorLog( message: string, color: "reset" | "red" | "green" | "black" | "yellow" | "blue" | "cyan" | "magenta" | "white") {
     let colors = {
       reset: '\x1b[0m',
       black: "\x1b[30m",
@@ -40,5 +57,5 @@ export function getSummary() {
       cyan: "\x1b[36m",
       white: "\x1b[37m"
     };
-    console.log(colors[color] + suiteName + ": " + message + colors.reset)
+    console.log(colors[color] + message + colors.reset)
   }
