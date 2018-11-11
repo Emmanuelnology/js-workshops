@@ -13,7 +13,7 @@ Run your tests by running this file. They will all break at first.
 
 */
 
-var test = require("./js5-solution.tests");
+var test = require("./js5-tests");
 
 function getActiveUsers(people) {
   return people; //change this line (and add others)
@@ -35,7 +35,7 @@ function addRandomMobileNumbers(people){
   return people; //change this line (and add others)
 }
 
-console.log("\n\nRunning tests...")
+console.log("\n\nRunning tests...");
 test.getActiveUsers(getActiveUsers);
 test.findMatchingEyeColours(findMatchingEyeColours);
 test.getEmailAddress(getEmailAddress);

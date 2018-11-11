@@ -1,4 +1,4 @@
-var test = require("./js5-solution.tests");
+var test = require("./js5-tests");
 
 function getActiveUsers(people) {
   var activeUsers = [];
