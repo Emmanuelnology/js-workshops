@@ -1,4 +1,4 @@
-var test = require('../testRunner');
+var test = require("./js1-tests");
 
 var firstName = "Bob";
 var lastName = "Smith";
@@ -19,6 +19,8 @@ function nameLength() {
   return "The total length of both names is " + totalLength + " characters";
 }
 
-test.run(greet, "Hello, My name is Bob Smith");
-test.run(maryAgeDifference, "Mary is 11 years older than me");
-test.run(nameLength, "The total length of both names is 8 characters");
+console.log("\n\nRunning tests...");
+test.greet(greet);
+test.maryAgeDifference(maryAgeDifference);
+test.nameLength(nameLength);
+test.summary();
