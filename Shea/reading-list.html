@@ -6,7 +6,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
   <title>Reading list</title>
-
 </head>
 
 <body>
@@ -19,15 +18,14 @@
         <label for="book-link" class="sr-only">Book link</label>
         <input type="text" class="form-control m-2" id="book-link" placeholder="Book Link">
       </div>
-      <button disabled id="add-book" type="submit" class="btn btn-primary m-2">Add Book</button>
-      <button id="delete-all" type="submit" class="btn btn-danger m-2">Delete all</button>
-
+      <button id="add-book" type="submit" class="btn btn-primary m-2">Add Book</button>
+      <button id="delete-all" style="display:none" class="btn btn-danger m-2">Delete all</button>
     </form>
-    <h2 class="m-3">Books (<span id="book-count">0</span>)</h2>
+    <h2 class="m-3">Books</h2>
+    <h3 id="book-count">
+    </h3>
     <ul class="list-group" id="book-list">
-        
     </ul>
-    <p id="no-books">No items in list</p>
   </div>
   <script src="reading-list.js"></script>
 </body>

@@ -11,46 +11,46 @@ Programatically add a random mobile phone number to each record (formatted '07XX
 
 */
 
-function activeUsers(array) {
+function activeUsers(arrayOfPeople) {
   var count = 0;
-  for(i=0; i < array.length; i++){
-    if(array[i]["isActive"] == true) {
+  for(i=0; i < arrayOfPeople.length; i++){
+    if(arrayOfPeople[i].isActive) {
       count++;
-      console.log(array[i]["name"] + " is active.");
+      console.log(arrayOfPeople[i].name + " is active.");
     }
   }
   console.log("There are " + count + " active users.");
 }
 
-function sameColourEyes(array, person) {
-  for(i=0; i < array.length; i++) {
-    if(array[i]["eyeColor"] == person["eyeColor"]) {
-      console.log(array[i]["name"] + " also has " + person["eyeColor"] + " eyes.");
+function sameColourEyes(arrayOfPeople, person) {
+  for(i=0; i < arrayOfPeople.length; i++) {
+    if(arrayOfPeople[i]["eyeColor"] == person["eyeColor"]) {
+      console.log(arrayOfPeople[i]["name"] + " also has " + person["eyeColor"] + " eyes.");
     }
   }
 }
 
-function getEmailFromId(array, id) {
-  for(i=0; i < array.length; i++){
-    if(array[i]["id"] == id) {
-      console.log("User " + id + " has the email address: " + array[i]["email"]);
+function getEmailFromId(arrayOfPeople, id) {
+  for(i=0; i < arrayOfPeople.length; i++){
+    if(arrayOfPeople[i]["id"] == id) {
+      console.log("User " + id + " has the email address: " + arrayOfPeople[i]["email"]);
     }
   }
 }
 
-function activeUsersWithInvalidEmailAddress(array) {
-  for(i=0; i < array.length; i++) {
-    var email = array[i]["email"];
-    if(array[i]["isActive"] == true) {
+function activeUsersWithInvalidEmailAddress(arrayOfPeople) {
+  for(i=0; i < arrayOfPeople.length; i++) {
+    var email = arrayOfPeople[i]["email"];
+    if(arrayOfPeople[i]["isActive"] == true) {
       if(!(email.includes("@"))) {
-        console.log("User " + array[i]["id"] + " is active, however their email is invalid - " + email);
+        console.log("User " + arrayOfPeople[i]["id"] + " is active, however their email is invalid - " + email);
       }
     }
   }
 }
 
-function addMobileNumber(array) {
-  for(i=0; i < array.length; i++) {
+function addMobileNumber(arrayOfPeople) {
+  for(i=0; i < arrayOfPeople.length; i++) {
     var number = "07";
     for(j = 0; j < 3; j++) {
       number +=  Math.floor((Math.random() * 10));
@@ -59,7 +59,7 @@ function addMobileNumber(array) {
     for(j = 0; j < 6; j++) {
       number +=  Math.floor((Math.random() * 10));
     }
-    array[i]["mobile"] = number;
+    arrayOfPeople[i]["mobile"] = number;
   }
 }
 
