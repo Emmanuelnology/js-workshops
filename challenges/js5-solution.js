@@ -1,16 +1,3 @@
-/*
-
-JS3 Challenge 1: Objects and Iteration
-
-Create 5 functions that:
-Returns an object that has an array of active users
-Take a person object and will return the names of all people who have matching eye colors
-Takes an ID and returns an email address
-Finds all active users with an invalid email address
-Programatically add a random mobile phone number to each record (formatted '07XXX XXXXXX')
-
-*/
-
 var test = require("./js5-solution.tests");
 
 function getActiveUsers(people) {

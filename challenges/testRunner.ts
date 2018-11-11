@@ -20,10 +20,10 @@ export class Suite {
   assertEqual(test:AssertTrueTest){  
     if(JSON.stringify(test.compare) === JSON.stringify(test.to)){
       this.success++;
-      if(this.showPasses) colorLog(this.groupName + ": / " + test.name,'green');  
+      if(this.showPasses) colorLog("PASS " + this.groupName + ": " + test.name,'green');  
     }
     else {
-      colorLog(this.groupName + ": X " + test.name + "\n" + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+      colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
     }
     this.total++;
   }
@@ -31,16 +31,20 @@ export class Suite {
   assertRegex(test:AssertRegexTest){  
     if(test.regex.test(test.string)){
       this.success++;
-      if(this.showPasses) colorLog(this.groupName + ": / " + test.name,'green');  
+      if(this.showPasses) colorLog("Pass " + this.groupName + ": " + test.name,'green');  
     }
     else {
-      colorLog(this.groupName + ": X " + test.name + "\n" + test.string + " !== " + test.regex.toString(), 'red');
+      colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + test.string + " !== RegEx: " + test.regex.toString(), 'red');
     }
     this.total++;
   }
 
   getSummary() {
     console.log("\nRan " + this.success + "/" + this.total + " tests successfully");
+  }
+
+  handleError(e:Error) {
+    colorLog(e.name + "\n" + e.message + "\n" + e.stack, 'yellow');
   }
 
 } 

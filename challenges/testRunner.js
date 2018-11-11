@@ -11,10 +11,10 @@ var Suite = /** @class */ (function () {
         if (JSON.stringify(test.compare) === JSON.stringify(test.to)) {
             this.success++;
             if (this.showPasses)
-                colorLog(this.groupName + ": / " + test.name, 'green');
+                colorLog("PASS " + this.groupName + ": " + test.name, 'green');
         }
         else {
-            colorLog(this.groupName + ": X " + test.name + "\n" + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+            colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
         }
         this.total++;
     };
@@ -22,15 +22,18 @@ var Suite = /** @class */ (function () {
         if (test.regex.test(test.string)) {
             this.success++;
             if (this.showPasses)
-                colorLog(this.groupName + ": / " + test.name, 'green');
+                colorLog("Pass " + this.groupName + ": " + test.name, 'green');
         }
         else {
-            colorLog(this.groupName + ": X " + test.name + "\n" + test.string + " !== " + test.regex.toString(), 'red');
+            colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + test.string + " !== RegEx: " + test.regex.toString(), 'red');
         }
         this.total++;
     };
     Suite.prototype.getSummary = function () {
         console.log("\nRan " + this.success + "/" + this.total + " tests successfully");
+    };
+    Suite.prototype.handleError = function (e) {
+        colorLog(e.name + "\n" + e.message + "\n" + e.stack, 'yellow');
     };
     return Suite;
 }());
