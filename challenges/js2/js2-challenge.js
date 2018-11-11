@@ -1,42 +1,22 @@
 /*
-Create functions that return the following:
 
-minDateableAge(){} // half your age + 7
-hasFever(){} //fever or not in celsius
-calcTVHeight() {} Given a width on a 16:9 tv, calculate the height
-couldDate(){} // two people, could they date (deal with ages either way round)
-colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amount drop below 0
+Arrays, Functions and Conditions
+
+Create a list of colors that contains 4 different colors: violet, green, blue, yellow
+
+Create a function that will take two arguments: an array of colors and an index. 
+The function will test whether the item at index is not a primary color and if it isn't, replace it with red. The function returns the new array.
+
+Run the function to fix the second item in your color array and output the result to the console.
 
 */
-
 var test = require("./js2-tests");
 
-function minDateableAge(){
-  return 0; // change this line and add others if needed
-}
-
-function hasFever(){
-  return true; // change this line and add others if needed
-}
-
-function calcTVHeight() {
-  return true; // change this line and add others if needed
-}
-
-function couldDate() {
-  return true; // change this line and add others if needed
-
-}
-
-function colorDarken() {
-  return [0,0,0]; // change this line and add others if needed
-
+function fixColors(colorArray, index) {
+    // your code here
 }
 
 console.log("\n\nRunning tests...");
-test.minDateableAge(minDateableAge);
-test.hasFever(hasFever);
-test.calcTVHeight(calcTVHeight);
-test.couldDate(couldDate);
-test.colorDarken(colorDarken);
+test.fixColors(fixColors);
 test.summary();
+

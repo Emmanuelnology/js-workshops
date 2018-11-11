@@ -1,58 +1,52 @@
+/*
+Create functions that return the following:
+
+minDateableAge(){} // half your age + 7
+hasFever(){} //fever or not in celsius
+calcTVHeight() {} Given a width on a 16:9 tv, calculate the height
+couldDate(){} // two people, could they date (deal with ages either way round)
+colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amount drop below 0
+
+*/
+
 var test = require("./js3-tests");
-var data = require("./js3-data");
-people=data.people;
 
-function isVegetarian(personID) {
-  return people[personID][3];
+function minDateableAge(age){
+  return (age / 2) + 7;
 }
 
-function canFitOnANameCard(personID){
-  var name = people[personID][0];
-  return (name.length <= 6);
+function hasFever(tempInCelsius){
+  return tempInCelsius >= 37.5;
 }
 
-function getLifeExpectancy(personID) {
-  return isVegetarian(personID) ? 90:95;
+function calcTVHeight(width) {
+  return (width / 16) * 9;
 }
 
-function yearsRemaining(personID){
-  var lifeExpectancy = getLifeExpectancy(personID);
-  var age = people[personID][1];
-  return lifeExpectancy - age;
+function couldDate(age1, age2) {
+  if(age1 == age2) return true;
+  var orderedAges = [age1,age2].sort();
+  var lowerAge = orderedAges[0];
+  var minAge = minDateableAge(orderedAges[1]);
+  return lowerAge >= minAge;
 }
 
-function canRideOnARollercoaster(personID){
-  var height = people[personID][2];
-  return (height >= 120);
+function floor(number, amount) {
+  return (number - amount < 0) ? 0 : number - amount;
 }
 
-function canBuyBeer(personID) {
-  var age=people[personID][1];
-  return (age >= 18);
-}
-
-function getSummary(personID) {
-  var name = people[personID][0];
-  var height = people[personID][2];
-
-  var vegetarianMessage = isVegetarian(personID) ? "is a vegetarian" : "likes meat"; 
+function colorDarken(rgbArray, darkenAmount) {
+  var red = floor(rgbArray[0], darkenAmount);
+  var green = floor(rgbArray[1], darkenAmount);
+  var blue = floor(rgbArray[2], darkenAmount);
   
-  if(yearsRemaining(personID)<0){
-    deadMessage = "should be dead";
-  } else {
-    deadMessage = "has " + yearsRemaining(personID) + " years to live";
-  }
-  
-  return name + " " + vegetarianMessage + ", is " + height + "cm tall and " + deadMessage;
+  return [red, green, blue];
 }
 
 console.log("\n\nRunning tests...");
-test.isVegetarian(isVegetarian);
-test.canFitOnANameCard(canFitOnANameCard);
-test.getLifeExpectancy(getLifeExpectancy);
-test.yearsRemaining(yearsRemaining);
-test.canRideOnARollercoaster(canRideOnARollercoaster);
-test.canBuyBeer(canBuyBeer);
-test.getSummary(getSummary);
+test.minDateableAge(minDateableAge);
+test.hasFever(hasFever);
+test.calcTVHeight(calcTVHeight);
+test.couldDate(couldDate);
+test.colorDarken(colorDarken);
 test.summary();
-

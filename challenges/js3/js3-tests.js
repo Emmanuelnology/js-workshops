@@ -1,64 +1,109 @@
 var TestRunner = require('../testRunner');
 testSuite = new TestRunner.Suite();
 
-var people=[ //name, age, height, isVegetarian
-  ['Bob', 12, 110, true],
-  ['Harigon', 63, 150, true],
-  ['Thomas', 18, 121, false],
-  ['Sarah', 17, 119, false],
-  ['Lucy', 78, 140, true],
-  ['Dave', 93, 210, false],
-  ['Doris', 94, 80, true],
-];
+// Setup goes here
 
-exports.isVegetarian = function(isVegetarian) {
-  testSuite.groupName = 'is Vegetarian';
+exports.minDateableAge = function(minDateableAge) {
+  testSuite.groupName = 'Minimum Dateable age';
   try {
     testSuite.assertEqual({
-      compare: isVegetarian(0), 
-      to: true, 
-      name: 'Bob is vegetarian'
+      compare: minDateableAge(22), 
+      to: 18, 
+      name: '22 year old could date an 18 year old'
     });
 
     testSuite.assertEqual({
-      compare: isVegetarian(2), 
+      compare: minDateableAge(56), 
+      to: 35, 
+      name: '56 year old could date an 35 year old'
+    });
+  }
+  catch(e) {
+    testSuite.handleError(e);
+  } 
+  
+};
+
+exports.hasFever = function(hasFever) {
+  testSuite.groupName = 'Has fever';
+  try {
+    testSuite.assertEqual({
+      compare: hasFever(37.4), 
       to: false, 
-      name: 'Thomas is not vegetarian'
+      name: 'Under 37.5 doesn\'t have fever'
     });
 
     testSuite.assertEqual({
-      compare: isVegetarian(5), 
+      compare: hasFever(37.5), 
+      to: true, 
+      name: '37.5 has a fever'
+    });
+
+    testSuite.assertEqual({
+      compare: hasFever(37.6), 
+      to: true, 
+      name: 'Over 37.5 has a fever'
+    });
+  }
+  catch(e) {
+    testSuite.handleError(e);
+  } 
+  
+};
+
+exports.calcTVHeight = function(calcTVHeight) {
+  testSuite.groupName = 'TV Height';
+  try {
+    testSuite.assertEqual({
+      compare: calcTVHeight(16), 
+      to: 9, 
+      name: '16 wide == 9 tall'
+    });
+
+    testSuite.assertEqual({
+      compare: calcTVHeight(32), 
+      to: 18, 
+      name: '32 wide == 18 tall'
+    });
+  }
+  catch(e) {
+    testSuite.handleError(e);
+  } 
+  
+};
+
+exports.couldDate = function(couldDate) {
+  testSuite.groupName = 'Could date';
+  try {
+    testSuite.assertEqual({
+      compare: couldDate(18,22), 
+      to: true, 
+      name: '18 year old could date a 22 year old'
+    });
+
+    testSuite.assertEqual({
+      compare: couldDate(18,22), 
+      to: true, 
+      name: '22 year old could date a 18 year old'
+    });
+
+    testSuite.assertEqual({
+      compare: couldDate(22,22), 
+      to: true, 
+      name: '22 year old could date a 22 year old'
+    });
+
+    testSuite.assertEqual({
+      compare: couldDate(34,56), 
       to: false, 
-      name: 'Dave is not vegetarian'
-    });
-  }
-  catch(e) {
-    testSuite.handleError(e);
-  } 
-  
-};
-
-exports.canFitOnANameCard = function(canFitOnANameCard) {
-  testSuite.groupName = 'Can fit on name card';
-  try {
-    testSuite.assertEqual({
-      compare: canFitOnANameCard(0), 
-      to: true, 
-      name: 'Bob can fit on a name card'
+      name: '34 year old could not date a 56 year old'
     });
 
     testSuite.assertEqual({
-      compare: canFitOnANameCard(1), 
+      compare: couldDate(34,56), 
       to: false, 
-      name: 'Harigon cannot fit on a name card'
+      name: '56 year old could not date a 34 year old'
     });
-
-    testSuite.assertEqual({
-      compare: canFitOnANameCard(2), 
-      to: true, 
-      name: 'Thomas can fit on a name card'
-    });
-
   }
   catch(e) {
     testSuite.handleError(e);
@@ -66,159 +111,40 @@ exports.canFitOnANameCard = function(canFitOnANameCard) {
   
 };
 
-exports.getLifeExpectancy = function(getLifeExpectancy) {
-  testSuite.groupName = 'Can fit on name card';
+exports.colorDarken = function(colorDarken) {
+  testSuite.groupName = 'Could date';
   try {
     testSuite.assertEqual({
-      compare: getLifeExpectancy(0), 
-      to: 90, 
-      name: 'Bob will live for 90 years'
+      compare: colorDarken([60,60,60],10), 
+      to: [50,50,50], 
+      name: 'Basic reduction from each index'
     });
 
     testSuite.assertEqual({
-      compare: getLifeExpectancy(3), 
-      to: 95, 
-      name: 'Thomas will live for 95 years'
+      compare: colorDarken([9,1,9],10), 
+      to: [0,0,0], 
+      name: 'Never go below 0'
     });
 
+    testSuite.assertEqual({
+      compare: colorDarken([9,11,10],8), 
+      to: [1,3,2], 
+      name: 'Reduce by a number that is not 10'
+    });
+
+    testSuite.assertEqual({
+      compare: colorDarken([60,5,60],6), 
+      to: [54,0,54], 
+      name: 'Middle index does not reduce below 0 when low number'
+    });
   }
   catch(e) {
     testSuite.handleError(e);
   } 
   
 };
-
-exports.yearsRemaining = function(yearsRemaining) {
-  testSuite.groupName = 'Years remaining';
-  try {
-    testSuite.assertEqual({
-      compare: yearsRemaining(0), 
-      to: 78, 
-      name: 'Bob will live for 78 years'
-    });
-
-    testSuite.assertEqual({
-      compare: yearsRemaining(3), 
-      to: 78, 
-      name: 'Sarah will live for 78 years'
-    });
-
-    testSuite.assertEqual({
-      compare: yearsRemaining(5), 
-      to: 2, 
-      name: 'Dave will live for 2 years'
-    });
-
-    testSuite.assertEqual({
-      compare: yearsRemaining(6), 
-      to: -4, 
-      name: 'Doris will live for -4 years'
-    });
-
-  }
-  catch(e) {
-    testSuite.handleError(e);
-  } 
-  
-};
-
-exports.canRideOnARollercoaster = function(canRideOnARollercoaster) {
-  testSuite.groupName = 'Can ride on a rollercoaster';
-  try {
-    testSuite.assertEqual({
-      compare: canRideOnARollercoaster(1), 
-      to: true, 
-      name: 'Harigon can ride a rollercoaster'
-    });
-
-    testSuite.assertEqual({
-      compare: canRideOnARollercoaster(2), 
-      to: true, 
-      name: 'Thomas can ride a rollercoaster'
-    });
-
-    testSuite.assertEqual({
-      compare: canRideOnARollercoaster(3), 
-      to: false, 
-      name: 'Sarah is too short for a rollercoaster'
-    });
-
-
-  }
-  catch(e) {
-    testSuite.handleError(e);
-  } 
-  
-};
-
-exports.canBuyBeer = function(canBuyBeer) {
-  testSuite.groupName = 'Can buy beer';
-  try {
-    testSuite.assertEqual({
-      compare: canBuyBeer(2), 
-      to: true, 
-      name: 'Thomas can buy beer'
-    });
-
-    testSuite.assertEqual({
-      compare: canBuyBeer(3), 
-      to: false, 
-      name: 'Sarah cannot buy beer'
-    });
-
-    testSuite.assertEqual({
-      compare: canBuyBeer(5), 
-      to: true, 
-      name: 'Dave can buy beer'
-    });
-
-
-  }
-  catch(e) {
-    testSuite.handleError(e);
-  } 
-  
-};
-
-exports.getSummary = function(getSummary) {
-  testSuite.groupName = 'Summary';
-  try {
-    testSuite.assertEqual({
-      compare: getSummary(0), 
-      to: "Bob is a vegetarian, is 110cm tall and has 78 years to live", 
-      name: 'Bob'
-    });
-
-    testSuite.assertEqual({
-      compare: getSummary(2), 
-      to: "Thomas likes meat, is 121cm tall and has 77 years to live", 
-      name: 'Thomas'
-    });
-
-    testSuite.assertEqual({
-      compare: getSummary(6), 
-      to: "Doris is a vegetarian, is 80cm tall and should be dead", 
-      name: 'Doris'
-    });
-
-
-  }
-  catch(e) {
-    testSuite.handleError(e);
-  } 
-  
-};
-
 
 exports.summary = function() {
   testSuite.getSummary();
 };
 
-/*
-
-test.run(getSummary, "Bob is a vegetarian, is 110cm tall and has 78 years to live", 0);
-test.run(getSummary, "Thomas likes meat, is 121cm tall and has 72 years to live", 2);
-test.run(getSummary, "Doris is a vegetarian, is 80cm tall and should be dead", 6);
-
-test.show();
-*/

@@ -1,68 +1,42 @@
 /*
-The data file contains information for 7 people
+Create functions that return the following:
 
-Create functions that return the following
-
--- Whether they are vegetarian :boolean
--- Whether their name is too long to write on a name tag :boolean
--- Life expectancy :number
--- years before they die :number
--- Whether they can ride on a rollercoaster :boolean
--- Should already be dead :boolean
--- Can buy beer in the UK :boolean
--- Show a friendly summary of the person :string
-
-Life expectancy of a Vegetarian: 90
-Life expectancy of a Meat Eater: 95
-Minimum height to ride on a rollercoaster: 1.2m
-Name tag length ( Up to 6 characters)
-
-Example friendly summaries:
-- Steven is a vegetarian, is 100cm tall and has 12 years to live
-- Fred likes meat, is 153cm tall and has 7 years to live
-
-Use the test functions to test your results
+minDateableAge(){} // half your age + 7
+hasFever(){} //fever or not in celsius
+calcTVHeight() {} Given a width on a 16:9 tv, calculate the height
+couldDate(){} // two people, could they date (deal with ages either way round)
+colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amount drop below 0
 
 */
+
 var test = require("./js3-tests");
-var data = require("./js3-data");
-people=data.people;
 
-function isVegetarian(personID) {
-  return true; // change this line and add others if needed
-}
-
-function canFitOnANameCard(personID){
-  return true; // change this line and add others if needed
-}
-
-function getLifeExpectancy(personID) {
+function minDateableAge(){
   return 0; // change this line and add others if needed
 }
 
-function yearsRemaining(personID){
-  return 0; // change this line and add others if needed
-}
-
-function canRideOnARollercoaster(personID){
+function hasFever(){
   return true; // change this line and add others if needed
 }
 
-function canBuyBeer(personID) {
+function calcTVHeight() {
   return true; // change this line and add others if needed
 }
 
-function getSummary(personID) {
-  return ''; // change this line and add others if needed
+function couldDate() {
+  return true; // change this line and add others if needed
+
+}
+
+function colorDarken() {
+  return [0,0,0]; // change this line and add others if needed
+
 }
 
 console.log("\n\nRunning tests...");
-test.isVegetarian(isVegetarian);
-test.canFitOnANameCard(canFitOnANameCard);
-test.getLifeExpectancy(getLifeExpectancy);
-test.yearsRemaining(yearsRemaining);
-test.canRideOnARollercoaster(canRideOnARollercoaster);
-test.canBuyBeer(canBuyBeer);
-test.getSummary(getSummary);
+test.minDateableAge(minDateableAge);
+test.hasFever(hasFever);
+test.calcTVHeight(calcTVHeight);
+test.couldDate(couldDate);
+test.colorDarken(colorDarken);
 test.summary();
-

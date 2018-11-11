@@ -1,23 +1,68 @@
 /*
+The data file contains information for 7 people
 
-Arrays, Functions and Conditions
+Create functions that return the following
 
-Create a list of colors that contains 4 different colors: violet, green, blue, yellow
+-- Whether they are vegetarian :boolean
+-- Whether their name is too long to write on a name tag :boolean
+-- Life expectancy :number
+-- years before they die :number
+-- Whether they can ride on a rollercoaster :boolean
+-- Should already be dead :boolean
+-- Can buy beer in the UK :boolean
+-- Show a friendly summary of the person :string
 
-Create a function that will take two arguments: an array of colors and an index. 
-The function will test whether the item at index is not a primary color and if it isn't, replace it with red. The function returns the new array.
+Life expectancy of a Vegetarian: 90
+Life expectancy of a Meat Eater: 95
+Minimum height to ride on a rollercoaster: 1.2m
+Name tag length ( Up to 6 characters)
 
-Run the function to fix the second item in your color array and output the result to the console.
+Example friendly summaries:
+- Steven is a vegetarian, is 100cm tall and has 12 years to live
+- Fred likes meat, is 153cm tall and has 7 years to live
+
+Use the test functions to test your results
 
 */
-var test = require('../testRunner');
+var test = require("./js4-tests");
+var data = require("./js4-data");
+people=data.people;
 
-// Insert your code here
+function isVegetarian(personID) {
+  return true; // change this line and add others if needed
+}
 
-var colors = ['violet', 'green', 'blue', 'yellow'];
+function canFitOnANameCard(personID){
+  return true; // change this line and add others if needed
+}
 
-// Tests below
-test.run(fixColors, ['red', 'green', 'blue', 'yellow'], [colors,0]);
-test.run(fixColors, ['violet', 'red', 'blue', 'yellow'], [colors,1]);
-test.run(fixColors, ['violet', 'green', 'blue', 'yellow'], [colors,2]);
-test.run(fixColors, ['violet', 'green', 'blue', 'yellow'], [colors,3]);
+function getLifeExpectancy(personID) {
+  return 0; // change this line and add others if needed
+}
+
+function yearsRemaining(personID){
+  return 0; // change this line and add others if needed
+}
+
+function canRideOnARollercoaster(personID){
+  return true; // change this line and add others if needed
+}
+
+function canBuyBeer(personID) {
+  return true; // change this line and add others if needed
+}
+
+function getSummary(personID) {
+  return ''; // change this line and add others if needed
+}
+
+console.log("\n\nRunning tests...");
+test.isVegetarian(isVegetarian);
+test.canFitOnANameCard(canFitOnANameCard);
+test.getLifeExpectancy(getLifeExpectancy);
+test.yearsRemaining(yearsRemaining);
+test.canRideOnARollercoaster(canRideOnARollercoaster);
+test.canBuyBeer(canBuyBeer);
+test.getSummary(getSummary);
+test.summary();
+
