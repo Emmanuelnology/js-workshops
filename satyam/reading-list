@@ -1,0 +1,57 @@
+$(document).ready(function(){
+ 
+    // $('input').hide();
+    $('#book-title').val('surprise');
+    $('#book-link').val('muhfacka');
+    
+    console.log($('#book-link').val());
+
+    // function saySurprise(event) {
+    //     console.log('Surprise muhfucka');
+    // }
+
+    // function hideTings() {
+    //     $('input').hide();
+    // }
+
+    // function showTings() {
+    //     $('input').show();
+    // }
+
+    function addBookHandler(e) {
+        e.preventDefault();
+        // saySurprise();
+        $('input').hide();
+    }
+
+    function removeBookHandler(e) {
+        e.preventDefault();
+        $('input').show();
+    }
+
+    function swappySwap() {
+        // e.preventDefault();
+        $('#btn1').removeClass('btn-success');
+        $('#btn1').addClass('btn-danger');
+        $('#btn1').text('No');
+        $('#btn2').removeClass('btn-danger');
+        $('#btn2').addClass('btn-success');
+        $('#btn2').text('Yes');
+    }
+
+    function unswappySwap() {
+        // e.preventDefault();
+        $('#btn1').removeClass('btn-danger');
+        $('#btn1').addClass('btn-success');
+        $('#btn1').text('Yes');
+        $('#btn2').removeClass('btn-success');
+        $('#btn2').addClass('btn-danger');
+        $('#btn2').text('No');
+    }
+    
+    $('h1').hover(addBookHandler, removeBookHandler);
+    $('#btn1').hover(swappySwap, unswappySwap);
+    // $('h1').mouseleave(removeBookHandler);
+  
+ });
+ 
