@@ -11,4 +11,4 @@ function primaryFunction(colourArray, index){
         return colourArray;  
 }
 
-console.log(primaryFunction(["violet", "green", "blue", "yellow"], 1));
+console.log(primaryFunction(["violet", "green", "blue", "yellow"], 0));
