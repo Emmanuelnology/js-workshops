@@ -19,7 +19,7 @@ var myAge = 22;
 var maryAge = 33;
 
 function greet(){
-    return "Hello, My name is " + firstName + " " + lastName;
+  // ... your code here
 }
 
 function maryAgeDifference() {
