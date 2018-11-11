@@ -30,7 +30,7 @@ Use the test function to test your results
 
 */
 
-var test = require('./testRunner');
+var test = require('../testRunner');
 
 // Insert your code here
 

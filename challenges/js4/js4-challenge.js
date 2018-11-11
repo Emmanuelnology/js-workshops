@@ -10,7 +10,7 @@ The function will test whether the item at index is not a primary color and if i
 Run the function to fix the second item in your color array and output the result to the console.
 
 */
-var test = require('./testRunner');
+var test = require('../testRunner');
 
 // Insert your code here
 

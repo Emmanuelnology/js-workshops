@@ -11,7 +11,7 @@ The total length of both my names is 8 characters
 
 */
 
-var test = require('./testRunner');
+var test = require('../testRunner');
 
 var firstName = "Bob";
 var lastName = "Smith";

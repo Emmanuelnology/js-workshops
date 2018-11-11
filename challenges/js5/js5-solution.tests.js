@@ -1,4 +1,4 @@
-var TestRunner = require('./testRunner');
+var TestRunner = require('../testRunner');
 testSuite = new TestRunner.Suite();
 
 var data = require('./js5-data');
