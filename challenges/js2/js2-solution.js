@@ -1,4 +1,4 @@
-test = require('./testRunner');
+test = require('../testRunner');
 
 var people=[ //name, age, height, isVegetarian
   ['Bob', 12, 110, true],

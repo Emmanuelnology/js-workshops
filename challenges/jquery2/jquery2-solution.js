@@ -59,10 +59,10 @@ $(document).ready(function(){
   
   function manageAddButtonState(){
     if(validateInputs()){
-      $('#add-book').attr('disabled',false)
+      $('#add-book').attr('disabled',false);
     }
     else {
-      $('#add-book').attr('disabled',true)
+      $('#add-book').attr('disabled',true);
     }
   }
   

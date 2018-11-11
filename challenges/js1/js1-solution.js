@@ -1,4 +1,4 @@
-var test = require('./testRunner');
+var test = require('../testRunner');
 
 var firstName = "Bob";
 var lastName = "Smith";

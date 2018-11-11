@@ -1,4 +1,4 @@
-var test = require('./testRunner');
+var test = require('../testRunner');
 
 function isPrimary(color) {
     return (color == "red") || (color == "yellow") || (color == "blue");

@@ -9,7 +9,7 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 
 */
 
-var test = require('./testRunner');
+var test = require('../testRunner');
 
 function minDateableAge(age){
   return (age / 2) + 7;

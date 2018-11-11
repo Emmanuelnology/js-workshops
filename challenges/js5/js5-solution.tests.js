@@ -139,7 +139,7 @@ exports.addRandomMobileNumbers = function(addRandomMobileNumbers) {
     testSuite.handleError(e);
   } 
   
-}
+};
 
 
 exports.summary = function() {
