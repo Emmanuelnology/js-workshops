@@ -1,31 +1,68 @@
 /*
-Create functions that return the following:
+The data file contains information for 7 people
 
-minDateableAge(){} // half your age + 7
-hasFever(){} //fever or not in celsius
-calcTVHeight() {} Given a width on a 16:9 tv, calculate the height
-couldDate(){} // two people, could they date (deal with ages either way round)
-colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amount drop below 0
+Create functions that return the following
+
+-- Whether they are vegetarian :boolean
+-- Whether their name is too long to write on a name tag :boolean
+-- Life expectancy :number
+-- years before they die :number
+-- Whether they can ride on a rollercoaster :boolean
+-- Should already be dead :boolean
+-- Can buy beer in the UK :boolean
+-- Show a friendly summary of the person :string
+
+Life expectancy of a Vegetarian: 90
+Life expectancy of a Meat Eater: 95
+Minimum height to ride on a rollercoaster: 1.2m
+Name tag length ( Up to 6 characters)
+
+Example friendly summaries:
+- Steven is a vegetarian, is 100cm tall and has 12 years to live
+- Fred likes meat, is 153cm tall and has 7 years to live
+
+Use the test functions to test your results
 
 */
+var test = require("./js2-tests");
+var data = require("./js2-data");
+people=data.people;
 
-var test = require('../testRunner');
+function isVegetarian(personID) {
+  return true; // change this line and add others if needed
+}
 
-// your code here
+function canFitOnANameCard(personID){
+  return true; // change this line and add others if needed
+}
 
-test.run(minDateableAge, 18, 22);
-test.run(minDateableAge, 35, 56);
-test.run(hasFever, false, 37.4);
-test.run(hasFever, true, 37.5);
-test.run(hasFever, true, 37.6);
-test.run(calcTVHeight, 9, 16);
-test.run(calcTVHeight, 18, 32);
-test.run(couldDate, true, [18,22]);
-test.run(couldDate, true, [22,18]);
-test.run(couldDate, true, [22,22]);
-test.run(colorDarken, [50,50,50], [[60,60,60],10]);
-test.run(colorDarken, [0,0,0], [[9,1,9],10]);
-test.run(colorDarken, [1,3,2], [[9,11,10],8]);
-test.run(colorDarken, [54,0,54], [[60,5,60],6]);
+function getLifeExpectancy(personID) {
+  return 0; // change this line and add others if needed
+}
 
-test.show();
+function yearsRemaining(personID){
+  return 0; // change this line and add others if needed
+}
+
+function canRideOnARollercoaster(personID){
+  return true; // change this line and add others if needed
+}
+
+function canBuyBeer(personID) {
+  return true; // change this line and add others if needed
+}
+
+function getSummary(personID) {
+  return ''; // change this line and add others if needed
+}
+
+console.log("\n\nRunning tests...");
+test.isVegetarian(isVegetarian);
+test.canFitOnANameCard(canFitOnANameCard);
+test.getLifeExpectancy(getLifeExpectancy);
+test.yearsRemaining(yearsRemaining);
+test.canRideOnARollercoaster(canRideOnARollercoaster);
+test.canBuyBeer(canBuyBeer);
+test.getSummary(getSummary);
+test.summary();
+

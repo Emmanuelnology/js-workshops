@@ -1,58 +1,63 @@
-var test = require("./js2-tests");
-var data = require("./js2-data");
-people=data.people;
+/*
+Create functions that return the following:
 
-function isVegetarian(personID) {
-  return people[personID][3];
+minDateableAge(){} // half your age + 7
+hasFever(){} //fever or not in celsius
+calcTVHeight() {} Given a width on a 16:9 tv, calculate the height
+couldDate(){} // two people, could they date (deal with ages either way round)
+colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amount drop below 0
+
+*/
+
+var test = require('../testRunner');
+
+function minDateableAge(age){
+  return (age / 2) + 7;
 }
 
-function canFitOnANameCard(personID){
-  var name = people[personID][0];
-  return (name.length <= 6);
+function hasFever(tempInCelsius){
+  return tempInCelsius >= 37.5;
 }
 
-function getLifeExpectancy(personID) {
-  return isVegetarian(personID) ? 90:95;
+function calcTVHeight(width) {
+  return (width / 16) * 9;
 }
 
-function yearsRemaining(personID){
-  var lifeExpectancy = getLifeExpectancy(personID);
-  var age = people[personID][1];
-  return lifeExpectancy - age;
+function sortAges(age1,age2) {
+  return [age1,age2].sort();
 }
 
-function canRideOnARollercoaster(personID){
-  var height = people[personID][2];
-  return (height >= 120);
+function couldDate(age1, age2) {
+  if(age1 == age2) return true;
+  var orderedAges=sortAges(age1,age2);
+  return minDateableAge(orderedAges[1]) >= orderedAges[0];
 }
 
-function canBuyBeer(personID) {
-  var age=people[personID][1];
-  return (age >= 18);
+function floor(number, amount) {
+  return (number - amount < 0) ? 0 : number - amount;
 }
 
-function getSummary(personID) {
-  var name = people[personID][0];
-  var height = people[personID][2];
-
-  var vegetarianMessage = isVegetarian(personID) ? "is a vegetarian" : "likes meat"; 
+function colorDarken(rgbArray, darkenAmount) {
+  var red = floor(rgbArray[0], darkenAmount);
+  var green = floor(rgbArray[1], darkenAmount);
+  var blue = floor(rgbArray[2], darkenAmount);
   
-  if(yearsRemaining(personID)<0){
-    deadMessage = "should be dead";
-  } else {
-    deadMessage = "has " + yearsRemaining(personID) + " years to live";
-  }
-  
-  return name + " " + vegetarianMessage + ", is " + height + "cm tall and " + deadMessage;
+  return [red, green, blue];
 }
 
-console.log("\n\nRunning tests...");
-test.isVegetarian(isVegetarian);
-test.canFitOnANameCard(canFitOnANameCard);
-test.getLifeExpectancy(getLifeExpectancy);
-test.yearsRemaining(yearsRemaining);
-test.canRideOnARollercoaster(canRideOnARollercoaster);
-test.canBuyBeer(canBuyBeer);
-test.getSummary(getSummary);
-test.summary();
+test.run(minDateableAge, 18, 22);
+test.run(minDateableAge, 35, 56);
+test.run(hasFever, false, 37.4);
+test.run(hasFever, true, 37.5);
+test.run(hasFever, true, 37.6);
+test.run(calcTVHeight, 9, 16);
+test.run(calcTVHeight, 18, 32);
+test.run(couldDate, true, [18,22]);
+test.run(couldDate, true, [22,18]);
+test.run(couldDate, true, [22,22]);
+test.run(colorDarken, [50,50,50], [[60,60,60],10]);
+test.run(colorDarken, [0,0,0], [[9,1,9],10]);
+test.run(colorDarken, [1,3,2], [[9,11,10],8]);
+test.run(colorDarken, [54,0,54], [[60,5,60],6]);
 
+test.show();
