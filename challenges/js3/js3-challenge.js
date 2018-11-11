@@ -24,8 +24,8 @@ Example friendly summaries:
 Use the test functions to test your results
 
 */
-var test = require("./js2-tests");
-var data = require("./js2-data");
+var test = require("./js3-tests");
+var data = require("./js3-data");
 people=data.people;
 
 function isVegetarian(personID) {

@@ -9,23 +9,34 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 
 */
 
-var test = require('../testRunner');
+var test = require("./js2-tests");
 
-// your code here
+function minDateableAge(){
+  return 0; // change this line and add others if needed
+}
 
-test.run(minDateableAge, 18, 22);
-test.run(minDateableAge, 35, 56);
-test.run(hasFever, false, 37.4);
-test.run(hasFever, true, 37.5);
-test.run(hasFever, true, 37.6);
-test.run(calcTVHeight, 9, 16);
-test.run(calcTVHeight, 18, 32);
-test.run(couldDate, true, [18,22]);
-test.run(couldDate, true, [22,18]);
-test.run(couldDate, true, [22,22]);
-test.run(colorDarken, [50,50,50], [[60,60,60],10]);
-test.run(colorDarken, [0,0,0], [[9,1,9],10]);
-test.run(colorDarken, [1,3,2], [[9,11,10],8]);
-test.run(colorDarken, [54,0,54], [[60,5,60],6]);
+function hasFever(){
+  return true; // change this line and add others if needed
+}
 
-test.show();
+function calcTVHeight() {
+  return true; // change this line and add others if needed
+}
+
+function couldDate() {
+  return true; // change this line and add others if needed
+
+}
+
+function colorDarken() {
+  return [0,0,0]; // change this line and add others if needed
+
+}
+
+console.log("\n\nRunning tests...");
+test.minDateableAge(minDateableAge);
+test.hasFever(hasFever);
+test.calcTVHeight(calcTVHeight);
+test.couldDate(couldDate);
+test.colorDarken(colorDarken);
+test.summary();

@@ -180,11 +180,6 @@ exports.canBuyBeer = function(canBuyBeer) {
   
 };
 
-
-exports.summary = function() {
-  testSuite.getSummary();
-};
-
 exports.getSummary = function(getSummary) {
   testSuite.groupName = 'Summary';
   try {
