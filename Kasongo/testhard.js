@@ -93,3 +93,47 @@ var people = [
   }
   console.log(sameColor(3));
 
+  function emailId() {
+    var  index = 0;
+    var emails =[];
+    while (index < people.length) {
+      if (people[index].id) {
+        emails.push(people[index].email);      
+      }
+      index++
+    }
+    return emails;
+  }
+  console.log(emailId());
+
+  function errorEmail() {
+    var  index = 0;
+    var invalidName =[];
+    while (index < people.length) {
+      if (people[index].isActive) {
+        if (people[index].email === "laverneandrewsatintrawear.com" || people[index].email === "ingridtownsendatjasper.com") {
+        invalidName.push(people[index].name);
+        }    
+      }
+      index++
+    }
+    return invalidName;
+  }
+  console.log(errorEmail());
+
+  function randomPhone() {
+    var  index = 0;
+    while (index < people.length) {
+      var i = 0;
+      while (i < 11) {
+        var number =[0, 7];
+        number.push(Math.floor(Math.random() * (10 - 0 + 1)) + 0);
+        i++    
+      }
+      index++
+    }
+    return number;
+  }
+  console.log(randomPhone());
+
+
