@@ -11,7 +11,7 @@ $(document).ready(function() {
     
     
     function countBooks() {
-        var numberOfBooks = $('.list-group li').length;
+        var numberOfBooks = $('#book-list li').length;
         $('#book-count').text('(' + numberOfBooks + ')');
     }
 
