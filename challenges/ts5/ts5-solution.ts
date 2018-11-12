@@ -1,70 +1,56 @@
-var test = require("./js5-tests");
+import {Person} from './ts5-data';
 
-function getActiveUsers(people) {
-  var activeUsers = [];
-  for(personIndex = 0; personIndex < people.length; personIndex++){
-    var person = people[personIndex];
+export function getActiveUsers(people:Person[]) {
+  let activeUsers:Person[] = [];
+  for (let person of people){
     if (person.isActive) activeUsers.push(person);
   }
   return activeUsers;  
 }
 
-function findMatchingEyeColours(people, sourcePerson){ // takes person object
- var matches=[];
- if(sourcePerson != undefined && sourcePerson.hasOwnProperty('eyeColor')){
-  for(personIndex = 0; personIndex < people.length; personIndex++){
-      var person = people[personIndex];
-      if(person.eyeColor == sourcePerson.eyeColor && person.id != sourcePerson.id){
-          matches.push(person.name);
-      }
+export function findMatchingEyeColours(people:Person[], sourcePerson:Person){ // takes person object
+  let matches:string[]=[];
+  if(sourcePerson != undefined && ('eyeColor' in sourcePerson)){
+    for(let person of people)
+    if(person.eyeColor == sourcePerson.eyeColor && person.id != sourcePerson.id){
+      matches.push(person.name);
     }
   }
-    return matches;
+  return matches;
 }
 
-function getEmailAddress(people, id){
-  for(personIndex = 0; personIndex < people.length; personIndex++){
-      var person = people[personIndex];
-      if(person.id==id){
-          return person.email;
-      }
+export function getEmailAddress(people:Person[], id:number){
+  for(let person of people){
+    if(person.id==id) return person.email;
+  }
+}
+
+export function getActiveUsersWithInvalidEmail(people:Person[]) {
+  let invalidPeople:Person[] = [];
+  let activeUsers=getActiveUsers(people);
+  for(let person of activeUsers){
+    if ('email' in person) {
+      if(person.email.indexOf('@')==-1) invalidPeople.push(person);
     }
+    else invalidPeople.push(person);
+  }
+  return invalidPeople;
 }
 
-function getActiveUsersWithInvalidEmail(people) {
-    var activeUsers = getActiveUsers(people);
-    var invalidPeople = [];
-    for(personIndex = 0; personIndex < activeUsers.length; personIndex++){
-      var person = activeUsers[personIndex];
-      if (person.hasOwnProperty('email')){
-        if(!person.email.includes('@')) invalidPeople.push(person);
-      }
-      else invalidPeople.push(person);
-    }
-    return invalidPeople;
-}
-
-function addRandomMobileNumbers(people){
-  for(personIndex = 0; personIndex < people.length; personIndex++){
-      people[personIndex].mobileNumber=generateRandomMobileNumber();
+export function addRandomMobileNumbers(people:Person[]){
+  for(let person of people){
+    person.mobile = generateRandomMobileNumber();
   }
   return people;
 }
 
 function generateRandomMobileNumber() {
-  var prefix="07";
-  var firstBit=getRandomInteger(100, 1000);
-  var secondBit=getRandomInteger(100000, 1000000);
-  return prefix + firstBit + " " + secondBit;
+  let prefix = "07";
+  let first = getRandomInteger(100, 1000);
+  let second = getRandomInteger(100000, 1000000);
+  return prefix + first + " " + second;
 }
 
-function getRandomInteger(min, max) {
+function getRandomInteger(min:number, max:number) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
-
-test.getActiveUsers(getActiveUsers);
-test.findMatchingEyeColours(findMatchingEyeColours);
-test.getEmailAddress(getEmailAddress);
-test.getActiveUsersWithInvalidEmail(getActiveUsersWithInvalidEmail);
-test.addRandomMobileNumbers(addRandomMobileNumbers);
-test.summary();

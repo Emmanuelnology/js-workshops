@@ -1,6 +1,16 @@
-exports.people = [
+export interface Person {
+  id:number,
+  isActive:boolean,
+  eyeColor?:'brown' | 'blue' | 'green',
+  name:string,
+  company:string,
+  email?:string,
+  mobile?:string,
+  address:string
+}
+export let people:Person[] = [
   {
-    "id": "293",
+    "id": 293,
     "isActive": false,
     "eyeColor": "brown",
     "name": "Ingrid Townsend",
@@ -9,7 +19,7 @@ exports.people = [
     "address": "690 Charles Place, Santel, Northern Mariana Islands, 3791"
   },
   {
-    "id": "581",
+    "id": 581,
     "isActive": true,
     "name": "Estrada Nolan",
     "company": "FIBRODYNE",
@@ -17,7 +27,7 @@ exports.people = [
     "address": "317 Seeley Street, Cade, Maryland, 3976"
   },
   {
-    "id": "29",
+    "id": 29,
     "isActive": true,
     "eyeColor": "brown",
     "name": "Laverne Andrews",
@@ -26,7 +36,7 @@ exports.people = [
     "address": "760 Provost Street, Valle, Alaska, 4628"
   },
   {
-    "id": "856",
+    "id": 856,
     "isActive": false,
     "eyeColor": "green",
     "name": "Hull Woodward",
@@ -35,7 +45,7 @@ exports.people = [
     "address": "452 Union Avenue, Hachita, Palau, 9166"
   },
   {
-    "id": "2321",
+    "id": 2321,
     "isActive": false,
     "eyeColor": "green",
     "name": "Maria Stanley",
@@ -44,7 +54,7 @@ exports.people = [
     "address": "350 Remsen Avenue, Abrams, Ohio, 6355"
   },
   {
-    "id": "4138",
+    "id": 4138,
     "isActive": true,
     "eyeColor": "blue",
     "name": "Maria Stanley",

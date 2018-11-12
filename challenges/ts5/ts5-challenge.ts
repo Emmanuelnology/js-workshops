@@ -13,32 +13,23 @@ Run your tests by running this file. They will all break at first.
 
 */
 
-var test = require("./js5-tests");
 
-function getActiveUsers(people) {
+export function getActiveUsers(people) {
   return people; //change this line (and add others)
 }
 
-function findMatchingEyeColours(people, sourcePerson){ // takes person object
+export function findMatchingEyeColours(){ 
   return []; //change this line (and add others)
 }
 
-function getEmailAddress(people, id){
+export function getEmailAddress(){
   return ''; //change this line (and add others)
 }
 
-function getActiveUsersWithInvalidEmail(people) {
+export function getActiveUsersWithInvalidEmail(people) {
   return people; //change this line (and add others)
 }
 
-function addRandomMobileNumbers(people){
+export function addRandomMobileNumbers(people){
   return people; //change this line (and add others)
 }
-
-console.log("\n\nRunning tests...");
-test.getActiveUsers(getActiveUsers);
-test.findMatchingEyeColours(findMatchingEyeColours);
-test.getEmailAddress(getEmailAddress);
-test.getActiveUsersWithInvalidEmail(getActiveUsersWithInvalidEmail);
-test.addRandomMobileNumbers(addRandomMobileNumbers);
-test.summary();
