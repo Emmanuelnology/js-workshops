@@ -6,7 +6,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
   <title>Reading list</title>
-
 </head>
 
 <body>
@@ -16,18 +15,22 @@
       <div class="form-group">
         <label for="book-title" class="sr-only">Book title: </label>
         <input type="text" class="form-control m-2" id="book-title" placeholder="Book title">
-        <label for="book-link" class="sr-only">Book link</label>
+        <label for="book-link" class="sr-only" type="link">Book link</label>
         <input type="text" class="form-control m-2" id="book-link" placeholder="Book Link">
       </div>
+      <div>
       <button id="add-book" type="submit" class="btn btn-primary m-2">Add Book</button>
-      
+      <button id="delete-all" type="submit" class="btn btn-primary m-2">Remove all</button>
+      </div>      
     </form>
     <h2 class="m-3">Books</h2>
     <ul class="list-group" id="book-list">
-      
+
     </ul>
   </div>
   <script src="reading-list.js"></script>
 </body>
+<!-- load the contents first then put JS, unless using doc.ready -->
+
 
 </html>
