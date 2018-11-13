@@ -7,7 +7,7 @@ Outputs:
 --------
 Hello, My name is Bob Smith
 Mary is 11 years older than me
-The total length of both my names is 8 characters
+The total length of both names is 8 characters
 
 */
 
@@ -19,15 +19,17 @@ var myAge = 22;
 var maryAge = 33;
 
 function greet(){
-  // ... your code here
+  return "Hello, My name is " + firstName + " " + lastName;
 }
 
 function maryAgeDifference() {
-// ... your code here
+  var ageDifference = maryAge - myAge;
+  return "Mary is " + ageDifference + " years older than me";
 }
 
 function nameLength() {
-// ... your code here
+  var totalLength = firstName.length + lastName.length;
+  return "The total length of both names is " + totalLength + " characters";
 }
 
 console.log("\n\nRunning tests...");
