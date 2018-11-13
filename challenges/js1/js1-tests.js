@@ -1,4 +1,5 @@
 var TestRunner = require('../testRunner');
+
 testSuite = new TestRunner.Suite();
 
 var firstName = "Bob";

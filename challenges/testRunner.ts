@@ -1,10 +1,10 @@
-interface AssertTrueTest {
+export interface AssertTrueTest {
   name: string,
   compare: any,
   to: any
 }
 
-interface AssertRegexTest {
+export interface AssertRegexTest {
   name: string,
   string: any,
   regex: RegExp
@@ -18,14 +18,26 @@ export class Suite {
   constructor(public name){}
 
   assertEqual(test:AssertTrueTest){  
-    if(JSON.stringify(test.compare) === JSON.stringify(test.to)){
-      this.success++;
-      if(this.showPasses) colorLog("PASS " + this.groupName + ": " + test.name,'green');  
+    try{
+      if(JSON.stringify(test.compare) === JSON.stringify(test.to)){
+        this.success++;
+        if(this.showPasses) colorLog("PASS " + this.groupName + ": " + test.name,'green');  
+      }
+      else {
+        colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+      }
+      this.total++;
     }
-    else {
-      colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+    catch(e) {
+      this.handleError(e);
     }
-    this.total++;
+  }
+
+  assertEqualGroup(name, tests: AssertTrueTest[]){
+    this.groupName = name;
+    for(let test of tests){
+        this.assertEqual(test);  
+    }
   }
 
   assertRegex(test:AssertRegexTest){  
