@@ -1,6 +1,4 @@
 /*
-
-
 Programatically create the following outputs by filling in the missing function logic
 
 Outputs:
@@ -8,7 +6,6 @@ Outputs:
 Hello, My name is Bob Smith
 Mary is 11 years older than me
 The total length of both names is 8 characters
-
 */
 
 var test = require("./js1-tests");
