@@ -2,12 +2,12 @@
 
 https://simpleprogrammer.com/programming-interview-questions/
 
-/ How do you find the missing number in a given integer array of 1 to 100? (solution)
-/ How do you find the duplicate number on a given integer array? (solution)
-/ How do you find the largest and smallest number in an unsorted integer array? (solution)
-How do you find all pairs of an integer array whose sum is equal to a given number? (solution)
-/ How do you find duplicate numbers in an array if it contains multiple duplicates? (solution)
-How is an integer array sorted in place using the quicksort algorithm? (solution)
+/ How do you find the missing number in a given integer array of 1 to 100?
+/ How do you find the duplicate number on a given integer array?
+/ How do you find the largest and smallest number in an unsorted integer array?
+How do you find all pairs of an integer array whose sum is equal to a given number?
+/ How do you find duplicate numbers in an array if it contains multiple duplicates?
+How is an integer array sorted in place using the quicksort algorithm? (algorithm)
 How do you remove duplicates from an array in place? (solution)
 How do you reverse an array in place in Javascript? (solution)
 How are duplicates removed from an array without using any library? (solution)
@@ -58,7 +58,7 @@ How do you design a vending machine? (solution)
 */ 
 
 
-// How do you find the missing number in a given integer array of 1 to 100?
+// How do you find the missing number in a given integer array of X to Y?
 
 function nSort(numArray:number[]) {
   return numArray.sort(((a, b) => a - b));
@@ -102,7 +102,7 @@ export function findMultipleDuplicates(numberArray:number[]) {
   return duplicates;
 }
 
-// How are duplicates removed from a given array in Javascript? (solution)
+// How are duplicates removed from a given array in ES6? (solution)
 
 export function removeDuplicates(numberArray:number[]) {
   return numberArray.filter((value, index, arr)=>{
@@ -120,3 +120,7 @@ export function findLargestAndSmallest(numberArray:number[]):{smallest:number, l
   }
 }
 
+
+// How do you find all pairs of an integer array whose sum is equal to a given number?
+
+// loop through items and look for items that maatch target number - current number

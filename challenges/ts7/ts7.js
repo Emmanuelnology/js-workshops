@@ -58,7 +58,7 @@ How do you check if two rectangles overlap with each other? (solution)
 How do you design a vending machine? (solution)
 */
 exports.__esModule = true;
-// How do you find the missing number in a given integer array of 1 to 100?
+// How do you find the missing number in a given integer array of X to Y?
 function nSort(numArray) {
     return numArray.sort((function (a, b) { return a - b; }));
 }
@@ -104,7 +104,7 @@ function findMultipleDuplicates(numberArray) {
     return duplicates;
 }
 exports.findMultipleDuplicates = findMultipleDuplicates;
-// How are duplicates removed from a given array in Javascript? (solution)
+// How are duplicates removed from a given array in ES6? (solution)
 function removeDuplicates(numberArray) {
     return numberArray.filter(function (value, index, arr) {
         return arr.indexOf(value) == index;
