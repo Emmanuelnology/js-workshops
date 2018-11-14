@@ -15,7 +15,7 @@ Count the number of times a function is run to return the search
 import { liz, Person } from "./data";
 let loops = 0;
 
-function findByName(head:Person, name:string):Person {
+export function findByName(head:Person, name:string):Person {
   loops++;
   if(!("children" in head)) return {} as Person;
   for (let person of head.children) {
@@ -25,8 +25,7 @@ function findByName(head:Person, name:string):Person {
   }
   return undefined;
 }
-
-function findDescendants(head:Person) {
+export function findDescendants(head:Person) {
   loops++;
   let matches:string[] = [];
   if(head) if("children" in head){
@@ -38,7 +37,7 @@ function findDescendants(head:Person) {
   return matches;
 }
 
-function search(person:Person, text:string){
+export function search(person:Person, text:string){
   let startPerson:Person = findByName(person, text);
   return findDescendants(startPerson);
 }
