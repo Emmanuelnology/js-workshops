@@ -60,7 +60,7 @@ function getActiveUsersWithInvalidEmail(people) {
   return invalidEmail;
 }
 
-function randomNumber(min,max) {
+function randomThreeDigitNumber(min,max) {
   var number = Math.floor(Math.random() * (max - min) ) + min;
   if (number < 10) {
     number = "00" + number;
@@ -73,7 +73,7 @@ function randomNumber(min,max) {
 
 function addRandomMobileNumbers(people){
   for (var person = 0; person < people.length; person++) {
-    people[person].mobileNumber = "07" + randomNumber(0,999) + " " + randomNumber(0,999) + randomNumber(0,999);
+    people[person].mobileNumber = "07" + randomThreeDigitNumber(0,999) + " " + randomThreeDigitNumber(0,999) + randomThreeDigitNumber(0,999);
     
   }
   return people;
