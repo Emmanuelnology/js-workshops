@@ -30,18 +30,18 @@ function hasFever(temp){
 
 }
 
-function calcTVHeight(tvWdith) {
-
-  return true; // change this line and add others if needed
+function calcTVHeight(tvWidth) {
+var tvWidth = (tvWidth/16)*9;
+  return tvWidth; // change this line and add others if needed
 }
 
 function couldDate(yourAge, theirAge) {
-
   var ageDiff = yourAge/2 + 7;
-  var canDate = ageDiff <= theirAge
-  return canDate;  // change this line and add others if needed
-  console.log(ageDiff)
-  console.log(canDate)
+  if (yourAge === theirAge) return true;
+  if (ageDiff >= theirAge)  return false;
+  if (ageDiff <= theirAge)  return true;
+  // change this line and add others if needed
+
 }
 
 function colorDarken() {
