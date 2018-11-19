@@ -1,13 +1,11 @@
-var number = 1;
-let anotherNumber:number = 2;
-const myName:string = "Ben";
-
-function doSomething() {
-    let index:number = 0;
-    for (index = 0; index < 5; index++) {
-        console.log(index);        
-    }
-    console.log("Final Number: " + index);
+function log(message) {
+    console.log(message);
 }
 
-doSomething();
+let log2 = (message) => {
+    console.log(message);
+}
+
+let log3 = (message) => console.log(message);
+
+log("Hello world");

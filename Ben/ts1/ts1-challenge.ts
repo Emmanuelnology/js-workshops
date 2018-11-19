@@ -16,16 +16,14 @@ const lastName:string = "Smith";
 const myAge:number = 22;
 const maryAge:number = 33;
 
-export function greet():string {
-  return "Hello, My name is " + firstName + " " + lastName;
-}
+export let greet = ():string => "Hello, My name is " + firstName + " " + lastName;
 
-export function maryAgeDifference():string {
+export let maryAgeDifference = ():string => {
   const ageDifference:number = maryAge - myAge;
   return "Mary is " + ageDifference + " years older than me";
 }
 
-export function nameLength():string {
+export let nameLength = ():string => {
   const totalLength:number = firstName.length + lastName.length;
   return "The total length of both names is " + totalLength + " characters";
 }
