@@ -14,23 +14,18 @@ Run your tests by running this file. They will all break at first.
 
 */
 exports.__esModule = true;
-function getActiveUsers(people) {
-    return people; //change this line (and add others)
-}
-exports.getActiveUsers = getActiveUsers;
-function findMatchingEyeColours() {
+exports.getActiveUsers = function (people) {
+    return people.isActive[]; //change this line (and add others)
+};
+exports.findMatchingEyeColours = function () {
     return []; //change this line (and add others)
-}
-exports.findMatchingEyeColours = findMatchingEyeColours;
-function getEmailAddress() {
+};
+exports.getEmailAddress = function () {
     return ''; //change this line (and add others)
-}
-exports.getEmailAddress = getEmailAddress;
-function getActiveUsersWithInvalidEmail(people) {
+};
+exports.getActiveUsersWithInvalidEmail = function (people) {
     return people; //change this line (and add others)
-}
-exports.getActiveUsersWithInvalidEmail = getActiveUsersWithInvalidEmail;
-function addRandomMobileNumbers(people) {
+};
+exports.addRandomMobileNumbers = function (people) {
     return people; //change this line (and add others)
-}
-exports.addRandomMobileNumbers = addRandomMobileNumbers;
+};

@@ -103,6 +103,8 @@ export let canBuyBeer=(people)=>{
 
 
 export let getSummary=(people)=>{
-  console.log(people.name + " is a, is " + people.height + "cm tall and and has " + yearsRemaining(people) + " years to live") ;
+  let vegetarianMesage = isVegetarian(people) === true ? " is a vegetarian":" likes meat";
+  let deadMessage = yearsRemaining(people) > 0 ? "has " + yearsRemaining(people) + " years to live":"should be dead" 
+  return people.name +  vegetarianMesage+ ", is " + people.height + "cm tall and " + deadMessage;
  // change this line and add others if needed
 }

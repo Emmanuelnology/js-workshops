@@ -66,6 +66,8 @@ exports.canBuyBeer = function (people) {
     return people.age >= 18;
 };
 exports.getSummary = function (people) {
-    console.log(people.name + " is a, is " + people.height + "cm tall and and has " + exports.yearsRemaining(people) + " years to live");
+    var vegetarianMesage = exports.isVegetarian(people) === true ? " is a vegetarian" : " likes meat";
+    var deadMessage = exports.yearsRemaining(people) > 0 ? "has " + exports.yearsRemaining(people) + " years to live" : "should be dead";
+    return people.name + vegetarianMesage + ", is " + people.height + "cm tall and " + deadMessage;
     // change this line and add others if needed
 };
