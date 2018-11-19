@@ -14,23 +14,65 @@ Run your tests by running this file. They will all break at first.
 
 */
 exports.__esModule = true;
-function getActiveUsers(people) {
-    return people; //change this line (and add others)
-}
-exports.getActiveUsers = getActiveUsers;
-function findMatchingEyeColours() {
-    return []; //change this line (and add others)
-}
-exports.findMatchingEyeColours = findMatchingEyeColours;
-function getEmailAddress() {
-    return ''; //change this line (and add others)
-}
-exports.getEmailAddress = getEmailAddress;
-function getActiveUsersWithInvalidEmail(people) {
-    return people; //change this line (and add others)
-}
-exports.getActiveUsersWithInvalidEmail = getActiveUsersWithInvalidEmail;
-function addRandomMobileNumbers(people) {
-    return people; //change this line (and add others)
-}
-exports.addRandomMobileNumbers = addRandomMobileNumbers;
+exports.getActiveUsers = function (people) {
+    var activeUsers = [];
+    for (var _i = 0, people_1 = people; _i < people_1.length; _i++) {
+        var person = people_1[_i];
+        if (person.isActive) {
+            activeUsers.push(person);
+        }
+    }
+    return activeUsers;
+};
+exports.findMatchingEyeColours = function (people, eyePerson) {
+    var matchingNames = [];
+    if (eyePerson != undefined && eyePerson.hasOwnProperty("eyeColor")) {
+        for (var _i = 0, people_2 = people; _i < people_2.length; _i++) {
+            var person = people_2[_i];
+            if (person.id != eyePerson.id && person.eyeColor === eyePerson.eyeColor) {
+                matchingNames.push(person.name);
+            }
+        }
+    }
+    return matchingNames;
+};
+exports.getEmailAddress = function (people, id) {
+    for (var _i = 0, people_3 = people; _i < people_3.length; _i++) {
+        var person = people_3[_i];
+        if (person.id === id) {
+            return person.email;
+        }
+    }
+};
+exports.getActiveUsersWithInvalidEmail = function (people) {
+    var activeWithInvalidEmail = [];
+    var activeUsers = exports.getActiveUsers(people);
+    for (var _i = 0, activeUsers_1 = activeUsers; _i < activeUsers_1.length; _i++) {
+        var person = activeUsers_1[_i];
+        if (person.hasOwnProperty("email")) {
+            if (person.email.indexOf("@") < 1) {
+                activeWithInvalidEmail.push(person);
+            }
+        }
+        else
+            activeWithInvalidEmail.push(person);
+    }
+    return activeWithInvalidEmail;
+};
+var randomThreeDigitNumber = function (min, max) {
+    var result = Math.floor(Math.random() * (max - min)) + min;
+    if (result < 10) {
+        result = "00" + result;
+    }
+    else if (result < 100) {
+        result = "0" + result;
+    }
+    return result;
+};
+exports.addRandomMobileNumbers = function (people) {
+    for (var _i = 0, people_4 = people; _i < people_4.length; _i++) {
+        var person = people_4[_i];
+        person.mobile = "07" + randomThreeDigitNumber(0, 100) + " " + randomThreeDigitNumber(0, 100) + randomThreeDigitNumber(0, 100);
+    }
+    return people;
+};

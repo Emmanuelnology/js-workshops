@@ -13,23 +13,66 @@ Run your tests by running this file. They will all break at first.
 
 */
 
+import {Person} from './ts5-data';
 
-export function getActiveUsers(people) {
-  return people; //change this line (and add others)
+export const getActiveUsers = (people:Person[]):Person[] => {
+  let activeUsers:Person[] = [];
+  for (const person of people) {
+    if (person.isActive) {
+      activeUsers.push(person);
+    }
+  }
+  return activeUsers;
 }
 
-export function findMatchingEyeColours(){ 
-  return []; //change this line (and add others)
+export const findMatchingEyeColours = (people:Person[], eyePerson:Person):string[] => { 
+  let matchingNames:string[] = [];
+  if (eyePerson != undefined && eyePerson.hasOwnProperty("eyeColor")){
+    for (const person of people) {
+      if (person.id != eyePerson.id && person.eyeColor === eyePerson.eyeColor) {
+        matchingNames.push(person.name);
+      }
+    }
+  }
+  return matchingNames;
 }
 
-export function getEmailAddress(){
-  return ''; //change this line (and add others)
+export const getEmailAddress = (people:Person[], id:number):string => {
+  for (const person of people) {
+    if (person.id === id) {
+      return person.email;
+    }
+  }
 }
 
-export function getActiveUsersWithInvalidEmail(people) {
-  return people; //change this line (and add others)
+export const getActiveUsersWithInvalidEmail = (people:Person[]):Person[] => {
+  let activeWithInvalidEmail:Person[] = [];
+  const activeUsers:Person[] = getActiveUsers(people);
+  for (const person of activeUsers) {
+    if (person.hasOwnProperty("email")) {
+      if (person.email.indexOf("@") < 1){
+        activeWithInvalidEmail.push(person);
+      }
+    }
+    else activeWithInvalidEmail.push(person);
+  }
+  return activeWithInvalidEmail;
 }
 
-export function addRandomMobileNumbers(people){
-  return people; //change this line (and add others)
+const randomThreeDigitNumber = (min:number, max:number):any => {
+  let result:any = Math.floor(Math.random() * (max - min) ) + min;
+  if (result < 10) {
+    result = "00" + result;
+  }
+  else if (result < 100) {
+    result = "0" + result;
+  }
+  return result;
+}
+
+export let addRandomMobileNumbers = (people:Person[]):Person[] => {
+  for (const person of people) {
+    person.mobile = "07" + randomThreeDigitNumber(0,100) + " " + randomThreeDigitNumber(0,100) + randomThreeDigitNumber(0,100);
+  }
+  return people;
 }
