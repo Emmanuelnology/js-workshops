@@ -49,7 +49,6 @@ export let getActiveUsersWithInvalidEmail = (people:Person[]) => {
       if (person.email.indexOf('@')==-1) invalidUsers.push(person);
     }
     invalidUsers.push(person);
-
   }
   return invalidUsers; //change this line (and add others)
 }
