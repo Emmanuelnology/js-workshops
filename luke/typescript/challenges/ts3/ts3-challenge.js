@@ -11,16 +11,14 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 */
 exports.__esModule = true;
 exports.minDateableAge = function (yourAge) {
-    var age = (yourAge / 2 + 7);
-    return age; // change this line and add others if needed
+    return (yourAge / 2 + 7); // change this line and add others if needed
 };
 exports.hasFever = function (temp) {
-    var fevertemp = temp >= 37.5;
-    return fevertemp; // change this line and add others if needed
+    return temp >= 37.5;
+    // change this line and add others if needed
 };
 exports.calcTVHeight = function (width) {
-    var tvWidth = (width / 16) * 9;
-    return tvWidth; // change this line and add others if needed
+    return (width / 16) * 9; // change this line and add others if needed
 };
 exports.couldDate = function (yourAge, theirAge) {
     var ageSort = [yourAge, theirAge].sort();

@@ -11,6 +11,18 @@ Run the function to fix the second item in your color array and output the resul
 
 */
 
-export function fixColors(colorArray, index) {
-    // your code here
+export let isPrimary = (color:string):boolean => {
+    return (color == "red") || (color == "yellow") || (color =="blue");
 }
+
+export let fixColors = (colorArray:string[], index:number):any => {
+    let cloneArray = colorArray.slice(0);
+    if (!isPrimary(cloneArray[index])) {
+        cloneArray[index] = "red";
+    } else {
+        cloneArray = colorArray.slice(0);
+    }
+    return cloneArray;
+}
+
+console.log(fixColors(["blue", "black", "yellow"], 2));

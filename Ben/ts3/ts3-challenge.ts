@@ -16,13 +16,7 @@ export const hasFever = (temperature:number):boolean => temperature >= 37.5;
 export const calcTVHeight = (width:number):number => width/16 * 9;
 
 export const couldDate = (age1:number, age2:number):boolean => {
-  if (age1 === age2) {
-    return true;
-  }
-  else if (age1 > age2) {
-    return age2 >= minDateableAge(age1);
-  }
-  return age1 >= minDateableAge(age2);
+  return (age1 === age2) ? true : (age1 > age2) ? age2 >= minDateableAge(age1) : age1 >= minDateableAge(age2);
 }
 
 interface RGB {
@@ -32,9 +26,7 @@ interface RGB {
 }
 
 const floor = (initial:number, subtracter:number):number => {
-  if (subtracter >= initial) {
-    return 0;
-  }
+  if (subtracter >= initial) return 0;
   return Math.floor(initial - subtracter);
 }
 

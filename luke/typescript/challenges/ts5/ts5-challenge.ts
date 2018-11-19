@@ -14,22 +14,22 @@ Run your tests by running this file. They will all break at first.
 */
 
 
-export function getActiveUsers(people) {
-  return people; //change this line (and add others)
+export let getActiveUsers = (people) =>{
+  return people.isActive[]; //change this line (and add others)
 }
 
-export function findMatchingEyeColours(){ 
+export let findMatchingEyeColours = () =>{ 
   return []; //change this line (and add others)
 }
 
-export function getEmailAddress(){
+export let getEmailAddress = () =>{
   return ''; //change this line (and add others)
 }
 
-export function getActiveUsersWithInvalidEmail(people) {
+export let getActiveUsersWithInvalidEmail = (people) =>{
   return people; //change this line (and add others)
 }
 
-export function addRandomMobileNumbers(people){
+export let addRandomMobileNumbers = (people) =>{
   return people; //change this line (and add others)
 }

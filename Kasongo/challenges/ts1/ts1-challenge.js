@@ -16,15 +16,14 @@ var firstName = "Bob";
 var lastName = "Smith";
 var myAge = 22;
 var maryAge = 33;
-function greet() {
-    // ... your code here
-}
-exports.greet = greet;
-function maryAgeDifference() {
-    // ... your code here
-}
-exports.maryAgeDifference = maryAgeDifference;
-function nameLength() {
-    // ... your code here
-}
-exports.nameLength = nameLength;
+exports.greet = function () {
+    return 'Hello, My name is ' + firstName + ' ' + lastName;
+};
+exports.maryAgeDifference = function () {
+    var ageDiff = maryAge - myAge;
+    return 'Mary is ' + ageDiff + ' years older than me';
+};
+exports.nameLength = function () {
+    var namLength = firstName.length + lastName.length;
+    return 'The total length of both names is ' + namLength + ' characters';
+};
