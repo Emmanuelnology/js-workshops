@@ -20,14 +20,19 @@ var maryAge = 33;
 
 function greet(){
   // ... your code here
+  return 'Hello, My name is ' + firstName + ' ' + lastName;
 }
 
 function maryAgeDifference() {
 // ... your code here
+var maryAgeDifference = maryAge - myAge; 
+return 'Mary is ' + maryAgeDifference + ' years older than me';
 }
 
 function nameLength() {
 // ... your code here
+var totLength = ((firstName.length) + (lastName.length))
+return 'The total length of both names is ' + totLength + ' characters'
 }
 
 console.log("\n\nRunning tests...");

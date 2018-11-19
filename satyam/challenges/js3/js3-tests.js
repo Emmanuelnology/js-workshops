@@ -112,7 +112,7 @@ exports.couldDate = function(couldDate) {
 };
 
 exports.colorDarken = function(colorDarken) {
-  testSuite.groupName = 'Could date';
+  testSuite.groupName = 'Color Darken';
   try {
     testSuite.assertEqual({
       compare: colorDarken([60,60,60],10), 
