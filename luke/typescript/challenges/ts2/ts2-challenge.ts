@@ -10,7 +10,11 @@ The function will test whether the item at index is not a primary color and if i
 Run the function to fix the second item in your color array and output the result to the console.
 
 */
+   let colours = ["violet", "green", "blue", "yellow"];
 
-export function fixColors(colorArray, index) {
-    // your code here
-}
+   for(let index = 0; index < colours.length; index++) {
+       
+       }
+
+    console.log(colours);
+  }
