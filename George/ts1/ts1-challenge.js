@@ -16,15 +16,6 @@ var firstName = "Bob";
 var lastName = "Smith";
 var myAge = 22;
 var maryAge = 33;
-function greet() {
-    return ("Hello, My name is " + firstName + " " + lastName);
-}
-exports.greet = greet;
-function maryAgeDifference() {
-    return ("Mary is " + (maryAge - myAge) + " years older than me");
-}
-exports.maryAgeDifference = maryAgeDifference;
-function nameLength() {
-    return ("The total length of both names is " + (firstName.length + lastName.length) + " characters");
-}
-exports.nameLength = nameLength;
+exports.greet = function () { return "Hello, My name is " + firstName + " " + lastName; };
+exports.maryAgeDifference = function () { return "Mary is " + (maryAge - myAge) + " years older than me"; };
+exports.nameLength = function () { return "The total length of both names is " + (firstName.length + lastName.length) + " characters"; };
