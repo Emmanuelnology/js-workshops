@@ -25,7 +25,7 @@ export const getActiveUsers = (people:Person[]):Person[] => {
 
 export const findMatchingEyeColours = (people:Person[], eyePerson:Person):string[] => { 
   let matchingNames:string[] = [];
-  if (eyePerson != undefined && eyePerson.hasOwnProperty("eyeColor")){
+  if (eyePerson != undefined && eyePerson.hasOwnProperty("eyeColor")) {
     for (const person of people) {
       if (person.id != eyePerson.id && person.eyeColor === eyePerson.eyeColor) {
         matchingNames.push(person.name);
@@ -46,7 +46,7 @@ export const getActiveUsersWithInvalidEmail = (people:Person[]):Person[] => {
   const activeUsers:Person[] = getActiveUsers(people);
   for (const person of activeUsers) {
     if (person.hasOwnProperty("email")) {
-      if (person.email.indexOf("@") < 1){
+      if (person.email.indexOf("@") < 1) {
         activeWithInvalidEmail.push(person);
       }
     }
