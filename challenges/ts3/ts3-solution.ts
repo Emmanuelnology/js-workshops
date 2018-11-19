@@ -10,23 +10,17 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 
 */
 
-export function minDateableAge(age:number):number{
-  return (age / 2) + 7;
-}
+export let minDateableAge = (age:number):number => (age / 2) + 7;
 
-export function hasFever(tempInCelsius:number):boolean{
-  return tempInCelsius >= 37.5;
-}
+export let hasFever = (tempInCelsius:number):boolean => tempInCelsius >= 37.5;
 
-export function calcTVHeight(width:number):number {
-  return (width / 16) * 9;
-}
+export let calcTVHeight = (width:number):number => (width / 16) * 9;
 
-export function couldDate(age1:number, age2:number):boolean {
+export let couldDate = (age1:number, age2:number):boolean => {
   if(age1 == age2) return true;
-  let orderedAges = [age1,age2].sort();
-  let lowerAge = orderedAges[0];
-  let minAge = minDateableAge(orderedAges[1]);
+  let orderedAges:number[] = [age1,age2].sort();
+  let lowerAge:number = orderedAges[0];
+  let minAge:number = minDateableAge(orderedAges[1]);
   return lowerAge >= minAge;
 }
 
@@ -40,7 +34,7 @@ interface RGBColor {
   blue: number
 }
 
-export function colorDarken(rgb:RGBColor, darkenAmount:number) {
+export let colorDarken = (rgb:RGBColor, darkenAmount:number) => {
   let red = floor(rgb.red, darkenAmount);
   let green = floor(rgb.green, darkenAmount);
   let blue = floor(rgb.blue, darkenAmount);
