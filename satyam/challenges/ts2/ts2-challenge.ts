@@ -11,6 +11,8 @@ Run the function to fix the second item in your color array and output the resul
 
 */
 
-export function fixColors(colorArray, index) {
-    // your code here
+export function fixColors(colors, index) {
+    if (!(colors[index] == 'red' || colors[index] == 'blue' || colors[index] == 'yellow')) {
+        colors[index] = 'red';
+    }
 }

@@ -12,7 +12,9 @@ Run the function to fix the second item in your color array and output the resul
 
 */
 exports.__esModule = true;
-function fixColors(colorArray, index) {
-    // your code here
+function fixColors(colors, index) {
+    if (!(colors[index] == 'red' || colors[index] == 'blue' || colors[index] == 'yellow')) {
+        colors[index] = 'red';
+    }
 }
 exports.fixColors = fixColors;
