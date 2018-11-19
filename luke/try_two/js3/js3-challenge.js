@@ -22,7 +22,6 @@ function minDateableAge(yourAge){
 
 }
 
-
 function hasFever(temp){
 
   var feverTemp = temp >= 37.5
@@ -30,22 +29,30 @@ function hasFever(temp){
 
 }
 
-function calcTVHeight(tvWdith) {
-
-  return true; // change this line and add others if needed
+function calcTVHeight(tvWidth) {
+var tvWidth = (tvWidth/16)*9;
+  return tvWidth; // change this line and add others if needed
 }
 
 function couldDate(yourAge, theirAge) {
+  var ageSort = [yourAge, theirAge].sort();
+  var lowerAge = ageSort[0];
+  var minAge = minDateableAge(ageSort[1]); //has to be a function
 
-  var ageDiff = yourAge/2 + 7;
-  var canDate = ageDiff <= theirAge
-  return canDate;  // change this line and add others if needed
-  console.log(ageDiff)
-  console.log(canDate)
+  if (yourAge === theirAge) return true;
+  return minAge <= lowerAge
+  // change this line and add others if needed
 }
 
-function colorDarken() {
-  return [0,0,0]; // change this line and add others if needed
+function floor (number, amount){
+  return (number - amount < 0 ) ? 0 : number - amount;
+}
+
+function colorDarken(rgbArray, darkenAmount) {
+  var red =  floor(rgbArray[0], darkenAmount);
+  var blue =  floor(rgbArray[1], darkenAmount);
+  var green =  floor(rgbArray[2], darkenAmount);
+  return [red, blue, green]; // change this line and add others if needed
 
 }
 

@@ -10,21 +10,7 @@ The function will test whether the item at index is not a primary color and if i
 Run the function to fix the second item in your color array and output the result to the console.
 
 */
-var test = require("./js2-tests");
 
-function fixColors(colorArray, index) {
-var colorArray = ["violet", "green", "blue", "yellow"]  
-if(colorArray[index] != "red"){
-    colorArray[index] = "red";
-    return colorArray;
-  }
-  }
-  colours(colour, 0);
-  colours(colour, 1)
-// your code here
-
-
-console.log("\n\nRunning tests...");
-test.fixColors(fixColors);
-test.summary();
-
+export function fixColors(colorArray, index) {
+    // your code here
+}

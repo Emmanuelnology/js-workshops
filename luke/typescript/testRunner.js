@@ -8,15 +8,27 @@ var Suite = /** @class */ (function () {
         this.showPasses = true;
     }
     Suite.prototype.assertEqual = function (test) {
-        if (JSON.stringify(test.compare) === JSON.stringify(test.to)) {
-            this.success++;
-            if (this.showPasses)
-                colorLog("PASS " + this.groupName + ": " + test.name, 'green');
+        try {
+            if (JSON.stringify(test.compare) === JSON.stringify(test.to)) {
+                this.success++;
+                if (this.showPasses)
+                    colorLog("PASS " + this.groupName + ": " + test.name, 'green');
+            }
+            else {
+                colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+            }
+            this.total++;
         }
-        else {
-            colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + JSON.stringify(test.compare) + " !== " + JSON.stringify(test.to), 'red');
+        catch (e) {
+            this.handleError(e);
         }
-        this.total++;
+    };
+    Suite.prototype.assertEqualGroup = function (name, tests) {
+        this.groupName = name;
+        for (var _i = 0, tests_1 = tests; _i < tests_1.length; _i++) {
+            var test = tests_1[_i];
+            this.assertEqual(test);
+        }
     };
     Suite.prototype.assertRegex = function (test) {
         if (test.regex.test(test.string)) {

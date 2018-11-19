@@ -12,30 +12,44 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 var test = require("./js3-tests");
 
 function minDateableAge(age){
-  return (age/2)+7; // change this line and add others if needed
+  return (age/2) + 7;
 }
 
-function hasFever(){
-  return true; // change this line and add others if needed
+function hasFever(temp){
+  return temp >= 37.5;
 }
 
 function calcTVHeight(width) {
-  height = (width/16)*9;
-  return height; // change this line and add others if needed
+  var height = (width/16) * 9
+  return height;
 }
 
-function couldDate(person1, person2) {
-  if((person1 / 2) *7 > person2)
-    return true; // change this line and add others if needed
-  else if((person2 / 2) *7 > person1)
+function couldDate(age1,age2) {
+  if (age1 === age2) {
     return true;
-  else
-    return false;
+  }
+  else if (age1 > age2) {
+    return age2 >= minDateableAge(age1);
+  }
+  else {
+    return age1 >= minDateableAge(age2);
+  }
 }
 
-function colorDarken() {
-  return [0,0,0]; // change this line and add others if needed
+function floorSubtract(originalNumber,subtracter) {
+  if (subtracter >= originalNumber) {
+    return 0;
+  }
+  else {
+    return Math.floor(originalNumber-subtracter);
+  }
+}
 
+function colorDarken(colors,darkenAmount) {
+  var red = floorSubtract(colors[0],darkenAmount);
+  var green = floorSubtract(colors[1],darkenAmount);
+  var blue = floorSubtract(colors[2],darkenAmount);
+  return [red,green,blue];
 }
 
 console.log("\n\nRunning tests...");

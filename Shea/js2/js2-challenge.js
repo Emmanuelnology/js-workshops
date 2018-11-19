@@ -13,16 +13,16 @@ Run the function to fix the second item in your color array and output the resul
 var test = require("./js2-tests");
 
 function fixColors(colorArray, index) {
-var colorArray = ["violet", "green", "blue", "yellow"]  
-if(colorArray[index] != "red"){
-    colorArray[index] = "red";
-    return colorArray;
-  }
-  }
-  colours(colour, 0);
-  colours(colour, 1)
-// your code here
-
+    var primaryColors = ["red", "blue", "yellow"];
+    var clonedArray = colorArray.slice(0);
+    if (clonedArray[index] != primaryColors[0] &&
+        clonedArray[index] != primaryColors[1] &&
+        clonedArray[index] != primaryColors[2]
+        ) {
+            clonedArray[index] = "red";
+        }
+        return clonedArray; 
+}
 
 console.log("\n\nRunning tests...");
 test.fixColors(fixColors);
