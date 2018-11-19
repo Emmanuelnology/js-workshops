@@ -23,29 +23,24 @@ Example friendly summaries:
 
 */
 
-export function isVegetarian() {
-  return true; // change this line and add others if needed
+import {Person} from "./ts4-data";
+
+export const isVegetarian = (person:Person):boolean => person.isVegetarian;
+
+export const canFitOnANameCard = (person:Person):boolean => person.name.length <= 6;
+
+export const getLifeExpectancy = (person:Person):number => {
+  if (isVegetarian(person)) {
+    return 90;
+  }
+  return 95;
 }
 
-export function canFitOnANameCard(){
-  return true; // change this line and add others if needed
-}
+export const yearsRemaining = (person:Person):number => getLifeExpectancy(person) - person.age;
 
-export function getLifeExpectancy() {
-  return 0; // change this line and add others if needed
-}
+export const canRideOnARollercoaster = (person:Person):boolean => person.height >= 120;
 
-export function yearsRemaining(){
-  return 0; // change this line and add others if needed
-}
-
-export function canRideOnARollercoaster(){
-  return true; // change this line and add others if needed
-}
-
-export function canBuyBeer() {
-  return true; // change this line and add others if needed
-}
+export const canBuyBeer = (person:Person):boolean => person.age >= 18;
 
 export function getSummary() {
   return ''; // change this line and add others if needed

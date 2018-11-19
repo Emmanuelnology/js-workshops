@@ -24,30 +24,17 @@ Example friendly summaries:
 
 */
 exports.__esModule = true;
-function isVegetarian() {
-    return true; // change this line and add others if needed
-}
-exports.isVegetarian = isVegetarian;
-function canFitOnANameCard() {
-    return true; // change this line and add others if needed
-}
-exports.canFitOnANameCard = canFitOnANameCard;
-function getLifeExpectancy() {
-    return 0; // change this line and add others if needed
-}
-exports.getLifeExpectancy = getLifeExpectancy;
-function yearsRemaining() {
-    return 0; // change this line and add others if needed
-}
-exports.yearsRemaining = yearsRemaining;
-function canRideOnARollercoaster() {
-    return true; // change this line and add others if needed
-}
-exports.canRideOnARollercoaster = canRideOnARollercoaster;
-function canBuyBeer() {
-    return true; // change this line and add others if needed
-}
-exports.canBuyBeer = canBuyBeer;
+exports.isVegetarian = function (person) { return person.isVegetarian; };
+exports.canFitOnANameCard = function (person) { return person.name.length <= 6; };
+exports.getLifeExpectancy = function (person) {
+    if (exports.isVegetarian(person)) {
+        return 90;
+    }
+    return 95;
+};
+exports.yearsRemaining = function (person) { return exports.getLifeExpectancy(person) - person.age; };
+exports.canRideOnARollercoaster = function (person) { return person.height >= 120; };
+exports.canBuyBeer = function (person) { return person.age >= 18; };
 function getSummary() {
     return ''; // change this line and add others if needed
 }
