@@ -24,9 +24,9 @@ export function calcTVHeight(width:number):number {
 
 export function couldDate(age1:number, age2:number):boolean {
   if(age1 == age2) return true;
-  var orderedAges = [age1,age2].sort();
-  var lowerAge = orderedAges[0];
-  var minAge = minDateableAge(orderedAges[1]);
+  let orderedAges = [age1,age2].sort();
+  let lowerAge = orderedAges[0];
+  let minAge = minDateableAge(orderedAges[1]);
   return lowerAge >= minAge;
 }
 
@@ -41,9 +41,9 @@ interface RGBColor {
 }
 
 export function colorDarken(rgb:RGBColor, darkenAmount:number) {
-  var red = floor(rgb.red, darkenAmount);
-  var green = floor(rgb.green, darkenAmount);
-  var blue = floor(rgb.blue, darkenAmount);
+  let red = floor(rgb.red, darkenAmount);
+  let green = floor(rgb.green, darkenAmount);
+  let blue = floor(rgb.blue, darkenAmount);
   
   return [red, green, blue];
 }
