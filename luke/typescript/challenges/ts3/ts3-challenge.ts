@@ -10,18 +10,16 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 */
 
 export let minDateableAge = (yourAge) => {
-  const age = (yourAge/2+7);
-  return age; // change this line and add others if needed
+  return (yourAge/2+7); // change this line and add others if needed
 }
 
 export let hasFever = (temp) => {
-  let fevertemp = temp>=37.5;
-  return fevertemp; // change this line and add others if needed
+return temp>=37.5;
+ // change this line and add others if needed
 }
 
 export let calcTVHeight = (width) => {
-  let tvWidth = (width/16)*9; 
-  return tvWidth; // change this line and add others if needed
+return (width/16)*9;  // change this line and add others if needed
 }
 
 export let couldDate = (yourAge,theirAge) => {
