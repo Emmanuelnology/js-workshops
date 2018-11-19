@@ -18,11 +18,9 @@ export const findByName = (main:Person, name:string):Person => {
   counter++;
   if (main.name === name) return main;
   else if (!(main.hasOwnProperty("children"))) return undefined;
-  else {
-    for (const child of main.children) {
-      let value:Person = findByName(child,name);
-      if (value != undefined) if (value.name === name) return value;
-    }
+  for (const child of main.children) {
+    let value:Person = findByName(child,name);
+    if (value != undefined && value.name === name) return value;
   }
 }
 

@@ -19,14 +19,11 @@ exports.findByName = function (main, name) {
         return main;
     else if (!(main.hasOwnProperty("children")))
         return undefined;
-    else {
-        for (var _i = 0, _a = main.children; _i < _a.length; _i++) {
-            var child = _a[_i];
-            var value = exports.findByName(child, name);
-            if (value != undefined)
-                if (value.name === name)
-                    return value;
-        }
+    for (var _i = 0, _a = main.children; _i < _a.length; _i++) {
+        var child = _a[_i];
+        var value = exports.findByName(child, name);
+        if (value != undefined && value.name === name)
+            return value;
     }
 };
 exports.findDescendants = function (person) {
