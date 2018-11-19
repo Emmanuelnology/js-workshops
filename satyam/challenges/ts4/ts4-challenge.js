@@ -24,8 +24,8 @@ Example friendly summaries:
 
 */
 exports.__esModule = true;
-function isVegetarian() {
-    return true; // change this line and add others if needed
+function isVegetarian(people) {
+    return people.isVegetarian;
 }
 exports.isVegetarian = isVegetarian;
 function canFitOnANameCard() {

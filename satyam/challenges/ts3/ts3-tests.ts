@@ -1,5 +1,5 @@
 import { Suite } from '../testRunner';
-import { minDateableAge, hasFever, calcTVHeight, couldDate, colorDarken } from './ts3-solution';
+import { minDateableAge, hasFever, calcTVHeight, couldDate, colorDarken } from './ts3-challenge';
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts3');
@@ -75,7 +75,7 @@ testSuite.assertEqualGroup('Could date',[
   }
 ]);
 
-testSuite.assertEqualGroup('Could date',[
+testSuite.assertEqualGroup('Color Darken',[
   {
     compare: colorDarken({ red:60 ,green:60 ,blue:60 }, 10), 
     to: [50,50,50], 

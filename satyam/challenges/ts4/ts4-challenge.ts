@@ -23,8 +23,8 @@ Example friendly summaries:
 
 */
 
-export function isVegetarian() {
-  return true; // change this line and add others if needed
+export function isVegetarian(people:Person) {
+  return people.isVegetarian; 
 }
 
 export function canFitOnANameCard(){
