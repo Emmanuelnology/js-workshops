@@ -1,5 +1,5 @@
 import { Suite } from '../testRunner';
-import { fixColors } from './ts2-solution';
+import { fixColors } from './ts2-challenge';
 
 var colors = ['violet', 'green', 'blue', 'yellow'];
 
