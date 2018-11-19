@@ -18,3 +18,24 @@ let f: any[] = ["kash", 5]; // this is classed as sloppy code
 enum Color { Red = 12, Blue = 23, Green = 32}
 
 console.log(Color.Red);
+
+
+//Arrow functions
+// all these functions do the same thing, just wrtitten differently
+
+function log (message){
+
+console.log(message);
+};
+
+log("Hello World");
+
+
+
+let log2 = (message) => {
+  console.log(message);
+}
+
+let log3 = (message) => console.log(message); 
+
+log("hello world")

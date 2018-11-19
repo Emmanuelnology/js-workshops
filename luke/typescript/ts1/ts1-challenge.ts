@@ -11,25 +11,42 @@ The total length of both names is 8 characters
 
 */
 
-var firstName = "Bob";
-var lastName = "Smith";
-var myAge = 22;
-var maryAge = 33;
+const firstName = "Bob";
+const lastName = "Smith";
+const myAge = 22;
+const maryAge = 33;
 
-export function greet(){
-  return "Hello, My name is "+firstName+" "+lastName;
-  // ... your code here
-}
+// export function greet():string {
 
-export function maryAgeDifference() {
-  let ageDiff = maryAge - myAge;
-  return "Mary is "+ageDiff+" years older than me"
+//   return "Hello, My name is "+firstName+" "+lastName;
+// ... your code here
+// }
+
+export let greet = ():string => 
+{return "Hello, My name is "+firstName+" "+lastName; }
+
+
+
+// export function maryAgeDifference():string{
+
+//   const ageDiff:number = maryAge - myAge;
+
+//   return "Mary is "+ageDiff+" years older than me";
+//  ... your code here
+// }
+
+export let maryAgeDifference =():string => {
+
+  const ageDiff:number = maryAge - myAge;
+
+  return "Mary is "+ageDiff+" years older than me";
 // ... your code here
 }
 
-export function nameLength() {
-  let lengthOfNames = firstName.length+lastName.length
+export let nameLength = ():string => {
+  
+  const lengthOfNames:number = firstName.length+lastName.length;
 
-  return "The total length of both names is "+lengthOfNames+" characters"
+  return "The total length of both names is "+lengthOfNames+" characters";
 // ... your code here
 }

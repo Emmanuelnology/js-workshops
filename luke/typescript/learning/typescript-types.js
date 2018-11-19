@@ -17,3 +17,15 @@ var Color;
     Color[Color["Green"] = 32] = "Green";
 })(Color || (Color = {}));
 console.log(Color.Red);
+//Arrow functions
+// all these functions do the same thing, just wrtitten differently
+function log(message) {
+    console.log(message);
+}
+;
+log("Hello World");
+var log2 = function (message) {
+    console.log(message);
+};
+var log3 = function (message) { return console.log(message); };
+log("hello world");
