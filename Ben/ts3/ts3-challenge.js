@@ -14,18 +14,11 @@ exports.minDateableAge = function (age) { return age / 2 + 7; };
 exports.hasFever = function (temperature) { return temperature >= 37.5; };
 exports.calcTVHeight = function (width) { return width / 16 * 9; };
 exports.couldDate = function (age1, age2) {
-    if (age1 === age2) {
-        return true;
-    }
-    else if (age1 > age2) {
-        return age2 >= exports.minDateableAge(age1);
-    }
-    return age1 >= exports.minDateableAge(age2);
+    return (age1 === age2) ? true : (age1 > age2) ? age2 >= exports.minDateableAge(age1) : age1 >= exports.minDateableAge(age2);
 };
 var floor = function (initial, subtracter) {
-    if (subtracter >= initial) {
+    if (subtracter >= initial)
         return 0;
-    }
     return Math.floor(initial - subtracter);
 };
 exports.colorDarken = function (colorArray, darkener) {

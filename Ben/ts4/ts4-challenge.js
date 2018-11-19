@@ -26,16 +26,12 @@ Example friendly summaries:
 exports.__esModule = true;
 exports.isVegetarian = function (person) { return person.isVegetarian; };
 exports.canFitOnANameCard = function (person) { return person.name.length <= 6; };
-exports.getLifeExpectancy = function (person) {
-    if (exports.isVegetarian(person)) {
-        return 90;
-    }
-    return 95;
-};
+exports.getLifeExpectancy = function (person) { return exports.isVegetarian(person) ? 90 : 95; };
 exports.yearsRemaining = function (person) { return exports.getLifeExpectancy(person) - person.age; };
 exports.canRideOnARollercoaster = function (person) { return person.height >= 120; };
 exports.canBuyBeer = function (person) { return person.age >= 18; };
-function getSummary() {
-    return ''; // change this line and add others if needed
-}
-exports.getSummary = getSummary;
+exports.getSummary = function (person) {
+    var vegSummary = exports.isVegetarian(person) ? " is a vegetarian" : " likes meat";
+    var deadSummary = (exports.yearsRemaining(person) < 0) ? "should be dead" : "has " + exports.yearsRemaining(person) + " years to live";
+    return person.name + vegSummary + ", is " + person.height + "cm tall and " + deadSummary;
+};

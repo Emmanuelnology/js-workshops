@@ -12,7 +12,17 @@ Run the function to fix the second item in your color array and output the resul
 
 */
 exports.__esModule = true;
-function fixColors(colorArray, index) {
-    // your code here
-}
-exports.fixColors = fixColors;
+exports.isPrimary = function (color) {
+    return (color == "red") || (color == "yellow") || (color == "blue");
+};
+exports.fixColors = function (colorArray, index) {
+    var cloneArray = colorArray.slice(0);
+    if (!exports.isPrimary(cloneArray[index])) {
+        cloneArray[index] = "red";
+    }
+    else {
+        cloneArray = colorArray.slice(0);
+    }
+    return cloneArray;
+};
+console.log(exports.fixColors(["blue", "black", "yellow"], 2));

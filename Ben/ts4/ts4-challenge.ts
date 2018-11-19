@@ -29,12 +29,7 @@ export const isVegetarian = (person:Person):boolean => person.isVegetarian;
 
 export const canFitOnANameCard = (person:Person):boolean => person.name.length <= 6;
 
-export const getLifeExpectancy = (person:Person):number => {
-  if (isVegetarian(person)) {
-    return 90;
-  }
-  return 95;
-}
+export const getLifeExpectancy = (person:Person):number => isVegetarian(person) ? 90 : 95;
 
 export const yearsRemaining = (person:Person):number => getLifeExpectancy(person) - person.age;
 
@@ -42,6 +37,8 @@ export const canRideOnARollercoaster = (person:Person):boolean => person.height 
 
 export const canBuyBeer = (person:Person):boolean => person.age >= 18;
 
-export function getSummary() {
-  return ''; // change this line and add others if needed
+export const getSummary = (person:Person):string => {
+  let vegSummary:string = isVegetarian(person) ? " is a vegetarian" : " likes meat";
+  let deadSummary:string = (yearsRemaining(person) < 0) ? "should be dead" : "has " + yearsRemaining(person) + " years to live";
+  return person.name + vegSummary + ", is " + person.height + "cm tall and " + deadSummary;
 }

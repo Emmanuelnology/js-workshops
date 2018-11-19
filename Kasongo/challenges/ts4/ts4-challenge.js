@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 /*
 The data file contains information for 7 people, along with an interface declaration for person
 
@@ -23,32 +24,14 @@ Example friendly summaries:
 - Fred likes meat, is 153cm tall and has 7 years to live
 
 */
-exports.__esModule = true;
-function isVegetarian() {
-    return true; // change this line and add others if needed
-}
-exports.isVegetarian = isVegetarian;
-function canFitOnANameCard() {
-    return true; // change this line and add others if needed
-}
-exports.canFitOnANameCard = canFitOnANameCard;
-function getLifeExpectancy() {
-    return 0; // change this line and add others if needed
-}
-exports.getLifeExpectancy = getLifeExpectancy;
-function yearsRemaining() {
-    return 0; // change this line and add others if needed
-}
-exports.yearsRemaining = yearsRemaining;
-function canRideOnARollercoaster() {
-    return true; // change this line and add others if needed
-}
-exports.canRideOnARollercoaster = canRideOnARollercoaster;
-function canBuyBeer() {
-    return true; // change this line and add others if needed
-}
-exports.canBuyBeer = canBuyBeer;
-function getSummary() {
-    return ''; // change this line and add others if needed
-}
-exports.getSummary = getSummary;
+exports.isVegetarian = function (person) { return person.isVegeterian; }; // change this line and add others if needed
+exports.canFitOnANameCard = function (person) { return person.name.length <= 6; }; // change this line and add others if needed
+exports.getLifeExpectancy = function (person) { return person.isVegetarian ? 90 : 95; };
+exports.yearsRemaining = function (person) { return exports.getLifeExpectancy(person) - person.age; };
+exports.canRideOnARollercoaster = function (person) { return person.height >= 1.2; };
+exports.canBuyBeer = function (person) { return person.age >= 18; };
+exports.getSummary = function (person) {
+    var vegMessage = (person.isVegetarian) ? "is a vegetarian" : "likes meat";
+    var deadMessage = (exports.yearsRemaining(person)) < 0 ? "should be dead" : "has" + (exports.yearsRemaining(person)) + "to live";
+    return person.name + " " + vegMessage + ", " + "is " + person.height + "cm tall" + " and has " + deadMessage;
+};
