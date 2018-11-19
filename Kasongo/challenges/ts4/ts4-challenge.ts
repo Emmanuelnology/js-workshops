@@ -41,5 +41,5 @@ export let canBuyBeer = (person:Person):boolean => person.age >= 18;
 export let getSummary = (person:Person):string => {
   let vegMessage = (person.isVegetarian) ? "is a vegetarian" : "likes meat";
   let deadMessage = (yearsRemaining(person)) < 0 ? "should be dead" : "has" + (yearsRemaining(person)) + "to live";
-  return person.name + "" + vegMessage + ", " + "is " + person.height + "cm tall" + " and has " + deadMessage;
+  return person.name + " " + vegMessage + ", " + "is " + person.height + "cm tall" + " and has " + deadMessage;
 }
