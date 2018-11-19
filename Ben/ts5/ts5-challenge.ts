@@ -59,9 +59,9 @@ export const getActiveUsersWithInvalidEmail = (people:Person[]):Person[] => {
   return activeWithInvalidEmail;
 }
 
-const randomThreeDigitNumber = (min:number, max:number):any => {
-  let result:any = Math.floor(Math.random() * (max - min)) + min;
-  return (result < 10) ? "00" + result : (result < 100) ? "0" + result : result;
+const randomThreeDigitNumber = (min:number, max:number):string => {
+  let unpadded:number = Math.floor(Math.random() * (max - min)) + min;
+  return (unpadded < 10) ? "00" + unpadded : (unpadded < 100) ? "0" + unpadded : unpadded.toString();
 }
 
 export let addRandomMobileNumbers = (people:Person[]):Person[] => {

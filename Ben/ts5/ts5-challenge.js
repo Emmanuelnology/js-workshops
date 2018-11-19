@@ -60,8 +60,8 @@ exports.getActiveUsersWithInvalidEmail = function (people) {
     return activeWithInvalidEmail;
 };
 var randomThreeDigitNumber = function (min, max) {
-    var result = Math.floor(Math.random() * (max - min)) + min;
-    return (result < 10) ? "00" + result : (result < 100) ? "0" + result : result;
+    var unpadded = Math.floor(Math.random() * (max - min)) + min;
+    return (unpadded < 10) ? "00" + unpadded : (unpadded < 100) ? "0" + unpadded : unpadded.toString();
 };
 exports.addRandomMobileNumbers = function (people) {
     for (var _i = 0, people_4 = people; _i < people_4.length; _i++) {
