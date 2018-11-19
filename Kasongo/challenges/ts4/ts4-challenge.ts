@@ -1,3 +1,5 @@
+import { minDateableAge } from "../ts3/ts3-challenge";
+
 /*
 The data file contains information for 7 people, along with an interface declaration for person
 
@@ -23,30 +25,21 @@ Example friendly summaries:
 
 */
 
-export function isVegetarian() {
-  return true; // change this line and add others if needed
-}
+export let isVegetarian = (person:Person):boolean => person.isVegeterian; // change this line and add others if needed
 
-export function canFitOnANameCard(){
-  return true; // change this line and add others if needed
-}
+export let canFitOnANameCard = (person:Person):boolean => person.name.length <= 6; // change this line and add others if needed
 
-export function getLifeExpectancy() {
-  return 0; // change this line and add others if needed
-}
 
-export function yearsRemaining(){
-  return 0; // change this line and add others if needed
-}
+export let getLifeExpectancy = (person:Person):number => person.isVegetarian ? 90:95;
 
-export function canRideOnARollercoaster(){
-  return true; // change this line and add others if needed
-}
+export let yearsRemaining = (person:Person):number => getLifeExpectancy(person) - person.age;
 
-export function canBuyBeer() {
-  return true; // change this line and add others if needed
-}
+export let canRideOnARollercoaster = (person:Person):boolean => person.height >= 1.2;
 
-export function getSummary() {
-  return ''; // change this line and add others if needed
+export let canBuyBeer = (person:Person):boolean => person.age >= 18;
+
+export let getSummary = (person:Person):string => {
+  let vegMessage = (person.isVegetarian) ? "is a vegetarian" : "likes meat";
+  let deadMessage = (yearsRemaining(person)) < 0 ? "should be dead" : "has" + (yearsRemaining(person)) + "to live";
+  return person.name + " " + vegMessage + ", " + "is " + person.height + "cm tall" + " and has " + deadMessage;
 }
