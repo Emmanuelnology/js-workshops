@@ -12,8 +12,10 @@ Count the number of times a function is run to return the search
 */
 
 import { Person, liz} from "./data"
+let counter:number = 0;
 
 export const findByName = (main:Person, name:string):Person => {
+  counter++;
   if (main.name === name) return main;
   else if (!(main.hasOwnProperty("children"))) return undefined;
   else {
@@ -25,10 +27,18 @@ export const findByName = (main:Person, name:string):Person => {
 }
 
 export const findDescendants = (person:Person):string[] => {
+  counter++;
   let descendants:string[] = [];
+  if (person.hasOwnProperty("children")) {
+    for (const child of person.children) {
+      descendants.push(child.name);
+      descendants = descendants.concat(findDescendants(child));
+    }
+  }
   return descendants;
 }
 
-export function search(b,c){
-  
+export const search = (person:Person, searchString:string) => {
+  let startingPerson = findByName(person,searchString);
+  return findDescendants(startingPerson);
 }

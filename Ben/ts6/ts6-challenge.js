@@ -12,7 +12,9 @@ Count the number of times a function is run to return the search
 
 */
 exports.__esModule = true;
+var counter = 0;
 exports.findByName = function (main, name) {
+    counter++;
     if (main.name === name)
         return main;
     else if (!(main.hasOwnProperty("children")))
@@ -28,9 +30,18 @@ exports.findByName = function (main, name) {
     }
 };
 exports.findDescendants = function (person) {
+    counter++;
     var descendants = [];
+    if (person.hasOwnProperty("children")) {
+        for (var _i = 0, _a = person.children; _i < _a.length; _i++) {
+            var child = _a[_i];
+            descendants.push(child.name);
+            descendants = descendants.concat(exports.findDescendants(child));
+        }
+    }
     return descendants;
 };
-function search(b, c) {
-}
-exports.search = search;
+exports.search = function (person, searchString) {
+    var startingPerson = exports.findByName(person, searchString);
+    return exports.findDescendants(startingPerson);
+};
