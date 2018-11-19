@@ -10,23 +10,27 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 
 */
 exports.__esModule = true;
-function minDateableAge() {
-    return 0; // change this line and add others if needed
-}
-exports.minDateableAge = minDateableAge;
-function hasFever() {
-    return true; // change this line and add others if needed
-}
-exports.hasFever = hasFever;
-function calcTVHeight() {
-    return true; // change this line and add others if needed
-}
-exports.calcTVHeight = calcTVHeight;
-function couldDate() {
-    return true; // change this line and add others if needed
-}
-exports.couldDate = couldDate;
-function colorDarken() {
-    return [0, 0, 0]; // change this line and add others if needed
-}
-exports.colorDarken = colorDarken;
+exports.minDateableAge = function (age) { return age / 2 + 7; };
+exports.hasFever = function (temperature) { return temperature >= 37.5; };
+exports.calcTVHeight = function (width) { return width / 16 * 9; };
+exports.couldDate = function (age1, age2) {
+    if (age1 === age2) {
+        return true;
+    }
+    else if (age1 > age2) {
+        return age2 >= exports.minDateableAge(age1);
+    }
+    return age1 >= exports.minDateableAge(age2);
+};
+var floor = function (initial, subtracter) {
+    if (subtracter >= initial) {
+        return 0;
+    }
+    return Math.floor(initial - subtracter);
+};
+exports.colorDarken = function (colorArray, darkener) {
+    var newRed = floor(colorArray.red, darkener);
+    var newGreen = floor(colorArray.green, darkener);
+    var newBlue = floor(colorArray.blue, darkener);
+    return [newRed, newGreen, newBlue];
+};
