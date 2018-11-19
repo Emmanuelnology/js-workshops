@@ -6,12 +6,12 @@ Challenge - When the mouse is over the no button - swap the yes/no buttons so th
 
 $(document).ready(function() {
   
-  function swapRight(e) {
+  function hoverRight(e) {
     e.preventDefault(); 
     swap('#no','#yes');
   }
   
-  function swapLeft(e) {
+  function hoverLeft(e) {
     e.preventDefault(); 
     swap('#yes','#no');
   }
@@ -25,8 +25,7 @@ $(document).ready(function() {
     .text('No');
   }
   
-  
-  $('#no').hover(swapRight);
-  $('#yes').hover(swapLeft);
+  $('#no').hover(hoverRight);
+  $('#yes').hover(hoverLeft);
   
 });
