@@ -6,7 +6,7 @@ import {
   getEmailAddress,
   getActiveUsersWithInvalidEmail,
   addRandomMobileNumbers
-} from "./ts5-solution";
+} from "./ts5-challenge";
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts4');

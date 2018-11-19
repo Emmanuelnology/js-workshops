@@ -8,7 +8,7 @@ import {
   canRideOnARollercoaster, 
   canBuyBeer, 
   getSummary 
-} from "./ts4-solution";
+} from "./ts4-challenge";
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts4');

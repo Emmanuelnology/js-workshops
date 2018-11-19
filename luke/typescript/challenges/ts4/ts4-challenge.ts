@@ -22,31 +22,89 @@ Example friendly summaries:
 - Fred likes meat, is 153cm tall and has 7 years to live
 
 */
-
-export function isVegetarian() {
-  return true; // change this line and add others if needed
+export interface Person {
+  name:string,
+  age:number,
+  height:number,
+  isVegetarian:boolean
 }
 
-export function canFitOnANameCard(){
-  return true; // change this line and add others if needed
+export let people:Person[] = [
+{
+  name:"Bob",
+  age: 12,
+  height: 110,
+  isVegetarian: true
+},
+{
+  name:"Harigon",
+  age: 63,
+  height: 150,
+  isVegetarian: true
+},
+{
+  name:"Thomas",
+  age: 18,
+  height: 121,
+  isVegetarian: false
+},
+{
+  name:"Sarah",
+  age: 17,
+  height: 119,
+  isVegetarian: false
+},
+{
+  name:"Lucy",
+  age: 78,
+  height: 140,
+  isVegetarian: true
+},
+{
+  name:"Dave",
+  age: 93,
+  height: 210,
+  isVegetarian: false
+},
+{
+  name:"Doris",
+  age: 94,
+  height: 80,
+  isVegetarian: true
+},
+];
+
+export let isVegetarian = (people) => {
+  return people.isVegetarian
+ // change this line and add others if needed
+} 
+
+export let canFitOnANameCard = (people) => {
+return people.name.length<=6
+  // change this line and add others if needed
 }
 
-export function getLifeExpectancy() {
-  return 0; // change this line and add others if needed
+export let getLifeExpectancy = (people) => {
+  return isVegetarian(people) ? 90:95;
+ // change this line and add others if needed
 }
 
-export function yearsRemaining(){
-  return 0; // change this line and add others if needed
+export let yearsRemaining = (people) => {
+return getLifeExpectancy(people) - people.age;
 }
 
-export function canRideOnARollercoaster(){
-  return true; // change this line and add others if needed
+export let canRideOnARollercoaster=(people)=>{
+ return people.height >=120// change this line and add others if needed
 }
 
-export function canBuyBeer() {
-  return true; // change this line and add others if needed
+export let canBuyBeer=(people)=>{
+  return people.age >= 18
 }
 
-export function getSummary() {
-  return ''; // change this line and add others if needed
+
+export let getSummary=(people)=>{
+  let vegetarianMesage = isVegetarian(people) === true ? " is a vegetarian":" likes meat";
+  let deadMessage = yearsRemaining(people) > 0 ? "has " + yearsRemaining(people) + " years to live":"should be dead" 
+  return people.name +  vegetarianMesage+ ", is " + people.height + "cm tall and " + deadMessage;
+ // change this line and add others if needed
 }
