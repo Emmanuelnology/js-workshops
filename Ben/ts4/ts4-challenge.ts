@@ -42,6 +42,20 @@ export const canRideOnARollercoaster = (person:Person):boolean => person.height 
 
 export const canBuyBeer = (person:Person):boolean => person.age >= 18;
 
-export function getSummary() {
-  return ''; // change this line and add others if needed
+export const getSummary = (person:Person):string => {
+  let vegSummary:string = "";
+  if (isVegetarian(person)) {
+    vegSummary = " is a vegetarian";
+  }
+  else {
+    vegSummary = " likes meat";
+  }
+  let deadSummary:string = "";
+  if (yearsRemaining(person) < 0) {
+    deadSummary = "should be dead"
+  }
+  else {
+    deadSummary = "has " + yearsRemaining(person) + " years to live"
+  }
+  return person.name + vegSummary + ", is " + person.height + "cm tall and " + deadSummary;
 }

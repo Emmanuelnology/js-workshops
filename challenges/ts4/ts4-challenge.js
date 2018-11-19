@@ -24,31 +24,31 @@ Example friendly summaries:
 
 */
 exports.__esModule = true;
-function isVegetarian() {
+function isVegetarian(x) {
     return true; // change this line and add others if needed
 }
 exports.isVegetarian = isVegetarian;
-function canFitOnANameCard() {
+function canFitOnANameCard(x) {
     return true; // change this line and add others if needed
 }
 exports.canFitOnANameCard = canFitOnANameCard;
-function getLifeExpectancy() {
+function getLifeExpectancy(x) {
     return 0; // change this line and add others if needed
 }
 exports.getLifeExpectancy = getLifeExpectancy;
-function yearsRemaining() {
+function yearsRemaining(x) {
     return 0; // change this line and add others if needed
 }
 exports.yearsRemaining = yearsRemaining;
-function canRideOnARollercoaster() {
+function canRideOnARollercoaster(x) {
     return true; // change this line and add others if needed
 }
 exports.canRideOnARollercoaster = canRideOnARollercoaster;
-function canBuyBeer() {
+function canBuyBeer(x) {
     return true; // change this line and add others if needed
 }
 exports.canBuyBeer = canBuyBeer;
-function getSummary() {
+function getSummary(x) {
     return ''; // change this line and add others if needed
 }
 exports.getSummary = getSummary;

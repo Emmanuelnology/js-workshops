@@ -35,7 +35,20 @@ exports.getLifeExpectancy = function (person) {
 exports.yearsRemaining = function (person) { return exports.getLifeExpectancy(person) - person.age; };
 exports.canRideOnARollercoaster = function (person) { return person.height >= 120; };
 exports.canBuyBeer = function (person) { return person.age >= 18; };
-function getSummary() {
-    return ''; // change this line and add others if needed
-}
-exports.getSummary = getSummary;
+exports.getSummary = function (person) {
+    var vegSummary = "";
+    if (exports.isVegetarian(person)) {
+        vegSummary = " is a vegetarian";
+    }
+    else {
+        vegSummary = " likes meat";
+    }
+    var deadSummary = "";
+    if (exports.yearsRemaining(person) < 0) {
+        deadSummary = "should be dead";
+    }
+    else {
+        deadSummary = "has " + exports.yearsRemaining(person) + " years to live";
+    }
+    return person.name + vegSummary + ", is " + person.height + "cm tall and " + deadSummary;
+};
