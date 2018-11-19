@@ -18,9 +18,7 @@ import {Person} from './ts5-data';
 export const getActiveUsers = (people:Person[]):Person[] => {
   let activeUsers:Person[] = [];
   for (const person of people) {
-    if (person.isActive) {
-      activeUsers.push(person);
-    }
+    if (person.isActive) activeUsers.push(person);
   }
   return activeUsers;
 }
@@ -39,9 +37,7 @@ export const findMatchingEyeColours = (people:Person[], eyePerson:Person):string
 
 export const getEmailAddress = (people:Person[], id:number):string => {
   for (const person of people) {
-    if (person.id === id) {
-      return person.email;
-    }
+    if (person.id === id) return person.email;
   }
 }
 

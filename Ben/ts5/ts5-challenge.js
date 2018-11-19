@@ -18,9 +18,8 @@ exports.getActiveUsers = function (people) {
     var activeUsers = [];
     for (var _i = 0, people_1 = people; _i < people_1.length; _i++) {
         var person = people_1[_i];
-        if (person.isActive) {
+        if (person.isActive)
             activeUsers.push(person);
-        }
     }
     return activeUsers;
 };
@@ -39,9 +38,8 @@ exports.findMatchingEyeColours = function (people, eyePerson) {
 exports.getEmailAddress = function (people, id) {
     for (var _i = 0, people_3 = people; _i < people_3.length; _i++) {
         var person = people_3[_i];
-        if (person.id === id) {
+        if (person.id === id)
             return person.email;
-        }
     }
 };
 exports.getActiveUsersWithInvalidEmail = function (people) {
