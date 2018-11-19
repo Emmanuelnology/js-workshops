@@ -60,7 +60,7 @@ export const getActiveUsersWithInvalidEmail = (people:Person[]):Person[] => {
 }
 
 const randomThreeDigitNumber = (min:number, max:number):any => {
-  let result:any = Math.floor(Math.random() * (max - min) ) + min;
+  let result:any = Math.floor(Math.random() * (max - min)) + min;
   if (result < 10) {
     result = "00" + result;
   }
