@@ -1,5 +1,5 @@
 import { Suite } from '../testRunner';
-import { greet, maryAgeDifference, nameLength } from './ts1-challenge';
+import { greet, maryAgeDifference, nameLength } from './ts1-challenge'
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts1');
@@ -11,7 +11,7 @@ testSuite.assertEqualGroup('ts1',[
     name: 'Insert first and last name'
   },
   {
-    compare: maryAgeDifference(), 
+    compare: maryAgeDifference(),
     to: "Mary is 11 years older than me", 
     name: 'Calculate difference'
   },
