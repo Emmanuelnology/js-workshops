@@ -8,7 +8,7 @@ Outputs:
 --------
 Hello, My name is Bob Smith
 Mary is 11 years older than me
-The total length of both my names is 8 characters
+The total length of both names is 8 characters
 
 */
 exports.__esModule = true;
