@@ -1,5 +1,5 @@
 import { Suite } from '../testRunner';
-import { minDateableAge, hasFever, calcTVHeight, couldDate, colorDarken } from './ts3-solution';
+import { minDateableAge, hasFever, calcTVHeight, couldDate, colorDarken } from './ts3-challenge';
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts3');

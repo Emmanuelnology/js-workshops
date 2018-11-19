@@ -23,30 +23,30 @@ Example friendly summaries:
 
 */
 
-export function isVegetarian() {
+export function isVegetarian(x) {
   return true; // change this line and add others if needed
 }
 
-export function canFitOnANameCard(){
+export function canFitOnANameCard(x){
   return true; // change this line and add others if needed
 }
 
-export function getLifeExpectancy() {
+export function getLifeExpectancy(x) {
   return 0; // change this line and add others if needed
 }
 
-export function yearsRemaining(){
+export function yearsRemaining(x){
   return 0; // change this line and add others if needed
 }
 
-export function canRideOnARollercoaster(){
+export function canRideOnARollercoaster(x){
   return true; // change this line and add others if needed
 }
 
-export function canBuyBeer() {
+export function canBuyBeer(x) {
   return true; // change this line and add others if needed
 }
 
-export function getSummary() {
+export function getSummary(x) {
   return ''; // change this line and add others if needed
 }
