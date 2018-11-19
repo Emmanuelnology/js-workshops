@@ -1,5 +1,5 @@
 import { Suite } from '../testRunner';
-import { greet, maryAgeDifference, nameLength } from './ts1-solution';
+import { greet, maryAgeDifference, nameLength } from './ts1-challenge';
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts1');

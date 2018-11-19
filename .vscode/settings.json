@@ -1,3 +1,6 @@
 {
-    "jslint.version": "es5"
+    "jslint.version": "es5",
+    "files.exclude": {
+      "\"**/*.js\": { \"when\": \"$(basename).ts\"}": true
+    }
 }
