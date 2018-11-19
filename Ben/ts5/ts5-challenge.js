@@ -61,13 +61,7 @@ exports.getActiveUsersWithInvalidEmail = function (people) {
 };
 var randomThreeDigitNumber = function (min, max) {
     var result = Math.floor(Math.random() * (max - min)) + min;
-    if (result < 10) {
-        result = "00" + result;
-    }
-    else if (result < 100) {
-        result = "0" + result;
-    }
-    return result;
+    return (result < 10) ? "00" + result : (result < 100) ? "0" + result : result;
 };
 exports.addRandomMobileNumbers = function (people) {
     for (var _i = 0, people_4 = people; _i < people_4.length; _i++) {
