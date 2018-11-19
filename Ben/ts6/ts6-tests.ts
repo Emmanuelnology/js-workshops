@@ -5,7 +5,7 @@ import {
   search,
   findDescendants,
   findByName
-} from "./ts6-solution";
+} from "./ts6-challenge";
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts6 - Arrays');
