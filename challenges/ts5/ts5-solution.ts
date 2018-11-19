@@ -1,6 +1,6 @@
 import {Person} from './ts5-data';
 
-export function getActiveUsers(people:Person[]) {
+export function getActiveUsers(people:Person[]):Person[] {
   let activeUsers:Person[] = [];
   for (let person of people){
     if (person.isActive) activeUsers.push(person);
@@ -8,24 +8,25 @@ export function getActiveUsers(people:Person[]) {
   return activeUsers;  
 }
 
-export function findMatchingEyeColours(people:Person[], sourcePerson:Person){ // takes person object
+export function findMatchingEyeColours(people:Person[], sourcePerson:Person):string[] { // takes person object
   let matches:string[]=[];
-  if(sourcePerson != undefined && ('eyeColor' in sourcePerson)){
-    for(let person of people)
-    if(person.eyeColor == sourcePerson.eyeColor && person.id != sourcePerson.id){
-      matches.push(person.name);
+  if(sourcePerson != undefined && ('eyeColor' in sourcePerson)) {
+    for(let person of people){
+      if(person.eyeColor == sourcePerson.eyeColor && person.id != sourcePerson.id) {
+        matches.push(person.name);
+      }
     }
   }
   return matches;
 }
 
-export function getEmailAddress(people:Person[], id:number){
+export function getEmailAddress(people:Person[], id:number):string{
   for(let person of people){
-    if(person.id==id) return person.email;
+    if(person.id == id) return person.email;
   }
 }
 
-export function getActiveUsersWithInvalidEmail(people:Person[]) {
+export function getActiveUsersWithInvalidEmail(people:Person[]):Person[] {
   let invalidPeople:Person[] = [];
   let activeUsers=getActiveUsers(people);
   for(let person of activeUsers){
@@ -37,20 +38,20 @@ export function getActiveUsersWithInvalidEmail(people:Person[]) {
   return invalidPeople;
 }
 
-export function addRandomMobileNumbers(people:Person[]){
+export function addRandomMobileNumbers(people:Person[]):Person[]{
   for(let person of people){
     person.mobile = generateRandomMobileNumber();
   }
   return people;
 }
 
-function generateRandomMobileNumber() {
+function generateRandomMobileNumber():string {
   let prefix = "07";
   let first = getRandomInteger(100, 1000);
   let second = getRandomInteger(100000, 1000000);
   return prefix + first + " " + second;
 }
 
-function getRandomInteger(min:number, max:number) {
+function getRandomInteger(min:number, max:number):number {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
