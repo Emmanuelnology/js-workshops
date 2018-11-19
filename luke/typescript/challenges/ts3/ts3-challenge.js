@@ -10,22 +10,27 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 
 */
 exports.__esModule = true;
-function minDateableAge() {
-    return 0; // change this line and add others if needed
-}
-exports.minDateableAge = minDateableAge;
-function hasFever() {
-    return true; // change this line and add others if needed
-}
-exports.hasFever = hasFever;
-function calcTVHeight() {
-    return true; // change this line and add others if needed
-}
-exports.calcTVHeight = calcTVHeight;
-function couldDate() {
-    return true; // change this line and add others if needed
-}
-exports.couldDate = couldDate;
+exports.minDateableAge = function (yourAge) {
+    var age = (yourAge / 2 + 7);
+    return age; // change this line and add others if needed
+};
+exports.hasFever = function (temp) {
+    var fevertemp = temp >= 37.5;
+    return fevertemp; // change this line and add others if needed
+};
+exports.calcTVHeight = function (width) {
+    var tvWidth = (width / 16) * 9;
+    return tvWidth; // change this line and add others if needed
+};
+exports.couldDate = function (yourAge, theirAge) {
+    var ageSort = [yourAge, theirAge].sort();
+    var lowerAge = ageSort[0];
+    var minAge = exports.minDateableAge(ageSort[1]);
+    if (yourAge === theirAge)
+        return true;
+    return minAge <= lowerAge;
+    // change this line and add others if needed
+};
 function colorDarken() {
     return [0, 0, 0]; // change this line and add others if needed
 }

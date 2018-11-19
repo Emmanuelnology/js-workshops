@@ -9,20 +9,29 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 
 */
 
-export function minDateableAge(){
-  return 0; // change this line and add others if needed
+export let minDateableAge = (yourAge) => {
+  const age = (yourAge/2+7);
+  return age; // change this line and add others if needed
 }
 
-export function hasFever(){
-  return true; // change this line and add others if needed
+export let hasFever = (temp) => {
+  let fevertemp = temp>=37.5;
+  return fevertemp; // change this line and add others if needed
 }
 
-export function calcTVHeight() {
-  return true; // change this line and add others if needed
+export let calcTVHeight = (width) => {
+  let tvWidth = (width/16)*9; 
+  return tvWidth; // change this line and add others if needed
 }
 
-export function couldDate() {
-  return true; // change this line and add others if needed
+export let couldDate = (yourAge,theirAge) => {
+  let ageSort = [yourAge,theirAge].sort()
+  let lowerAge = ageSort[0]
+  let minAge = minDateableAge(ageSort[1])
+  
+  if(yourAge===theirAge) return true;
+  return minAge<=lowerAge;
+  // change this line and add others if needed
 
 }
 

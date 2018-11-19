@@ -17,7 +17,7 @@ const person2:person = {
 }
 
 export let greet = (person1:person, person2:person):string => {
- return "Hello, My name is "+person1.firstName+" "+person2.lastName;
+  "Hello, My name is "+person1.firstName+" "+person2.lastName;
 }
 
 console.log(greet(person1, person2));
