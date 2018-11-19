@@ -11,6 +11,6 @@ var person2 = {
     lastName: "Cathead"
 };
 exports.greet = function (person1, person2) {
-    return "Hello, My name is " + person1.firstName + " " + person2.lastName;
+    "Hello, My name is " + person1.firstName + " " + person2.lastName;
 };
 console.log(exports.greet(person1, person2));

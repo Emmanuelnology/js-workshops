@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 /*
 
 Arrays, Functions and Conditions
@@ -11,8 +12,11 @@ The function will test whether the item at index is not a primary color and if i
 Run the function to fix the second item in your color array and output the result to the console.
 
 */
-exports.__esModule = true;
 function fixColors(colorArray, index) {
-    // your code here
+    var clonedArray = colorArray.slice(0);
+    var colour = clonedArray[index];
+    if (colour != "red" && colour != "blue" && colour != "yellow")
+        clonedArray[index] = "red";
+    return clonedArray;
 }
 exports.fixColors = fixColors;
