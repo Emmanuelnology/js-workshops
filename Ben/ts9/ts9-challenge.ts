@@ -30,14 +30,14 @@ export class House {
   public addRoom = (roomToAdd:Room) => {
     this.rooms.push(roomToAdd);
   }
-  public removeRoom = (roomToRemove) => {
+  public removeRoom = (roomToRemove:Room) => {
     let location:number = this.rooms.indexOf(roomToRemove);
     this.rooms.splice(location,1);
   }
   public addCar = (carToAdd:Car) => {
     this.cars.push(carToAdd);
   }
-  public removeCar = (carToRemove) => {
+  public removeCar = (carToRemove:Car) => {
     let location:number = this.cars.indexOf(carToRemove);
     this.cars.splice(location,1);
   }
