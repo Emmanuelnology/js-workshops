@@ -1,11 +1,13 @@
-export class Suite {
-    constructor(name) {
+"use strict";
+exports.__esModule = true;
+var Suite = /** @class */ (function () {
+    function Suite(name) {
         this.name = name;
         this.total = 0;
         this.success = 0;
         this.showPasses = true;
     }
-    assertEqual(test) {
+    Suite.prototype.assertEqual = function (test) {
         try {
             if (JSON.stringify(test.compare) === JSON.stringify(test.to)) {
                 this.success++;
@@ -20,14 +22,15 @@ export class Suite {
         catch (e) {
             this.handleError(e);
         }
-    }
-    assertEqualGroup(name, tests) {
+    };
+    Suite.prototype.assertEqualGroup = function (name, tests) {
         this.groupName = name;
-        for (let test of tests) {
+        for (var _i = 0, tests_1 = tests; _i < tests_1.length; _i++) {
+            var test = tests_1[_i];
             this.assertEqual(test);
         }
-    }
-    assertRegex(test) {
+    };
+    Suite.prototype.assertRegex = function (test) {
         if (test.regex.test(test.string)) {
             this.success++;
             if (this.showPasses)
@@ -37,16 +40,18 @@ export class Suite {
             colorLog("FAIL " + this.groupName + ": " + test.name + "\n    " + test.string + " !== RegEx: " + test.regex.toString(), 'red');
         }
         this.total++;
-    }
-    getSummary() {
+    };
+    Suite.prototype.getSummary = function () {
         console.log("\nRan " + this.success + "/" + this.total + " tests successfully");
-    }
-    handleError(e) {
+    };
+    Suite.prototype.handleError = function (e) {
         colorLog(e.name + "\n" + e.message + "\n" + e.stack, 'yellow');
-    }
-}
+    };
+    return Suite;
+}());
+exports.Suite = Suite;
 function colorLog(message, color) {
-    let colors = {
+    var colors = {
         reset: '\x1b[0m',
         black: "\x1b[30m",
         red: "\x1b[31m",
