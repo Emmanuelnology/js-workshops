@@ -30,32 +30,45 @@ export class House {
     this.rooms.push(room);
   }
   public removeRoom = (room) => {
-
+    let location:number = this.rooms.indexOf(room);
+    this.rooms.splice(location,1);
   }
   public addCar = (car) => {
-    this.rooms.push(car);
+    this.cars.push(car);
   }
   public removeCar = (car) => {
-    
+    let location:number = this.cars.indexOf(car);
+    this.cars.splice(location,1);
   }
 }
 
-export class Room {
+class Room {
+  public contents:string[];
   constructor(public name:string) {}
 }
 
-export class Bedroom extends Room {}
+export class Bedroom extends Room {
+  contents = ['Single bed', 'Wardrobe', 'Drawers'];
+}
 
-export class Bathroom extends Room {}
+export class Bathroom extends Room {  
+  contents = ['Toilet', 'Sink'];
+}
 
-export class LargeRoom extends Room {}
+export class LargeRoom extends Room {
+  contents = ['King size bed', 'Wardrobe', 'Drawers'];
+}
 
 export class Car {
   constructor(public registration:string) {}
+  public locked:boolean = true;
   public isLocked = () => {
-
+    return this.locked;
   }
   public toggleLock = () => {
-    
+    if (this.locked === true) {
+      this.locked = false;
+    }
+    else this.locked = true;
   }
 }
