@@ -1,5 +1,5 @@
 import { Suite } from '../testRunner';
-import { House, Car, Bedroom, LargeRoom, Bathroom } from "./ts9-solution";
+import { House, Car, Bedroom, LargeRoom, Bathroom } from "./ts9-challenge";
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts9');

@@ -22,5 +22,38 @@ console.log(house.cars);
 */
 
 export class House {
-  
+  public rooms:Room[] = [];
+  public cars:Car[] = [];
+  public addRoom = (room) => {
+    this.rooms.push(room);
+  }
+  public removeRoom = (room) => {
+
+  }
+  public addCar = (car) => {
+    this.rooms.push(car);
+  }
+  public removeCar = (car) => {
+    
+  }
+}
+
+export class Room {
+  constructor(public name:string) {}
+}
+
+export class Bedroom extends Room {}
+
+export class Bathroom extends Room {}
+
+export class LargeRoom extends Room {}
+
+export class Car {
+  constructor(public registration:string) {}
+  public isLocked = () => {
+
+  }
+  public toggleLock = () => {
+    
+  }
 }

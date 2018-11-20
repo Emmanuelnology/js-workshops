@@ -1,4 +1,3 @@
-"use strict";
 /* TS9
 
 Object inheritance
@@ -21,10 +20,39 @@ house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
 
 */
-exports.__esModule = true;
-var House = /** @class */ (function () {
-    function House() {
+export class House {
+    constructor() {
+        this.rooms = [];
+        this.cars = [];
+        this.addRoom = (room) => {
+            this.rooms.push(room);
+        };
+        this.removeRoom = (room) => {
+        };
+        this.addCar = (car) => {
+            this.rooms.push(car);
+        };
+        this.removeCar = (car) => {
+        };
     }
-    return House;
-}());
-exports.House = House;
+}
+export class Room {
+    constructor(name) {
+        this.name = name;
+    }
+}
+export class Bedroom extends Room {
+}
+export class Bathroom extends Room {
+}
+export class LargeRoom extends Room {
+}
+export class Car {
+    constructor(registration) {
+        this.registration = registration;
+        this.isLocked = () => {
+        };
+        this.toggleLock = () => {
+        };
+    }
+}
