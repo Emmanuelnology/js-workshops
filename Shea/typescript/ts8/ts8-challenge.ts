@@ -1,8 +1,7 @@
 /*
-The data file contains information for 7 people, along with an interface declaration for person. 
-Import the person interface and use it to help type your code
+The data file contains information for 7 people, along with an interface declaration for person
 
-Create a class named Person that take a person object and has the following functions:
+Create a class classed Person that take a person object and has the following functions:
 
 -- Whether they are vegetarian :boolean
 -- Whether their name is too long to write on a name tag :boolean
@@ -24,6 +23,7 @@ Example friendly summaries:
 
 */
 
+import {Person as PersonData, people} from "./ts8-data";
 
 export class Person {
   isVegetarian;
