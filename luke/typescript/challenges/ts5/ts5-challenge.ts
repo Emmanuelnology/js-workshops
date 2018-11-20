@@ -28,7 +28,11 @@ export function findMatchingEyeColours(people:Person[]) {
   return []; //change this line (and add others)
 }
 
-export function getEmailAddress(){
+export function getEmailAddress(people:Person){
+  let activeInvalidEmail = []
+  let activeUsersArray = getActiveUsers(people)
+
+
   return ''; //change this line (and add others)
 }
 
