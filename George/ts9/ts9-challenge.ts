@@ -1,3 +1,5 @@
+import { House } from "./ts9-solution";
+
 /* TS9
 
 Object inheritance
@@ -21,3 +23,63 @@ console.log(house.cars);
 
 */
 
+
+class House {
+    rooms: Room[];
+    cars: Car[];;
+    list
+
+    addCar(registrationPlate:string) {
+        let car = new Car(registrationPlate);
+        this.cars.push(car);
+    }
+
+    removeCar(registrationPlateToCheck:string) {
+        for(index in this.cars) {
+            if(this.cars[index].registrationPlate == registrationPlateToCheck){
+                this.cars[index].pop();
+            }
+        }
+    }
+
+    addRoom(roomToBeAdded:Room) {
+        let room = new Room(roomToBeAdded);
+        this.rooms.push(room);
+
+    }
+
+    removeRoom() {
+
+    }
+    
+}
+
+class Room {
+    constructor(public name:string){
+
+    }
+}
+
+class Bedroom extends Room{
+    constructor(name:string){
+        super(name);
+    }
+}
+
+class Bathroom extends Room{
+    constructor(name:string){
+        super(name);
+    }
+}
+
+class Car {
+    constructor(public registrationPlate:string){
+
+    }
+}
+
+
+
+
+let house = new House();
+house.addRoom(new Bedroom('Guest'));
