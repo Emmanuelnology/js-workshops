@@ -46,7 +46,7 @@ export const getActiveUsersWithInvalidEmail = (people:Person[]):Person[] => {
   const activeUsers:Person[] = getActiveUsers(people);
   for (const person of activeUsers) {
     if (person.hasOwnProperty("email")) {
-      if (person.email.indexOf("@") < 1) {
+      if (person.email.indexOf("@") == -1) {
         activeWithInvalidEmail.push(person);
       }
     }
