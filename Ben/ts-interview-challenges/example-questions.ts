@@ -53,7 +53,16 @@ console.log(duplicateNumberOrderedArray([6,7,8,8,9,10,11]));
 How do you find all pairs of an integer array whose sum is equal to a given number?
 */
 
-
+const pairsThatSumTo = (integerArray:number[], sum:number) => {
+  let pairs=[];
+  for (const integer of integerArray) {
+    for (const otherInteger of integerArray) {
+      if (integer+otherInteger == sum) {
+        
+      }
+    }
+  }
+}
 
 
 /*
