@@ -30,7 +30,7 @@ class Person {
 // }
 
 class Nologist extends Person implements IPerson{
-
+    
     constructor (firstName:string, lastName:string, email:string, public likesTrains:boolean){
         super (firstName, lastName, email)
     }
