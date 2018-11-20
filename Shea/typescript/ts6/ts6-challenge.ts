@@ -12,8 +12,8 @@ Count the number of times a function is run to return the search
 */
 import {liz, Person} from './data';
 
-export const findByName = (name:Person) => {
-
+export const findByName = (liz:Person, searchName:string) => {
+    // if (liz.name === searchName) return liz;
 }
 export const findDescendants = (prescendant:Person) => {
     let descendants:string[] = [];
