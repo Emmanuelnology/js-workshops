@@ -23,20 +23,21 @@ export function getActiveUsers(people:Person[]) {
 
 export function findMatchingEyeColours(people:Person[]) {
   let colorEye:Person[]=[];
-  for (let person of people)
-  if (person.eyeColor === )
+  for (let person of people){
+  if (person.eyeColor == ) colorEye.push(person);}
   return []; //change this line (and add others)
 }
 
-export function getEmailAddress(people:Person){
-  let activeInvalidEmail = []
-  let activeUsersArray = getActiveUsers(people)
+export function getEmailAddress(){
+
 
 
   return ''; //change this line (and add others)
 }
 
 export function getActiveUsersWithInvalidEmail(people){
+  let activeInvalidEmail = []
+  let activeUsersArray = getActiveUsers(people)
   return people; //change this line (and add others)
 }
 

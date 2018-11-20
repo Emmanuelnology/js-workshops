@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
-exports.findByName = function (name) {
+exports.findByName = function (liz, searchName) {
+    // if (liz.name === searchName) return liz;
 };
 exports.findDescendants = function (prescendant) {
     var descendants = [];
