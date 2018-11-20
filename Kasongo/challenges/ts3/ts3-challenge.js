@@ -23,10 +23,10 @@ exports.couldDate = function (age1, age2) {
 };
 exports.floor = function (number, amount) {
     return (number - amount < 0) ? 0 : number - amount;
-    export var colorDarken = function (rgb, darkenAmount) {
-        var red = exports.floor(rgb.red, darkenAmount);
-        var green = exports.floor(rgb.green, darkenAmount);
-        var blue = exports.floor(rgb.blue, darkenAmount);
-        return [red, green, blue];
-    };
+};
+exports.colorDarken = function (rgb, darkenAmount) {
+    var red = exports.floor(rgb.red, darkenAmount);
+    var green = exports.floor(rgb.green, darkenAmount);
+    var blue = exports.floor(rgb.blue, darkenAmount);
+    return [red, green, blue];
 };
