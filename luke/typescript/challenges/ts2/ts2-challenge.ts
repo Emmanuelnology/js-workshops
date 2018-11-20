@@ -14,3 +14,10 @@ function primaryColour (colour){
   return (colour == "red") || (colour == "blue") || (colour == "yellow")
 }
 
+export function fixColors(colorArray, index){
+  let changedArray = colorArray.slice(0);
+  if(!primaryColour(changedArray[index])){
+    changedArray[index] = "red";
+  }
+  return changedArray;
+}

@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 /*
 
 Arrays, Functions and Conditions
@@ -13,5 +15,11 @@ Run the function to fix the second item in your color array and output the resul
 function primaryColour(colour) {
     return (colour == "red") || (colour == "blue") || (colour == "yellow");
 }
-
-let colorArray = ["violet", "green", "blue", "yellow"]
+function fixColors(colorArray, index) {
+    var changedArray = colorArray.slice(0);
+    if (!primaryColour(changedArray[index])) {
+        changedArray[index] = "red";
+    }
+    return changedArray;
+}
+exports.fixColors = fixColors;

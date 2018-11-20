@@ -19,7 +19,9 @@ function findMatchingEyeColours(people) {
     } //change this line (and add others)
 }
 exports.findMatchingEyeColours = findMatchingEyeColours;
-function getEmailAddress() {
+function getEmailAddress(people) {
+    var activeInvalidEmail = [];
+    var activeUsersArray = getActiveUsers(people);
     return ''; //change this line (and add others)
 }
 exports.getEmailAddress = getEmailAddress;
