@@ -71,7 +71,7 @@ testSuite.assertEqualGroup('Could date', [
         name: '56 year old could not date a 34 year old'
     }
 ]);
-testSuite.assertEqualGroup('Could date', [
+testSuite.assertEqualGroup('color Darken', [
     {
         compare: ts3_challenge_1.colorDarken({ red: 60, green: 60, blue: 60 }, 10),
         to: [50, 50, 50],

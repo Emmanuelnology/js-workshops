@@ -12,12 +12,33 @@ Count the number of times a function is run to return the search
 
 */
 exports.__esModule = true;
-function findByName() {
-}
-exports.findByName = findByName;
-function findDescendants() {
-}
-exports.findDescendants = findDescendants;
-function search() {
-}
-exports.search = search;
+var counter = 0;
+exports.findByName = function (main, name) {
+    counter++;
+    if (main.name === name)
+        return main;
+    else if (!("children" in main))
+        return undefined;
+    for (var _i = 0, _a = main.children; _i < _a.length; _i++) {
+        var child = _a[_i];
+        var value = exports.findByName(child, name);
+        if (value != undefined)
+            return value;
+    }
+};
+exports.findDescendants = function (person) {
+    counter++;
+    var descendants = [];
+    if ("children" in person) {
+        for (var _i = 0, _a = person.children; _i < _a.length; _i++) {
+            var child = _a[_i];
+            descendants.push(child.name);
+            descendants = descendants.concat(exports.findDescendants(child));
+        }
+    }
+    return descendants;
+};
+exports.search = function (person, searchString) {
+    var startingPerson = exports.findByName(person, searchString);
+    return exports.findDescendants(startingPerson);
+};

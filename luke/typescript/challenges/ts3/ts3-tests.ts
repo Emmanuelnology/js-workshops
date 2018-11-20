@@ -75,7 +75,7 @@ testSuite.assertEqualGroup('Could date',[
   }
 ]);
 
-testSuite.assertEqualGroup('Could date',[
+testSuite.assertEqualGroup('color Darken',[
   {
     compare: colorDarken({ red:60 ,green:60 ,blue:60 }, 10), 
     to: [50,50,50], 
