@@ -1,4 +1,4 @@
-import { Room } from "./ts9-solution";
+import { House } from "./ts9-solution";
 
 /* TS9
 
@@ -29,47 +29,12 @@ export class House {
   cars: Car [] = []
 
   addRoom = (rooms:Room) => {
-  this.rooms.push();
+  this.rooms.push(rooms);
   }
+
   removeRoom = (rooms:Room) => {
-    this.rooms.shift();
+  let  roomNumber = this.rooms.indexOf(rooms);
+    this.rooms.splice(roomNumber) 
   }
 
-  constructor(
-    public roomName:string,
-    public roomNumber:number,
-
-  )
-
-  {
-  this.roomName = roomName;
-  this.roomNumber = roomNumber;
-  this.addRoom = addRoom;
-  }
 };
-
-export class Car {
-
-  constructor(
-    public reg:string,
-  )
-  {
-
-    this.reg = reg
-  }
-}
-
-export class Bedroom extends House{
-
-}
-
-export class LargeRoom extends House{
-
-}
-
-export class Bathroom extends House{
-
-}
-
-let car1 = new Car("WD12 YES")
-let room1 = new LargeRoom ("master", 1)
