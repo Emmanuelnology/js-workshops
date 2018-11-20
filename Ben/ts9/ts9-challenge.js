@@ -105,11 +105,7 @@ var Car = /** @class */ (function () {
             return _this.locked;
         };
         this.toggleLock = function () {
-            if (_this.locked) {
-                _this.locked = false;
-            }
-            else
-                _this.locked = true;
+            _this.locked = !_this.locked;
         };
     }
     return Car;

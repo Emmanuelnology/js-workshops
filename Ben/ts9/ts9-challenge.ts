@@ -67,9 +67,6 @@ export class Car {
     return this.locked;
   }
   public toggleLock = () => {
-    if (this.locked) {
-      this.locked = false;
-    }
-    else this.locked = true;
+    this.locked =! this.locked;
   }
 }
