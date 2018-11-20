@@ -12,8 +12,7 @@ let house = new House();
 house.addRoom(new Bedroom('Guest')); // Name is guest room
 house.addRoom(new Bathroom('Main bathroom')); // Name is Main Bathroom
 house.addRoom(new LargeRoom('Master')); // Name is Master
-kidsRoom=house.rooms[2];
-house.removeRoom(kidsRoom); 
+house.removeRoom('Guest'); 
 house.addCar(new Car('WD13 WEZ')); //Registration is WS13 WEZ
 house.removeCar('WD13WEZ');
 house.addCar(new Car('AA66 AEZ')); //Registration is AA66 AEZ
