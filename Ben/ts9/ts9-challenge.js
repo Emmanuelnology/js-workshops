@@ -1,3 +1,4 @@
+"use strict";
 /* TS9
 
 Object inheritance
@@ -20,3 +21,10 @@ house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
 
 */
+exports.__esModule = true;
+var House = /** @class */ (function () {
+    function House() {
+    }
+    return House;
+}());
+exports.House = House;

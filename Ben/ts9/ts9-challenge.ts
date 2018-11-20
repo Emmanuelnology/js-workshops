@@ -21,3 +21,6 @@ console.log(house.cars);
 
 */
 
+export class House {
+  
+}

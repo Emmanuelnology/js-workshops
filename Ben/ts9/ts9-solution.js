@@ -1,4 +1,3 @@
-"use strict";
 /* TS9
 
 Object inheritance
@@ -21,87 +20,54 @@ house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
 
 */
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-exports.__esModule = true;
-var House = /** @class */ (function () {
-    function House() {
-        var _this = this;
+export class House {
+    constructor() {
         this.rooms = [];
         this.cars = [];
-        this.addRoom = function (room) { return _this.rooms.push(room); };
-        this.removeRoom = function (roomName) {
-            var roomID = _this.rooms.findIndex(function (room) { return room.name == roomName; });
-            _this.rooms.splice(roomID, 1);
+        this.addRoom = (room) => this.rooms.push(room);
+        this.removeRoom = (roomName) => {
+            let roomID = this.rooms.findIndex((room) => room.name == roomName);
+            this.rooms.splice(roomID, 1);
         };
-        this.addCar = function (car) { return _this.cars.push(car); };
-        this.removeCar = function (registration) {
-            var carID = _this.cars.findIndex(function (car) { return car.registration == registration; });
-            _this.cars.splice(carID, 1);
+        this.addCar = (car) => this.cars.push(car);
+        this.removeCar = (registration) => {
+            let carID = this.cars.findIndex((car) => car.registration == registration);
+            this.cars.splice(carID, 1);
         };
     }
-    return House;
-}());
-exports.House = House;
-var Car = /** @class */ (function () {
-    function Car(registration) {
+}
+export class Car {
+    constructor(registration) {
         this.registration = registration;
         this.locked = true;
     }
-    Car.prototype.isLocked = function () {
+    isLocked() {
         return this.locked;
-    };
-    Car.prototype.toggleLock = function () {
+    }
+    toggleLock() {
         this.locked = !this.locked;
-    };
-    return Car;
-}());
-exports.Car = Car;
-var Room = /** @class */ (function () {
-    function Room(name) {
+    }
+}
+export class Room {
+    constructor(name) {
         this.name = name;
     }
-    return Room;
-}());
-exports.Room = Room;
-var Bathroom = /** @class */ (function (_super) {
-    __extends(Bathroom, _super);
-    function Bathroom() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.contents = ['Toilet', 'Sink'];
-        return _this;
+}
+export class Bathroom extends Room {
+    constructor() {
+        super(...arguments);
+        this.contents = ['Toilet', 'Sink'];
     }
-    return Bathroom;
-}(Room));
-exports.Bathroom = Bathroom;
-var Bedroom = /** @class */ (function (_super) {
-    __extends(Bedroom, _super);
-    function Bedroom() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.contents = ['Single Bed', 'Wardrobe', 'Drawers'];
-        return _this;
+}
+export class Bedroom extends Room {
+    constructor() {
+        super(...arguments);
+        this.contents = ['Single Bed', 'Wardrobe', 'Drawers'];
     }
-    return Bedroom;
-}(Room));
-exports.Bedroom = Bedroom;
-var LargeRoom = /** @class */ (function (_super) {
-    __extends(LargeRoom, _super);
-    function LargeRoom() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.contents = ['King size bed', 'Wardrobe', 'Drawers'];
-        return _this;
+}
+export class LargeRoom extends Bedroom {
+    constructor() {
+        super(...arguments);
+        this.contents = ['King size bed', 'Wardrobe', 'Drawers'];
     }
-    return LargeRoom;
-}(Bedroom));
-exports.LargeRoom = LargeRoom;
+}

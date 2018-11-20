@@ -34,7 +34,7 @@ testSuite.assertEqualGroup('Add more rooms',
   }
 ]);
 
-house.removeRoom(new Bedroom('Kids'));
+house.removeRoom('Kids');
 
 testSuite.assertEqualGroup('Remove Room',
 [
@@ -54,8 +54,8 @@ testSuite.assertEqualGroup('Remove Room',
     name: 'Master room at index 1'
   },{
     compare: house.rooms[2].name, 
-    to: 'Kids', 
-    name: 'Kids room at index 2'
+    to: 'Spare', 
+    name: 'Spare room at index 2'
   }
 ]);
 
@@ -75,7 +75,7 @@ testSuite.assertEqualGroup('Room Types',
   },{
     compare: house.rooms[2] instanceof Bedroom, 
     to: true, 
-    name: 'Kids room is a bedroom'
+    name: 'Spare room is a bedroom'
   },{
     compare: house.rooms[3] instanceof Bathroom, 
     to: true, 

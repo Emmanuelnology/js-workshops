@@ -1,11 +1,9 @@
-"use strict";
-exports.__esModule = true;
-var testRunner_1 = require("../testRunner");
-var ts9_solution_1 = require("./ts9-solution");
+import { Suite } from '../testRunner';
+import { House, Car, Bedroom, LargeRoom, Bathroom } from "./ts9-solution";
 console.log("\n\nRunning tests...");
-var testSuite = new testRunner_1.Suite('ts9');
-var house = new ts9_solution_1.House();
-house.addRoom(new ts9_solution_1.Bedroom('Guest'));
+let testSuite = new Suite('ts9');
+let house = new House();
+house.addRoom(new Bedroom('Guest'));
 testSuite.assertEqualGroup('Add Room', [
     {
         compare: house.rooms.length,
@@ -18,9 +16,9 @@ testSuite.assertEqualGroup('Add Room', [
         name: 'Added room has name'
     }
 ]);
-house.addRoom(new ts9_solution_1.LargeRoom('Master'));
-house.addRoom(new ts9_solution_1.Bedroom('Kids'));
-house.addRoom(new ts9_solution_1.Bedroom('Spare'));
+house.addRoom(new LargeRoom('Master'));
+house.addRoom(new Bedroom('Kids'));
+house.addRoom(new Bedroom('Spare'));
 testSuite.assertEqualGroup('Add more rooms', [
     {
         compare: house.rooms.length,
@@ -28,7 +26,7 @@ testSuite.assertEqualGroup('Add more rooms', [
         name: 'Can more rooms to the house'
     }
 ]);
-house.removeRoom(new ts9_solution_1.Bedroom('Kids'));
+house.removeRoom('Kids');
 testSuite.assertEqualGroup('Remove Room', [
     {
         compare: house.rooms.length,
@@ -46,32 +44,32 @@ testSuite.assertEqualGroup('Remove Room', [
         name: 'Master room at index 1'
     }, {
         compare: house.rooms[2].name,
-        to: 'Kids',
-        name: 'Kids room at index 2'
+        to: 'Spare',
+        name: 'Spare room at index 2'
     }
 ]);
-house.addRoom(new ts9_solution_1.Bathroom('Main'));
+house.addRoom(new Bathroom('Main'));
 testSuite.assertEqualGroup('Room Types', [
     {
-        compare: house.rooms[0] instanceof ts9_solution_1.Bedroom,
+        compare: house.rooms[0] instanceof Bedroom,
         to: true,
         name: 'Guest room is a bedroom'
     },
     {
-        compare: house.rooms[1] instanceof ts9_solution_1.LargeRoom,
+        compare: house.rooms[1] instanceof LargeRoom,
         to: true,
         name: 'Master room is a large room'
     }, {
-        compare: house.rooms[2] instanceof ts9_solution_1.Bedroom,
+        compare: house.rooms[2] instanceof Bedroom,
         to: true,
-        name: 'Kids room is a bedroom'
+        name: 'Spare room is a bedroom'
     }, {
-        compare: house.rooms[3] instanceof ts9_solution_1.Bathroom,
+        compare: house.rooms[3] instanceof Bathroom,
         to: true,
         name: 'Main bathroom is a bathroom'
     }
 ]);
-house.addCar(new ts9_solution_1.Car('WD12 YES'));
+house.addCar(new Car('WD12 YES'));
 testSuite.assertEqualGroup('Add car', [
     {
         compare: house.cars.length,
@@ -84,7 +82,7 @@ testSuite.assertEqualGroup('Add car', [
         name: 'Added car has registration'
     }
 ]);
-house.addCar(new ts9_solution_1.Car('WD66TER'));
+house.addCar(new Car('WD66TER'));
 testSuite.assertEqualGroup('Add another car', [
     {
         compare: house.cars.length,
