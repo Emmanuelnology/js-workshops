@@ -24,7 +24,7 @@ export let couldDate = (age1:number, age2:number):boolean => {
   return lowerAge >= minAge;
 }
 
-function floor(number:number, amount:number) {
+function floor(number:number, amount:number):number {
   return (number - amount < 0) ? 0 : number - amount;
 }
 

@@ -9,24 +9,24 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 
 */
 
-export function minDateableAge(){
+export function minDateableAge(x){
   return 0; // change this line and add others if needed
 }
 
-export function hasFever(){
+export function hasFever(x){
   return true; // change this line and add others if needed
 }
 
-export function calcTVHeight() {
+export function calcTVHeight(x) {
   return true; // change this line and add others if needed
 }
 
-export function couldDate() {
+export function couldDate(x,y) {
   return true; // change this line and add others if needed
 
 }
 
-export function colorDarken() {
+export function colorDarken(x,y) {
   return [0,0,0]; // change this line and add others if needed
 
 }

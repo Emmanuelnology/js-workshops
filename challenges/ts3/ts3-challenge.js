@@ -10,23 +10,23 @@ colorDarken(){} // [red, green, blue] (0-255), darkenAmount - don't let the amou
 
 */
 exports.__esModule = true;
-function minDateableAge() {
+function minDateableAge(x) {
     return 0; // change this line and add others if needed
 }
 exports.minDateableAge = minDateableAge;
-function hasFever() {
+function hasFever(x) {
     return true; // change this line and add others if needed
 }
 exports.hasFever = hasFever;
-function calcTVHeight() {
+function calcTVHeight(x) {
     return true; // change this line and add others if needed
 }
 exports.calcTVHeight = calcTVHeight;
-function couldDate() {
+function couldDate(x, y) {
     return true; // change this line and add others if needed
 }
 exports.couldDate = couldDate;
-function colorDarken() {
+function colorDarken(x, y) {
     return [0, 0, 0]; // change this line and add others if needed
 }
 exports.colorDarken = colorDarken;
