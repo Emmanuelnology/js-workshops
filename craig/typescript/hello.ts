@@ -35,6 +35,4 @@ for (const personIndex in people) {
   console.log(personIndex + ": " + people[personIndex].firstName);
 }
 
-let test = (object) => {
-  let obj1:string=object;
-}
+

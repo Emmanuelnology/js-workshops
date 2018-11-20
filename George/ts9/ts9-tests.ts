@@ -33,8 +33,8 @@ testSuite.assertEqualGroup('Add more rooms',
     name: 'Can more rooms to the house'
   }
 ]);
-let kidsRoom=house.rooms[2];
-house.removeRoom(kidsRoom);
+
+house.removeRoom(new Bedroom('Kids'));
 
 testSuite.assertEqualGroup('Remove Room',
 [
@@ -54,8 +54,8 @@ testSuite.assertEqualGroup('Remove Room',
     name: 'Master room at index 1'
   },{
     compare: house.rooms[2].name, 
-    to: 'Spare', 
-    name: 'Spare room at index 2'
+    to: 'Kids', 
+    name: 'Kids room at index 2'
   }
 ]);
 
@@ -72,57 +72,15 @@ testSuite.assertEqualGroup('Room Types',
     compare: house.rooms[1] instanceof LargeRoom, 
     to: true, 
     name: 'Master room is a large room'
-  },
-  {
-    compare: house.rooms[1].contents.indexOf('King size bed')!=-1, 
-    to: true, 
-    name: 'Master room has King Size bed'
-  },
-  {
-    compare: house.rooms[1].contents.indexOf('Wardrobe')!=-1, 
-    to: true, 
-    name: 'Master room has a wardrobe'
-  },
-  {
-    compare: house.rooms[1].contents.indexOf('Drawers')!=-1, 
-    to: true, 
-    name: 'Master room has drawers'
-  },
-  {
+  },{
     compare: house.rooms[2] instanceof Bedroom, 
     to: true, 
-    name: 'Spare room is a bedroom'
-  },
-  {
-    compare: house.rooms[2].contents.indexOf('Single bed')!=-1, 
-    to: true, 
-    name: 'Spare room has single bed'
-  },
-  {
-    compare: house.rooms[2].contents.indexOf('Wardrobe')!=-1, 
-    to: true, 
-    name: 'Spare room has a wardrobe'
-  },
-  {
-    compare: house.rooms[2].contents.indexOf('Drawers')!=-1, 
-    to: true, 
-    name: 'Spare room has drawers'
-  },
-  {
+    name: 'Kids room is a bedroom'
+  },{
     compare: house.rooms[3] instanceof Bathroom, 
     to: true, 
     name: 'Main bathroom is a bathroom'
-  },
-  {
-    compare: house.rooms[3].contents.indexOf('Toilet')!=-1, 
-    to: true, 
-    name: 'Bathroom has a toilet'
-  },
-  {
-    compare: house.rooms[3].contents.indexOf('Sink')!=-1, 
-    to: true, 
-    name: 'Bathroom has sink'
-  },
+  }
 ]);
 
 house.addCar(new Car('WD12 YES'));
@@ -157,8 +115,7 @@ testSuite.assertEqualGroup('Add another car',
   }
 ]);
 
-let carToRemove=house.cars[0];
-house.removeCar(carToRemove);
+house.removeCar('WD12 YES');
 
 testSuite.assertEqualGroup('Remove car',
 [

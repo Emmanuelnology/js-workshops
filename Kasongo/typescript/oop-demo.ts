@@ -1,17 +1,14 @@
-let greet = (name) => {
-    console.log("Hi " + name);
+interface IPerson {
+    firstName:string;
+    lastName:string;
+    greet();    
 }
 
-greet("Craig");
 
 class Person {
     constructor (public firstName:string, public lastName:string) {}
     greet = () => {
         console.log("Hi " + this.firstName);
-    }
-
-    get fullName():string {
-        return this.firstName + " " + this.lastName;    
     }
 }
 
@@ -28,6 +25,15 @@ class Email {
     }
 }
 
-let craig = new Person("Craig", "Davies");
-craig.fullName;
+class Nologist extends Person implements IPerson {
+    constructor(firstName:string, lastName:string, emailObject:string, valid:boolean) {
+        super(firstName, lastName)
+    }
+    greet = () => {
+        console.log('happy');
+    }
+}
+
+let craig = new Nologist("Craig", "Jones", "google@gmai.com", true);
+craig.greet;
 
