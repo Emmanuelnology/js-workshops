@@ -17,17 +17,17 @@ let counter:number = 0;
 export const findByName = (main:Person, name:string):Person => {
   counter++;
   if (main.name === name) return main;
-  else if (!(main.hasOwnProperty("children"))) return undefined;
+  else if (!("children" in main)) return undefined;
   for (const child of main.children) {
     let value:Person = findByName(child,name);
-    if (value != undefined && value.name === name) return value;
+    if (value != undefined) return value;
   }
 }
 
 export const findDescendants = (person:Person):string[] => {
   counter++;
   let descendants:string[] = [];
-  if (person.hasOwnProperty("children")) {
+  if ("children" in person) {
     for (const child of person.children) {
       descendants.push(child.name);
       descendants = descendants.concat(findDescendants(child));

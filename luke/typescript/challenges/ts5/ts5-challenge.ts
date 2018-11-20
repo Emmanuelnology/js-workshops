@@ -12,21 +12,31 @@ Programatically add a random mobile phone number to each record (formatted '07XX
 Run your tests by running this file. They will all break at first.
 
 */
+import {Person} from './ts5-data';
 
-
-export let getActiveUsers = (people) =>{
-  return people.isActive[]; //change this line (and add others)
+export function getActiveUsers(people:Person[]) {
+  let activeUsers:Person[] =[] ;
+  for(let person of people){
+    if(person.isActive) activeUsers.push(person);}
+  return activeUsers ; //change this line (and add others)
 }
 
-export let findMatchingEyeColours = () =>{ 
+export function findMatchingEyeColours(people:Person[]) {
+  let colorEye:Person[]=[];
+  for (let person of people)
+  if (person.eyeColor === )
   return []; //change this line (and add others)
 }
 
-export let getEmailAddress = () =>{
+export function getEmailAddress(people:Person){
+  let activeInvalidEmail = []
+  let activeUsersArray = getActiveUsers(people)
+
+
   return ''; //change this line (and add others)
 }
 
-export let getActiveUsersWithInvalidEmail = (people) =>{
+export function getActiveUsersWithInvalidEmail(people){
   return people; //change this line (and add others)
 }
 

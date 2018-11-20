@@ -24,8 +24,8 @@ Example friendly summaries:
 - Fred likes meat, is 153cm tall and has 7 years to live
 
 */
-
-export let isVegetarian = (person:Person):boolean => person.isVegeterian; // change this line and add others if needed
+import {Person} from './ts4-data';
+export let isVegetarian = (person:Person):boolean => person.isVegetarian; // change this line and add others if needed
 
 export let canFitOnANameCard = (person:Person):boolean => person.name.length <= 6; // change this line and add others if needed
 

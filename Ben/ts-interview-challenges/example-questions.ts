@@ -1,19 +1,64 @@
 /*
+How do you find the missing number in a given integer array of 1 to 100? 
+*/
 
-https://simpleprogrammer.com/programming-interview-questions/
+const missingNumberOneToHundred = (integerArray:number[]):string => {
+  let arraySum:number = 0;
+  for (const integer of integerArray) {
+    arraySum += integer;
+  }
+  return "Missing number is " + (5050 - arraySum);
+}
 
-String reverse
-Palindrome finder
-FIzzbuzz
+console.log(missingNumberOneToHundred([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,43,44,45,46,47,48,49,50,
+51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,
+81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100]));
+
+/*
+How do you find the largest and smallest number in an unsorted integer array?
+*/
+
+const largestAndSmallest = (integerArray:number[]):string => {
+  let largest:number = integerArray[0];
+  let smallest:number = integerArray[0];
+  for (const integer of integerArray) {
+    if (integer > largest) largest = integer;
+    else if (integer < smallest) smallest = integer;
+  }
+  return "The largest number is " + largest + " and the smallest number is " + smallest;
+}
+
+console.log(largestAndSmallest([7,4,12,6,3,10]));
 
 
-How do you find the missing number in a given integer array of 1 to 100? (solution)
-How do you find the duplicate number on a given integer array? (solution)
-How do you find the largest and smallest number in an unsorted integer array? (solution)
-How do you find all pairs of an integer array whose sum is equal to a given number? (solution)
-How do you find duplicate numbers in an array if it contains multiple duplicates? (solution)
-How are duplicates removed from a given array in Java? (solution)
-How is an integer array sorted in place using the quicksort algorithm? (solution)
+/*
+How do you find the duplicate number on a given integer array?
+*/
+
+const duplicateNumberOrderedArray = (integerArray:number[]):string => {
+  let arraySum:number = 0;
+  for (const integer of integerArray) {
+    arraySum += integer;
+  }
+  const minValue:number = integerArray[0];
+  const maxValue:number = integerArray[integerArray.length - 1];
+  const nonMissingSum:number = (maxValue - minValue + 1) * (maxValue + minValue)/2;
+  return "Duplicate number is " + (arraySum - nonMissingSum);
+}
+
+console.log(duplicateNumberOrderedArray([6,7,8,8,9,10,11]));
+
+/*
+How do you find all pairs of an integer array whose sum is equal to a given number?
+*/
+
+
+
+
+/*
+How do you find duplicate numbers in an array if it contains multiple duplicates?
+How is an integer array sorted in place using the quicksort algorithm? (algorithm)
 How do you remove duplicates from an array in place? (solution)
 How do you reverse an array in place in Javascript? (solution)
 How are duplicates removed from an array without using any library? (solution)

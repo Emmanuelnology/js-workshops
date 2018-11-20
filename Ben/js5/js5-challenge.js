@@ -51,7 +51,7 @@ function getActiveUsersWithInvalidEmail(people) {
   var invalidEmail = [];
   for (var person = 0; person < activeUsers.length; person++) {
     if (activeUsers[person].hasOwnProperty("email")) {
-      if (activeUsers[person].email.indexOf("@") < 1) {
+      if (activeUsers[person].email.indexOf("@") == -1) {
         invalidEmail.push(activeUsers[person]);
       }
     }
