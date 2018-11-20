@@ -16,7 +16,8 @@ house.addRoom(new LargeRoom('Master')); // Name is Master
 kidsRoom=house.rooms[2];
 house.removeRoom(kidsRoom);
 house.addCar(new Car('WD13 WEZ')); //Registration is WS13 WEZ
-house.removeCar('WD13WEZ');
+let carToRemove=house.cars[0];
+house.removeCar(carToRemove);
 house.addCar(new Car('AA66 AEZ')); //Registration is AA66 AEZ
 house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
@@ -104,7 +105,7 @@ var Car = /** @class */ (function () {
             return _this.locked;
         };
         this.toggleLock = function () {
-            if (_this.locked === true) {
+            if (_this.locked) {
                 _this.locked = false;
             }
             else

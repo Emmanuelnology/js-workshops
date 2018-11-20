@@ -15,7 +15,8 @@ house.addRoom(new LargeRoom('Master')); // Name is Master
 kidsRoom=house.rooms[2];
 house.removeRoom(kidsRoom); 
 house.addCar(new Car('WD13 WEZ')); //Registration is WS13 WEZ
-house.removeCar('WD13WEZ');
+let carToRemove=house.cars[0];
+house.removeCar(carToRemove);
 house.addCar(new Car('AA66 AEZ')); //Registration is AA66 AEZ
 house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
@@ -62,11 +63,11 @@ export class LargeRoom extends Room {
 export class Car {
   constructor(public registration:string) {}
   public locked:boolean = true;
-  public isLocked = () => {
+  public isLocked = ():boolean => {
     return this.locked;
   }
   public toggleLock = () => {
-    if (this.locked === true) {
+    if (this.locked) {
       this.locked = false;
     }
     else this.locked = true;
