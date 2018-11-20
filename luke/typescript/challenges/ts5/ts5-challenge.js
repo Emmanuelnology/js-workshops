@@ -14,9 +14,10 @@ function findMatchingEyeColours(people) {
     var colorEye = [];
     for (var _i = 0, people_2 = people; _i < people_2.length; _i++) {
         var person = people_2[_i];
-        if (person.eyeColor === )
-            return [];
-    } //change this line (and add others)
+        if (person.eyeColor == )
+            colorEye.push(person);
+    }
+    return []; //change this line (and add others)
 }
 exports.findMatchingEyeColours = findMatchingEyeColours;
 function getEmailAddress() {
@@ -24,6 +25,8 @@ function getEmailAddress() {
 }
 exports.getEmailAddress = getEmailAddress;
 function getActiveUsersWithInvalidEmail(people) {
+    var activeInvalidEmail = [];
+    var activeUsersArray = getActiveUsers(people);
     return people; //change this line (and add others)
 }
 exports.getActiveUsersWithInvalidEmail = getActiveUsersWithInvalidEmail;

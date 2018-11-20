@@ -17,19 +17,19 @@ exports.findByName = function (main, name) {
     counter++;
     if (main.name === name)
         return main;
-    else if (!(main.hasOwnProperty("children")))
+    else if (!("children" in main))
         return undefined;
     for (var _i = 0, _a = main.children; _i < _a.length; _i++) {
         var child = _a[_i];
         var value = exports.findByName(child, name);
-        if (value != undefined && value.name === name)
+        if (value != undefined)
             return value;
     }
 };
 exports.findDescendants = function (person) {
     counter++;
     var descendants = [];
-    if (person.hasOwnProperty("children")) {
+    if ("children" in person) {
         for (var _i = 0, _a = person.children; _i < _a.length; _i++) {
             var child = _a[_i];
             descendants.push(child.name);
