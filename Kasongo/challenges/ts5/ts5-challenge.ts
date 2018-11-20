@@ -21,7 +21,8 @@ export let getActiveUsers = (people:Person[]) => {
     if (person.isActive) peopleActive.push(person); {
     }
     return peopleActive;
-  }  
+  }
+}  
   
 
 export let findMatchingEyeColours = (people:Person[], sourcePerson:Person) => {
@@ -34,11 +35,14 @@ export let findMatchingEyeColours = (people:Person[], sourcePerson:Person) => {
   }
   return peopleMatching; 
 }
+}
 
-export let getEmailAddress = (people:any[], id:number) => {
+export let getEmailAddress = (people:Person[], id:number) => {
   for (let person of people) {
-    if (person.id == id) return person.email;
+    if (person.id == id) return person.email;{
   }
+  return person.email;
+}
 }
 
 export let getActiveUsersWithInvalidEmail = (people:Person[]) => {
@@ -47,10 +51,11 @@ export let getActiveUsersWithInvalidEmail = (people:Person[]) => {
   for (let person of listActive) {
     if ('email' in person) {
       if (person.email.indexOf('@')==-1) invalidUsers.push(person);
-    }
+    } else {
     invalidUsers.push(person);
   }
   return invalidUsers; //change this line (and add others)
+}
 }
 
 export let addRandomMobileNumbers = (people:Person[]) =>  {
