@@ -28,9 +28,7 @@ var Person = /** @class */ (function () {
     function Person(input) {
         var _this = this;
         this.canFitOnANameCard = function () { return _this.name.length <= 6; };
-        this.getLifeExpectancy = function () {
-            return _this.isVegetarian ? 90 : 95;
-        };
+        this.getLifeExpectancy = function () { return _this.isVegetarian ? 90 : 95; };
         this.yearsRemaining = function () { return _this.getLifeExpectancy() - _this.age; };
         this.canRideOnARollercoaster = function () { return _this.height >= 120; };
         this.canBuyBeer = function () { return _this.age >= 18; };

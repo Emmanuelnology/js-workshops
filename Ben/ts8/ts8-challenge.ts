@@ -32,9 +32,7 @@ export class Person {
   public height:number;
   constructor(input) {}
   public canFitOnANameCard = ():boolean => this.name.length <= 6;
-  public getLifeExpectancy = ():number => {
-    return this.isVegetarian ? 90 : 95;
-  };
+  public getLifeExpectancy = ():number => this.isVegetarian ? 90 : 95;
   public yearsRemaining = ():number => this.getLifeExpectancy() - this.age;
   public canRideOnARollercoaster = ():boolean => this.height >= 120;
   public canBuyBeer = ():boolean => this.age >= 18;
