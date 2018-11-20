@@ -39,11 +39,13 @@ var House = /** @class */ (function () {
     function House() {
         var _this = this;
         this.rooms = [];
+        this.cars = [];
         this.addRoom = function (name) {
-            _this.rooms.push(_this.name);
+            _this.rooms.push(name);
         };
-        this.removeRoom = function () {
-        };
+        // public removeRoom = (name:string) => {
+        //     this.rooms.pop(name);
+        // }
         this.addCar = function () {
         };
         this.removeCar = function () {
