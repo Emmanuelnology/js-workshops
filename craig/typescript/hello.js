@@ -25,6 +25,3 @@ console.log('\n');
 for (var personIndex in people) {
     console.log(personIndex + ": " + people[personIndex].firstName);
 }
-var test = function (object) {
-    var obj1 = object;
-};
