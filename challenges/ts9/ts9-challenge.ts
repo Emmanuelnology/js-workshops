@@ -1,3 +1,5 @@
+import { House } from "./ts9-solution";
+
 /* TS9
 
 Object inheritance
@@ -21,4 +23,3 @@ house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
 
 */
-
