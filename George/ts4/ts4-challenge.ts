@@ -23,30 +23,39 @@ Example friendly summaries:
 
 */
 
-export function isVegetarian(x) {
-  return true; // change this line and add others if needed
+export function isVegetarian(person):boolean {
+  return person.isVegetarian;
 }
 
-export function canFitOnANameCard(x){
-  return true; // change this line and add others if needed
+export function canFitOnANameCard(person):boolean {
+  return person.name.length <= 6;
 }
 
-export function getLifeExpectancy(x) {
-  return 0; // change this line and add others if needed
+export function getLifeExpectancy(person):number {
+  if(person.isVegetarian)
+    return 90;
+  return 95;
 }
 
-export function yearsRemaining(x){
-  return 0; // change this line and add others if needed
+export function yearsRemaining(person):number{
+  return getLifeExpectancy(person) - person.age;
 }
 
-export function canRideOnARollercoaster(x){
-  return true; // change this line and add others if needed
+export function canRideOnARollercoaster(person):boolean{
+  if(person.height >= 120)
+    return true;
+  return false;
 }
 
-export function canBuyBeer(x) {
-  return true; // change this line and add others if needed
+export function canBuyBeer(person):boolean {
+  return person.age >=18;
 }
 
-export function getSummary(x) {
-  return ''; // change this line and add others if needed
+export function getSummary(person):string {
+
+  let vegetarianOrNotSentence = (isVegetarian(person)? "is a vegetarian" : "likes meat");
+  let deadOrAliveSentence = (yearsRemaining(person)>0? "has " + yearsRemaining(person) + " years to live" : "should be dead");
+
+  return person.name + " " + vegetarianOrNotSentence + ", is " + person.height + "cm tall and " + deadOrAliveSentence;
+  
 }

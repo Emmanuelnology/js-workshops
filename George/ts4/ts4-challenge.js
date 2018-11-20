@@ -24,31 +24,37 @@ Example friendly summaries:
 
 */
 exports.__esModule = true;
-function isVegetarian(x) {
-    return true; // change this line and add others if needed
+function isVegetarian(person) {
+    return person.isVegetarian;
 }
 exports.isVegetarian = isVegetarian;
-function canFitOnANameCard(x) {
-    return true; // change this line and add others if needed
+function canFitOnANameCard(person) {
+    return person.name.length <= 6;
 }
 exports.canFitOnANameCard = canFitOnANameCard;
-function getLifeExpectancy(x) {
-    return 0; // change this line and add others if needed
+function getLifeExpectancy(person) {
+    if (person.isVegetarian)
+        return 90;
+    return 95;
 }
 exports.getLifeExpectancy = getLifeExpectancy;
-function yearsRemaining(x) {
-    return 0; // change this line and add others if needed
+function yearsRemaining(person) {
+    return getLifeExpectancy(person) - person.age;
 }
 exports.yearsRemaining = yearsRemaining;
-function canRideOnARollercoaster(x) {
-    return true; // change this line and add others if needed
+function canRideOnARollercoaster(person) {
+    if (person.height >= 120)
+        return true;
+    return false;
 }
 exports.canRideOnARollercoaster = canRideOnARollercoaster;
-function canBuyBeer(x) {
-    return true; // change this line and add others if needed
+function canBuyBeer(person) {
+    return person.age >= 18;
 }
 exports.canBuyBeer = canBuyBeer;
-function getSummary(x) {
-    return ''; // change this line and add others if needed
+function getSummary(person) {
+    var vegetarianOrNotSentence = (isVegetarian(person) ? "is a vegetarian" : "likes meat");
+    var deadOrAliveSentence = (yearsRemaining(person) > 0 ? "has " + yearsRemaining(person) + " years to live" : "should be dead");
+    return person.name + " " + vegetarianOrNotSentence + ", is " + person.height + "cm tall and " + deadOrAliveSentence;
 }
 exports.getSummary = getSummary;
