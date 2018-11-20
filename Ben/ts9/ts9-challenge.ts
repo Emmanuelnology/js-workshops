@@ -27,18 +27,18 @@ console.log(house.cars);
 export class House {
   public rooms:Room[] = [];
   public cars:Car[] = [];
-  public addRoom = (room) => {
-    this.rooms.push(room);
+  public addRoom = (roomToAdd:Room) => {
+    this.rooms.push(roomToAdd);
   }
-  public removeRoom = (room) => {
-    let location:number = this.rooms.indexOf(room);
+  public removeRoom = (roomToRemove) => {
+    let location:number = this.rooms.indexOf(roomToRemove);
     this.rooms.splice(location,1);
   }
-  public addCar = (car) => {
-    this.cars.push(car);
+  public addCar = (carToAdd:Car) => {
+    this.cars.push(carToAdd);
   }
-  public removeCar = (car) => {
-    let location:number = this.cars.indexOf(car);
+  public removeCar = (carToRemove) => {
+    let location:number = this.cars.indexOf(carToRemove);
     this.cars.splice(location,1);
   }
 }
@@ -62,10 +62,10 @@ export class LargeRoom extends Room {
 
 export class Car {
   constructor(public registration:string) {}
-  public locked:boolean = true;
   public isLocked = ():boolean => {
     return this.locked;
   }
+  public locked:boolean = true;
   public toggleLock = () => {
     this.locked =! this.locked;
   }
