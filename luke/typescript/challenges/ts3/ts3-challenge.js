@@ -29,7 +29,13 @@ exports.couldDate = function (yourAge, theirAge) {
     return minAge <= lowerAge;
     // change this line and add others if needed
 };
-function colorDarken() {
-    return [0, 0, 0]; // change this line and add others if needed
+function floor(number, amount) {
+    return (number - amount < 0) ? 0 : number - amount;
+}
+function colorDarken(rgb, darkenAmount) {
+    var red = floor(rgb.red, darkenAmount);
+    var blue = floor(rgb.blue, darkenAmount);
+    var green = floor(rgb.green, darkenAmount);
+    return [red, green, blue]; // change this line and add others if needed
 }
 exports.colorDarken = colorDarken;

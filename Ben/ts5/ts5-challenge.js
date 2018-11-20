@@ -25,7 +25,7 @@ exports.getActiveUsers = function (people) {
 };
 exports.findMatchingEyeColours = function (people, eyePerson) {
     var matchingNames = [];
-    if (eyePerson != undefined && eyePerson.hasOwnProperty("eyeColor")) {
+    if (eyePerson != undefined && "eyeColor" in eyePerson) {
         for (var _i = 0, people_2 = people; _i < people_2.length; _i++) {
             var person = people_2[_i];
             if (person.id != eyePerson.id && person.eyeColor === eyePerson.eyeColor) {
@@ -47,8 +47,8 @@ exports.getActiveUsersWithInvalidEmail = function (people) {
     var activeUsers = exports.getActiveUsers(people);
     for (var _i = 0, activeUsers_1 = activeUsers; _i < activeUsers_1.length; _i++) {
         var person = activeUsers_1[_i];
-        if (person.hasOwnProperty("email")) {
-            if (person.email.indexOf("@") < 1) {
+        if ("email" in person) {
+            if (person.email.indexOf("@") == -1) {
                 activeWithInvalidEmail.push(person);
             }
         }
