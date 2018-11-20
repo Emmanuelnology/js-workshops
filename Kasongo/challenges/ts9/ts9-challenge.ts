@@ -74,23 +74,5 @@ export class House {
     addCar = (length, registration) => this.cars.push(car);
 }
 
-
-class bbb extends Bedroom {
-    subjects:string[];
-    constructor(public name:string, public surname:string, public email:string, subjects:string[]){
-      super(name,surname,email);
-      this.subjects=subjects;
-    }
-    teach() {
-      for(let subject of this.subjects){
-        console.log("My name is " + this.name + " and I teach " + subject);
-      }
-    }
-  }
-
-  c
-
-
-
 let house = new House();
 
