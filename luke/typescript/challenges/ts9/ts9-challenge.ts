@@ -28,8 +28,11 @@ export class House {
   rooms: Room [] = []
   cars: Car [] = []
 
-  addRoom = (rooms:Room) =>{
-  this.rooms.push()
+  addRoom = (rooms:Room) => {
+  this.rooms.push();
+  }
+  removeRoom = (rooms:Room) => {
+    this.rooms.shift();
   }
 
   constructor(

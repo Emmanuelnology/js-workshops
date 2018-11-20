@@ -46,6 +46,9 @@ var House = /** @class */ (function () {
         this.addRoom = function (rooms) {
             _this.rooms.push();
         };
+        this.removeRoom = function (rooms) {
+            _this.rooms.shift();
+        };
         this.roomName = roomName;
         this.roomNumber = roomNumber;
         this.addRoom = addRoom;
