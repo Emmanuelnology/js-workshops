@@ -1,31 +1,32 @@
 "use strict";
-/*
-
-JS5: Conditions, data manipulation and working with tests
-
-Create functions that:
-Returns an object that has an array of active users
-Take a person object and will return the names of all people who have matching eye colors
-Takes an ID and returns an email address
-Finds all active users with an invalid email address. Returns an array of objects.
-Programatically add a random mobile phone number to each record (formatted '07XXX XXXXXX'). Returns the whole people array after modification
-
-Run your tests by running this file. They will all break at first.
-
-*/
 exports.__esModule = true;
-exports.getActiveUsers = function (people) {
-    return people.isActive[]; //change this line (and add others)
-};
-exports.findMatchingEyeColours = function () {
-    return []; //change this line (and add others)
-};
-exports.getEmailAddress = function () {
+function getActiveUsers(people) {
+    var activeUsers = [];
+    for (var _i = 0, people_1 = people; _i < people_1.length; _i++) {
+        var person = people_1[_i];
+        if (person.isActive)
+            activeUsers.push(person);
+    }
+    return activeUsers; //change this line (and add others)
+}
+exports.getActiveUsers = getActiveUsers;
+function findMatchingEyeColours(people) {
+    var colorEye = [];
+    for (var _i = 0, people_2 = people; _i < people_2.length; _i++) {
+        var person = people_2[_i];
+        if (person.eyeColor === )
+            return [];
+    } //change this line (and add others)
+}
+exports.findMatchingEyeColours = findMatchingEyeColours;
+function getEmailAddress() {
     return ''; //change this line (and add others)
-};
-exports.getActiveUsersWithInvalidEmail = function (people) {
+}
+exports.getEmailAddress = getEmailAddress;
+function getActiveUsersWithInvalidEmail(people) {
     return people; //change this line (and add others)
-};
+}
+exports.getActiveUsersWithInvalidEmail = getActiveUsersWithInvalidEmail;
 exports.addRandomMobileNumbers = function (people) {
     return people; //change this line (and add others)
 };

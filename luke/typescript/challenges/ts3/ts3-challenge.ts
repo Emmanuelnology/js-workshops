@@ -27,13 +27,19 @@ export let couldDate = (yourAge,theirAge) => {
   let lowerAge = ageSort[0]
   let minAge = minDateableAge(ageSort[1])
   
-  if(yourAge===theirAge) return true;
+  if (yourAge===theirAge) return true;
   return minAge<=lowerAge;
   // change this line and add others if needed
 
 }
+function floor (number, amount)  {
+  return (number - amount < 0) ? 0 : number - amount;
+}
 
-export function colorDarken() {
-  return [0,0,0]; // change this line and add others if needed
+export function colorDarken(rgb, darkenAmount) {
+let red = floor(rgb.red, darkenAmount);
+let blue = floor(rgb.blue, darkenAmount);
+let green = floor(rgb.green, darkenAmount);
+return [red, green, blue]; // change this line and add others if needed
 
 }

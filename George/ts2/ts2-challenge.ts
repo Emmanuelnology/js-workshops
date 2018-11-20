@@ -10,7 +10,12 @@ The function will test whether the item at index is not a primary color and if i
 Run the function to fix the second item in your color array and output the result to the console.
 
 */
-
 export function fixColors(colorArray, index) {
-    // your code here
+    let clonedArray:[] = colorArray.slice(0);
+    let colour:string = clonedArray[index];
+
+    if(colour != "red" && colour != "blue" && colour != "yellow")
+        clonedArray[index] = "red";
+
+    return clonedArray;
 }
