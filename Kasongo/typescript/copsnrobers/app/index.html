@@ -17,19 +17,20 @@
     </style>
 </head>
 <nav>
-    <div>
-        <audio autoplay loop>
-            <source src="John-WWE.mp3">
+    <div id="music">
+        <audio controls autoplay loop>
+          <source src="John-WWE.mp3" type="audio/mpeg">
+          <p>If you can read this, your browser does not support the audio element.</p>
         </audio>
-    </div>
+    </div>        
 </nav>
 <body class="container text-center">
-    <h1 style="color:darkblue">Cops and silly Robbers</h1>
+    <h1 style="color:darkblue">Cops VS Silly Robbers: The Revenge</h1>
     <div class="row mt-4">
         <div id="cop" class="col">
             <h2>Cop</h2>
             <div class="progress">
-                <div class="progress-bar bg-primary" style="width: 100%">Text</div>
+                <div class="progress-bar bg-primary" style="width: 100%">Stamina</div>
             </div>
             <p class="display-3 m-3">
                 <img src="cop.jpg" alt="Cop" style="width:250px;height:250px">
@@ -42,7 +43,7 @@
         <div id="robber" class="col">
             <h2>Robber</h2>
             <div class="progress">
-                <div class="progress-bar bg-primary" style="width: 100%">Text</div>
+                <div class="progress-bar bg-primary" style="width: 100%">Stamina</div>
             </div>
             <p class="display-3 m-3">
                 <img src="robbery.jpg" alt="Robbbery" style="width:200px;height:250px">
