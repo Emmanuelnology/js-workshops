@@ -103,3 +103,48 @@ testSuite.assertEqualGroup("Shooting each other",[
   }
 ]
 );
+
+cop.health = 29;
+
+testSuite.assertEqualGroup("Character is unhealthy",[
+  {
+    name: "Health amount of 29 is not healthy",
+    compare: cop.isHealthy(),
+    to: false
+  }
+]
+);
+
+cop.health = 0;
+
+testSuite.assertEqualGroup("Character is unhealthy",[
+  {
+    name: "Health amount of 0 is not healthy",
+    compare: cop.isHealthy(),
+    to: false
+  }
+]
+);
+
+cop.health = 30;
+
+testSuite.assertEqualGroup("Character is healthy",[
+  {
+    name: "Health amount of 30 is healthy",
+    compare: cop.isHealthy(),
+    to: true
+  }
+]
+);
+
+
+cop.health = 75;
+
+testSuite.assertEqualGroup("Character is healthy",[
+  {
+    name: "Health amount of 75 is healthy",
+    compare: cop.isHealthy(),
+    to: true
+  }
+]
+);

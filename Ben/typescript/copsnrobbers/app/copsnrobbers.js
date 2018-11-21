@@ -9,6 +9,7 @@ var Character = /** @class */ (function () {
     function Character() {
         var _this = this;
         this.health = 100;
+        this.isHealthy = function () { return _this.health >= 30; };
         this.isDead = function () { return _this.health <= 0; };
         this.takeHit = function (firepower) {
             if (!_this.isDead())

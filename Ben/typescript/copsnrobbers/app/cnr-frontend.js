@@ -5,22 +5,33 @@ $(document).ready(function () {
     var cop = new Character();
     var robber = new Character();
     $("#result").hide();
+    var updateProgress = function (character, progressBarSelector) {
+        $(progressBarSelector).css("width", character.health + "%");
+        if (character.isHealthy()) {
+            $(progressBarSelector).removeClass("bg-danger").removeClass("bg-primary").addClass("bg-success");
+        }
+        else {
+            $(progressBarSelector).removeClass("bg-success").removeClass("bg-primary").addClass("bg-danger");
+        }
+    };
+    var stopGame = function (message) {
+        $("#result").text(message).show();
+        game.isActive = false;
+    };
     $("body").keyup(function (e) {
         if (game.isActive) {
-            if (e.key == "a") {
+            if (e.key == "a" || e.key == "A") {
                 cop.shootAt(robber, game.damageAmount);
-                $("#robber .progress-bar").css("width", robber.health + "%");
+                updateProgress(robber, "#robber .progress-bar");
                 if (robber.isDead()) {
-                    $("#result").text("Mae robwr yn marw").show();
-                    game.isActive = false;
+                    stopGame("Mae robwr yn marw!");
                 }
             }
-            if (e.key == "l") {
+            if (e.key == "l" || e.key == "L") {
                 robber.shootAt(cop, game.damageAmount);
-                $("#cop .progress-bar").css("width", cop.health + "%");
+                updateProgress(cop, "#cop .progress-bar");
                 if (cop.isDead()) {
-                    $("#result").text("Mae cop yn marw").show();
-                    game.isActive = false;
+                    stopGame("Mae cop yn marw!");
                 }
             }
         }
