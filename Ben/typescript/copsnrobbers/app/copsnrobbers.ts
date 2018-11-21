@@ -1,10 +1,11 @@
 class Game {
   public damageAmount:number = 10;
+  public isActive:boolean = true;
 }
 
 class Character {
   public health:number = 100;
-  private isDead = ():boolean => this.health <=0;
+  public isDead = ():boolean => this.health <=0;
   public takeHit = (firepower:number) => {
     if(!this.isDead()) this.health -= firepower;
   }
