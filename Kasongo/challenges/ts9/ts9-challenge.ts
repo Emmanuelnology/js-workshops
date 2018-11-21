@@ -26,36 +26,25 @@ import { House, Car, Bedroom, LargeRoom, Bathroom } from "./ts9-solution";
 
 export class Room {
     public contents:string[];
-    constructor(public name:any){    
+    constructor(public name:string[]){    
 }
 
 export class Bedroom extends Room {
-    public contents:string[] = ['Single bed', 'Wardrobe', 'Drawers'];
-    constructor(public name:string) {
-        super(name);
-        this.name=name;
-    }        
+    public contents:string[] = ['Single bed', 'Wardrobe', 'Drawers'];   
 }
 
 export class Bathroom extends Room {
     public contents:string[] = ['Toilet', 'Sink'];
-    constructor(public name:string) {
-        super(name);
-        this.name=name;
-    }        
 }
 
 export class LargeRoom extends Room {
     public contents:string[] = ['King size bed', 'Wardrobe', 'Drawers'];
-    constructor(public name:string) {
-        super(name);
-        this.name=name;
-    }        
 }
 
-export class Car {
+export class Car extends Room {
     public contents:string[];
     constructor(length:number, registration:any) {
+        super(length)
         this.length=length;
         this.registration=registration;
     }      
@@ -75,4 +64,5 @@ export class House {
 }
 
 let house = new House();
+house.addRoom();
 

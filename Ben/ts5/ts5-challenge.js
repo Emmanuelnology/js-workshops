@@ -42,13 +42,16 @@ exports.getEmailAddress = function (people, id) {
             return person.email;
     }
 };
+var validEmail = function (email) {
+    return (email.indexOf("@") !== -1);
+};
 exports.getActiveUsersWithInvalidEmail = function (people) {
     var activeWithInvalidEmail = [];
     var activeUsers = exports.getActiveUsers(people);
     for (var _i = 0, activeUsers_1 = activeUsers; _i < activeUsers_1.length; _i++) {
         var person = activeUsers_1[_i];
         if ("email" in person) {
-            if (person.email.indexOf("@") == -1) {
+            if (!validEmail(person.email)) {
                 activeWithInvalidEmail.push(person);
             }
         }
