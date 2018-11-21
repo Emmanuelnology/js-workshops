@@ -53,11 +53,14 @@ var pairsThatSumTo = function (integerArray, sum) {
         var integer = integerArray_4[_i];
         for (var _a = 0, integerArray_5 = integerArray; _a < integerArray_5.length; _a++) {
             var otherInteger = integerArray_5[_a];
-            if (integer + otherInteger == sum) {
+            if (integer + otherInteger === sum && otherInteger !== integer) {
+                pairs.push([integer, otherInteger]);
             }
         }
     }
+    return pairs;
 };
+console.log(pairsThatSumTo([1, 4, 3, 2, 3, 2, 5], 6));
 /*
 How do you find duplicate numbers in an array if it contains multiple duplicates?
 How is an integer array sorted in place using the quicksort algorithm? (algorithm)

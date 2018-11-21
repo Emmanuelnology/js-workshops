@@ -57,13 +57,15 @@ const pairsThatSumTo = (integerArray:number[], sum:number) => {
   let pairs=[];
   for (const integer of integerArray) {
     for (const otherInteger of integerArray) {
-      if (integer+otherInteger == sum) {
-        
+      if (integer + otherInteger === sum && otherInteger !== integer) {
+        pairs.push([integer,otherInteger]);
       }
     }
   }
+  return pairs;
 }
 
+console.log(pairsThatSumTo([1,4,3,2,3,2,5],6));
 
 /*
 How do you find duplicate numbers in an array if it contains multiple duplicates?
