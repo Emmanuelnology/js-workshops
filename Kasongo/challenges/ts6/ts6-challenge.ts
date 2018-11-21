@@ -11,8 +11,14 @@ Count the number of times a function is run to return the search
 
 */
 
+import { liz, Person } from "./data";
+let loops = 0;
 
-export function findByName() {
+export let findByName = (head:string, name:string)  => {
+    loops++
+    if !(children in name) {
+
+    }
  
 }
 export function findDescendants() {
