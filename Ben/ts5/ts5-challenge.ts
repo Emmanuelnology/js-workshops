@@ -41,12 +41,16 @@ export const getEmailAddress = (people:Person[], id:number):string => {
   }
 }
 
+const validEmail = (email:string):boolean => {
+  return (email.indexOf("@") !== -1);
+}
+
 export const getActiveUsersWithInvalidEmail = (people:Person[]):Person[] => {
   let activeWithInvalidEmail:Person[] = [];
   const activeUsers:Person[] = getActiveUsers(people);
   for (const person of activeUsers) {
     if ("email" in person) {
-      if (person.email.indexOf("@") == -1) {
+      if (!validEmail(person.email)) {
         activeWithInvalidEmail.push(person);
       }
     }

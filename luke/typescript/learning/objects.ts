@@ -9,13 +9,13 @@ public eyecolor:string;
   constructor 
     (public firstName:string, 
     public lastName:string, 
-    public email: email) 
+    public address: email) 
     //public means broadcast to everything private does the opposite
     
     {
     this.firstName = firstName
     this.lastName = lastName
-    this.email = email
+    this.address = address
     this.eyecolor = "blue"
     
   }
@@ -27,6 +27,10 @@ public eyecolor:string;
   public greet = () =>{ 
     console.log("Greetings " + this.fullName)
   };
+
+  // get email():string {
+  //   return this.emailObject.address;
+  // }
 }
 
 class email{
@@ -68,3 +72,5 @@ craig.greet();
 // Luke.greet(); //prints Hi luke
 // Craig.greet(); // prints hi craigy
 // console.log(Craig.firstName); // prints craigy
+
+

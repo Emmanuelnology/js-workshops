@@ -47,6 +47,17 @@ console.log(duplicateNumberOrderedArray([6, 7, 8, 8, 9, 10, 11]));
 /*
 How do you find all pairs of an integer array whose sum is equal to a given number?
 */
+var pairsThatSumTo = function (integerArray, sum) {
+    var pairs = [];
+    for (var _i = 0, integerArray_4 = integerArray; _i < integerArray_4.length; _i++) {
+        var integer = integerArray_4[_i];
+        for (var _a = 0, integerArray_5 = integerArray; _a < integerArray_5.length; _a++) {
+            var otherInteger = integerArray_5[_a];
+            if (integer + otherInteger == sum) {
+            }
+        }
+    }
+};
 /*
 How do you find duplicate numbers in an array if it contains multiple duplicates?
 How is an integer array sorted in place using the quicksort algorithm? (algorithm)

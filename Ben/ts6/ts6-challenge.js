@@ -13,17 +13,17 @@ Count the number of times a function is run to return the search
 */
 exports.__esModule = true;
 var counter = 0;
-exports.findByName = function (main, name) {
+exports.findByName = function (startingPerson, name) {
     counter++;
-    if (main.name === name)
-        return main;
-    else if (!("children" in main))
+    if (startingPerson.name === name)
+        return startingPerson;
+    else if (!("children" in startingPerson))
         return undefined;
-    for (var _i = 0, _a = main.children; _i < _a.length; _i++) {
+    for (var _i = 0, _a = startingPerson.children; _i < _a.length; _i++) {
         var child = _a[_i];
-        var value = exports.findByName(child, name);
-        if (value != undefined)
-            return value;
+        var found = exports.findByName(child, name);
+        if (found != undefined)
+            return found;
     }
 };
 exports.findDescendants = function (person) {

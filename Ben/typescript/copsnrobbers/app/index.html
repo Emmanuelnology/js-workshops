@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cops n Robbers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="copsnrobbers.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
+    <script src="copsnrobbers.js"></script>
+    <script src="cnr-frontend.js"></script>
+</head>
+<body class="container text-center">
+    <div id="blocker" class="js-modal"></div>
+    <div id="js-result-container" class="js-modal">
+        <p id="js-result"></p>
+        <p id="play-again">Chwarae eto</p>
+    </div>
+    <h1>Copiau a Robwyr</h1>
+    <div class="row mt-4">
+        <div id="cop" class="col">
+            <h2>Cop</h2>
+            <img src="policeman.png" alt="cop" />
+            <div class="progress m-2">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="display-4 m-2">Pwyswch A/S</p>
+            <p id="warning-message" class="display-4 m-3 text-danger"></p>
+        </div>
+        <div id="robber" class="col">
+            <h2>Robwr</h2>
+            <img src="robber.jpg" alt="robwr" />
+            <div class="progress m-2">
+                <div class="progress-bar"></div>
+            </div>
+            <p class="display-4 m-2">Pwyswch L/;</p>
+            <p id="warning-message" class="display-4 m-3 text-danger"></p>
+        </div>
+    </div>
+</body>
+</html>
