@@ -72,5 +72,14 @@ testSuite.assertEqualGroup('Shooting at each other', [
 
 ]);
 
+cop.health=29;
+
+testSuite.assertEqualGroup('Character is healthy', [
+    {
+        name: "Health amount of 29 is not healthy",
+        compare: cop.isHealthy,
+        to: false
+    }
+]);
 
 

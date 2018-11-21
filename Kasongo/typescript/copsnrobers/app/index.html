@@ -3,31 +3,48 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cops n Robbers</title>
+    <title>Cops and silly Robbers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="copsnrobbers.js"></script>
     <script src="cnr-frontend.js"></script>
+
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
 </head>
+<nav>
+    <audio autoplay loop>
+        <source src="John-WWE.mp3">
+    </audio>
+</nav>
 <body class="container text-center">
-    <h1>Cops n Robbers</h1>
+    <h1 style="color:darkblue">Cops and silly Robbers</h1>
     <div class="row mt-4">
         <div id="cop" class="col">
             <h2>Cop</h2>
             <div class="progress">
                 <div class="progress-bar bg-primary" style="width: 100%">Text</div>
             </div>
-            <p class="display-3 m-3">A/S</p>
+            <p class="display-3 m-3"><img src="cop.jpg" alt="Cop" style="width:250px;height:250px"></p>
+        </div>
+        <div id="vs" class="col">
+            <h2>VS</h2>
         </div>
         <div id="robber" class="col">
             <h2>Robber</h2>
             <div class="progress">
                 <div class="progress-bar bg-primary" style="width: 100%">Text</div>
             </div>
-            <p class="display-3 m-3">L/;</p>
+            <p class="display-3 m-3"><img src="robbery.jpg" alt="Robbbery" style="width:200px;height:250px"></p>
         </div>
     </div>
+    <footer>
+            <h2 style="color:darkblue">Who will win ?</h2>
+    </footer>
     <p id="results" class="display-1 m-5">Cop Wins</p>
 </body>
 </html>

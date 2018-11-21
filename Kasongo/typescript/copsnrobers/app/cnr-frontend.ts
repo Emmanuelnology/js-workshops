@@ -6,14 +6,40 @@ $(document).ready( () => {
     let robber = new Character();
     $('#results').hide();
 
-    $('body').keyup((e) => {
-        if (e.key =='a'){
-            cop.shootAt(robber, game.damageAmount);
-            console.log('Robber has '+ robber.health + ' remaining');
+    let updateProgress = (character:Character, progressBarSelector) => {
+        $(progressBarSelector).css('width', character.health + "%");
+        
+        if(character.isHealthy()) {
+            $(progressBarSelector)
+                .remove('bg-danger')
+                .remove('bg-primary')
+                .addClass('bg-success');
         }
-        if (e.key =='l'){
-            cop.shootAt(cop, game.damageAmount);
-            console.log('Cop has '+ cop.health + ' remaining');
-        }        
+        else {
+            $(progressBarSelector)
+                .remove('bg-success')
+                .remove('bg-primary')
+                .addClass('bg-danger');
+        }    
+    }
+
+    let stopGame = (message) => {
+        $('#result').text(message).show();
+        game.isActive = false;
+    }
+
+    $('body').keyup((e) => {
+        if (game.isActive) {
+            if (e.key =='a' || e.key =='A') {
+                cop.shootAt(robber, game.damageAmount);
+                updateProgress(robber, '#robber .progress-bar');
+                if(robber.isDead()) stopGame("Robber is dead");
+            }
+            if (e.key =='l'|| e.key =='L'){
+                robber.shootAt(cop, game.damageAmount);
+                updateProgress(cop, '#cop .progress-bar');
+                if(cop.isDead()) stopGame("Robber is dead");
+            }
+        }       
     })
 } );

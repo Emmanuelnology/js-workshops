@@ -1,6 +1,7 @@
 var Game = /** @class */ (function () {
     function Game() {
         this.damageAmount = 10;
+        this.isActive = true;
     }
     return Game;
 }());
@@ -21,6 +22,9 @@ var Character = /** @class */ (function () {
     };
     Character.prototype.resetHealth = function () {
         this.health = 100;
+    };
+    Character.prototype.isHealthy = function () {
+        return this.health >= 100;
     };
     return Character;
 }());
