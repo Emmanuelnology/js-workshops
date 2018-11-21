@@ -55,8 +55,8 @@ export class LargeRoom extends Room {
 }
 
 export class Car {
-    public car:any
-    constructor(public registration:any, public lock:boolean, public length:number) {
+    public lock:boolean
+    constructor(public registration:any) {
     }
     public isLocked = () => {
         return this.lock;
