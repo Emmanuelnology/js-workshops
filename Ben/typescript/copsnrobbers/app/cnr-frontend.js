@@ -4,17 +4,33 @@ $(document).ready(function () {
     game.damageAmount = 2;
     var cop = new Character();
     var robber = new Character();
+    $(".js-modal").hide();
     $("#result").hide();
     var updateProgress = function (character, progressBarSelector, warningMessageSelector) {
         $(progressBarSelector).css("width", character.health + "%");
         $(progressBarSelector).css("background-color", "rgb(" + (255 - 2.5 * character.health) + "," + 2.5 * character.health + ", 0");
-        if (!(character.isHealthy())) {
+        if (character.isHealthy()) {
+            $(warningMessageSelector).text("");
+        }
+        else {
             $(warningMessageSelector).text("Rhybudd! Iechyd isel!");
         }
     };
+    var resetGame = function () {
+        $(".js-modal").css("display", "none");
+        game.isActive = true;
+        cop.resetHealth();
+        robber.resetHealth();
+        updateProgress(robber, "#robber .progress-bar", "#robber #warning-message");
+        updateProgress(cop, "#cop .progress-bar", "#cop #warning-message");
+    };
     var stopGame = function (message) {
-        $("#result").text(message).show();
+        $("#js-result").text(message);
+        $(".js-modal").show();
         game.isActive = false;
+        $('#play-again').click(function () {
+            resetGame();
+        });
     };
     $("body").keyup(function (e) {
         if (game.isActive) {

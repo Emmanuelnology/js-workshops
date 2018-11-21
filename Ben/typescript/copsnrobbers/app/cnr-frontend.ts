@@ -6,19 +6,36 @@ $(document).ready( () => {
   let cop = new Character ();
   let robber = new Character ();
   
+  $(".js-modal").hide();
   $("#result").hide();
   
   let updateProgress = (character:Character, progressBarSelector, warningMessageSelector) => {    
     $(progressBarSelector).css("width", character.health + "%");
     $(progressBarSelector).css("background-color", "rgb(" + (255 - 2.5*character.health) +"," + 2.5*character.health + ", 0");
-    if (!(character.isHealthy())) {
+    if (character.isHealthy()) {
+      $(warningMessageSelector).text("");
+    }
+    else {
       $(warningMessageSelector).text("Rhybudd! Iechyd isel!");
     }
   }
+
+  let resetGame = () => {
+    $(".js-modal").css("display", "none");
+      game.isActive = true;
+      cop.resetHealth();
+      robber.resetHealth();
+      updateProgress(robber, "#robber .progress-bar", "#robber #warning-message");
+      updateProgress(cop, "#cop .progress-bar", "#cop #warning-message");
+  }
   
   let stopGame = (message) => {
-    $("#result").text(message).show();
+    $("#js-result").text(message);
+    $(".js-modal").show();
     game.isActive = false;
+    $('#play-again').click(function(){
+      resetGame();
+    })
   }
   
   $("body").keyup( (e) => {
@@ -40,3 +57,4 @@ $(document).ready( () => {
     }
   })
 });
+

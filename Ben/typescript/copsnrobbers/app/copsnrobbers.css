@@ -1,0 +1,43 @@
+#blocker {
+  display: none;
+  background-color: rgb(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#js-result-container {
+  display: none;
+  position: fixed;
+  top: 40%;
+  right: 22%;
+  width: 56%;
+  background-color: white;
+  z-index: 3;
+  border-radius: 1em;
+  border: 0.05em solid black;
+  font-size: 64px;
+  color: black;
+  padding: 0.5em;
+  text-align: center;
+}
+
+#play-again {
+  text-decoration: underline;
+  font-size: 36px;
+}
+
+#play-again:hover {
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 100%;
+}
+
+img {
+  height: 250px;
+}
