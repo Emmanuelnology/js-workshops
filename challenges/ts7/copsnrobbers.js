@@ -1,28 +1,30 @@
-var HealthCalculator = /** @class */ (function () {
-    function HealthCalculator() {
+"use strict";
+exports.__esModule = true;
+var DamageService = /** @class */ (function () {
+    function DamageService() {
         this.getDamage = function (firepower) {
             return Math.floor(Math.random() * firepower);
         };
     }
-    return HealthCalculator;
+    return DamageService;
 }());
-var Mock_HealthCalculator = /** @class */ (function () {
-    function Mock_HealthCalculator() {
+var Mock_DamageService = /** @class */ (function () {
+    function Mock_DamageService() {
         this.getDamage = function (firepower) {
             return firepower;
         };
     }
-    return Mock_HealthCalculator;
+    return Mock_DamageService;
 }());
 var Character = /** @class */ (function () {
-    function Character(name, primaryKey, secondaryKey, healthCalc) {
+    function Character(name, primaryKey, secondaryKey, damageService) {
         if (primaryKey === void 0) { primaryKey = "s"; }
         if (secondaryKey === void 0) { secondaryKey = "a"; }
-        if (healthCalc === void 0) { healthCalc = new HealthCalculator; }
+        if (damageService === void 0) { damageService = new DamageService; }
         this.name = name;
         this.primaryKey = primaryKey;
         this.secondaryKey = secondaryKey;
-        this.healthCalc = healthCalc;
+        this.damageService = damageService;
         this.activeKey = "a";
         this.health = 100;
         this.activeKey = primaryKey;
@@ -30,7 +32,7 @@ var Character = /** @class */ (function () {
     ;
     Character.prototype.takeHit = function (firePower) {
         if (!this.isDead()) {
-            this.health -= this.healthCalc.getDamage(firePower);
+            this.health -= this.damageService.getDamage(firePower);
             if (this.isDead())
                 this.die();
         }
@@ -40,6 +42,9 @@ var Character = /** @class */ (function () {
     };
     Character.prototype.whenDead = function (func) {
         this.deadFunction = func;
+    };
+    Character.prototype.isHealthy = function () {
+        return this.health > 30;
     };
     Character.prototype.shootAt = function (target) {
         target.takeHit(5);
@@ -53,3 +58,4 @@ var Character = /** @class */ (function () {
     };
     return Character;
 }());
+exports.Character = Character;

@@ -11,7 +11,7 @@ $(document).ready(function () {
         $('#message').show();
     };
     var updateProgress = function (target, targetID) {
-        var newClass = (target.health > 30) ? 'bg-success' : 'bg-danger';
+        var newClass = (target.isHealthy()) ? 'bg-success' : 'bg-danger';
         $(targetID + ' .progress-bar')
             .css('width', target.health + '%')
             .removeClass('bg-success')

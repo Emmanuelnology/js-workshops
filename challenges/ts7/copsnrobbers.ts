@@ -1,27 +1,28 @@
-class HealthCalculator {
+class DamageService {
   getDamage = (firepower) => {
     return Math.floor(Math.random()*firepower);
   }
 }
 
-class Mock_HealthCalculator {
+class Mock_DamageService {
   getDamage = (firepower) => {
     return firepower;
   }
 }
 
-class Character {
+export class Character {
   public activeKey:string = "a";
   public health:number = 100;
+  
   private deadFunction:Function;
 
-  constructor ( public name:string, private primaryKey:string = "s", private secondaryKey:string = "a", protected healthCalc:HealthCalculator = new HealthCalculator){
+  constructor ( public name:string, private primaryKey:string = "s", private secondaryKey:string = "a", protected damageService:DamageService = new DamageService){
     this.activeKey = primaryKey;
   };
   
   private takeHit(firePower) {
     if (!this.isDead()) {
-      this.health-=this.healthCalc.getDamage(firePower);
+      this.health-=this.damageService.getDamage(firePower);
       if (this.isDead()) this.die();
     }
   }
@@ -34,6 +35,10 @@ class Character {
     this.deadFunction=func;
   }
   
+  public isHealthy(){
+    return this.health > 30;
+  }
+
   public shootAt(target:Character) {
     target.takeHit(5);
     this.swapKeys();

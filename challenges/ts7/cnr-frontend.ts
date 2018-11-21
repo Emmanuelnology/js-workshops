@@ -15,7 +15,7 @@ $(document).ready(function() {
   }
   
   let updateProgress = (target, targetID) => {
-    let newClass = (target.health > 30) ? 'bg-success':'bg-danger';
+    let newClass = (target.isHealthy()) ? 'bg-success':'bg-danger';
     $(targetID + ' .progress-bar')
       .css('width',target.health + '%')
       .removeClass('bg-success')
