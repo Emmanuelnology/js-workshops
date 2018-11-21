@@ -10,12 +10,7 @@ $(document).ready( () => {
   
   let updateProgress = (character:Character, progressBarSelector) => {    
     $(progressBarSelector).css("width", character.health + "%");
-    if (character.isHealthy()) {
-      $(progressBarSelector).removeClass("bg-danger").removeClass("bg-primary").addClass("bg-success");
-    }
-    else {
-      $(progressBarSelector).removeClass("bg-success").removeClass("bg-primary").addClass("bg-danger");
-    }
+    $(progressBarSelector).css("background-color", "rgb(" + (255 - 2.5*character.health) +"," + 2.5*character.health + ", 0");
   }
 
   let stopGame = (message) => {
