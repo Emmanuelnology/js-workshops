@@ -23,13 +23,40 @@ console.log(house.cars);
 */
 
 export class House {
-    rooms:string[] = []
-    cars:Cars[] = [] 
 
+    rooms:Room[] = []
+
+    public addRoom = (roomName:Room) => {
+       this.rooms.push(roomName);
+       console.log(this.rooms);
+    }
+
+}
+
+export class Room extends House {
+    public name:string;
+    public contents:string;
+
+}
+
+export class Car {
+
+}
+
+export class Bedroom extends Room {
 
 
 }
 
-export class Cars {
-    
+export class LargeRoom extends Room {
+
+
 }
+
+export class Bathroom extends Room {
+
+
+}
+
+let house = new House();
+house.addRoom(new Bedroom('Guest'));
