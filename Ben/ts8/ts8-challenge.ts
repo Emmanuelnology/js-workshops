@@ -26,16 +26,21 @@ Example friendly summaries:
 import {Person as PersonData, people} from "./ts8-data";
 
 export class Person {
-  isVegetarian;
-  name;
-  age;
-  height;
-  canFitOnANameCard = () => true;
-  getLifeExpectancy = () => true;
-  yearsRemaining = () => true;
-  canRideOnARollercoaster = () => true;
-  canBuyBeer = () => true;
-  getSummary = () => true;
+  public isVegetarian:boolean;
+  public name:string;
+  public age:number;
+  public height:number;
+  constructor(input) {}
+  public canFitOnANameCard = ():boolean => this.name.length <= 6;
+  public getLifeExpectancy = ():number => this.isVegetarian ? 90 : 95;
+  public yearsRemaining = ():number => this.getLifeExpectancy() - this.age;
+  public canRideOnARollercoaster = ():boolean => this.height >= 120;
+  public canBuyBeer = ():boolean => this.age >= 18;
+  public getSummary = ():string => {
+    let vegSummary:string = this.isVegetarian ? " is a vegetarian" : " likes meat";
+    let deadSummary:string = this.yearsRemaining() < 0 ? "should be dead" : "has " + this.yearsRemaining() + " years to live";
+    return this.name + vegSummary + ", is " + this.height + "cm tall and " + deadSummary;
+  }
 }
 
 

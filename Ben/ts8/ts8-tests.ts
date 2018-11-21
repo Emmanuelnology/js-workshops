@@ -1,6 +1,6 @@
 import { Suite } from '../testRunner';
 import { people } from './ts8-data';
-import { Person } from "./ts8-solution";
+import { Person } from "./ts8-challenge";
 
 console.log("\n\nRunning tests...");
 let testSuite = new Suite('ts8');

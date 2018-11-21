@@ -34,40 +34,10 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var _this = this;
 exports.__esModule = true;
-var House = /** @class */ (function () {
-    function House() {
-        var _this = this;
-        this.rooms = [];
-        this.cars = [];
-        this.addRoom = function (room) { return _this.rooms.push(room); };
-        this.removeRoom = function (room) {
-            var roomID = _this.rooms.indexOf(room);
-            _this.rooms.splice(roomID, 1);
-        };
-        this.addCar = function (car) { return _this.cars.push(car); };
-        this.removeCar = function (car) {
-            var carID = _this.cars.indexOf(car);
-            _this.cars.splice(carID, 1);
-        };
-    }
-    return House;
-}());
-exports.House = House;
-var Car = /** @class */ (function () {
-    function Car(registration) {
-        this.registration = registration;
-        this.locked = true;
-    }
-    Car.prototype.isLocked = function () {
-        return this.locked;
-    };
-    Car.prototype.toggleLock = function () {
-        this.locked = !this.locked;
-    };
-    return Car;
-}());
-exports.Car = Car;
+var ts9_solution_1 = require("./ts9-solution");
+exports.House = ts9_solution_1.House;
 var Room = /** @class */ (function () {
     function Room(name) {
         this.name = name;
@@ -75,33 +45,61 @@ var Room = /** @class */ (function () {
     return Room;
 }());
 exports.Room = Room;
-var Bathroom = /** @class */ (function (_super) {
-    __extends(Bathroom, _super);
-    function Bathroom() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.contents = ['Toilet', 'Sink'];
-        return _this;
-    }
-    return Bathroom;
-}(Room));
-exports.Bathroom = Bathroom;
 var Bedroom = /** @class */ (function (_super) {
     __extends(Bedroom, _super);
-    function Bedroom() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    function Bedroom(name) {
+        var _this = _super.call(this, name) || this;
+        _this.name = name;
         _this.contents = ['Single bed', 'Wardrobe', 'Drawers'];
+        _this.name = name;
         return _this;
     }
     return Bedroom;
 }(Room));
 exports.Bedroom = Bedroom;
+var Bathroom = /** @class */ (function (_super) {
+    __extends(Bathroom, _super);
+    function Bathroom(name) {
+        var _this = _super.call(this, name) || this;
+        _this.name = name;
+        _this.contents = ['Toilet', 'Sink'];
+        _this.name = name;
+        return _this;
+    }
+    return Bathroom;
+}(Room));
+exports.Bathroom = Bathroom;
 var LargeRoom = /** @class */ (function (_super) {
     __extends(LargeRoom, _super);
-    function LargeRoom() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    function LargeRoom(name) {
+        var _this = _super.call(this, name) || this;
+        _this.name = name;
         _this.contents = ['King size bed', 'Wardrobe', 'Drawers'];
+        _this.name = name;
         return _this;
     }
     return LargeRoom;
-}(Bedroom));
+}(Room));
 exports.LargeRoom = LargeRoom;
+var Car = /** @class */ (function () {
+    function Car(length, registration) {
+        this.length = length;
+        this.registration = registration;
+    }
+    return Car;
+}());
+exports.Car = Car;
+var House = /** @class */ (function () {
+    function House() {
+        this.rooms = [];
+        this.cars = [];
+    }
+    return House;
+}());
+exports.House = House;
+for (room in house) {
+}
+addRoom = function (room) { return _this.rooms.push(room); };
+removeRoom = function (room) { return _this.rooms.pop(); };
+addCar = function (length, registration) { return _this.cars.push(car); };
+var house = new ts9_solution_1.House();
