@@ -40,12 +40,12 @@ var House = /** @class */ (function () {
         var _this = this;
         this.rooms = [];
         this.cars = [];
-        this.addRoom = function (name) {
-            _this.rooms.push(name);
+        this.addRoom = function (roomName) {
+            _this.rooms.push(roomName);
         };
-        // public removeRoom = (name:string) => {
-        //     this.rooms.pop(name);
-        // }
+        this.removeRoom = function (name) {
+            // this.rooms.pop(name);
+        };
         this.addCar = function () {
         };
         this.removeCar = function () {
@@ -54,13 +54,13 @@ var House = /** @class */ (function () {
     return House;
 }());
 exports.House = House;
-var Room = /** @class */ (function (_super) {
-    __extends(Room, _super);
+var Room = /** @class */ (function () {
     function Room() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        this.name = this.name;
+        this.contents = this.contents;
     }
     return Room;
-}(House));
+}());
 exports.Room = Room;
 var Bedroom = /** @class */ (function (_super) {
     __extends(Bedroom, _super);
