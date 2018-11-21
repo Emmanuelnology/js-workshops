@@ -12,17 +12,17 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var person = /** @class */ (function () {
-    function person(firstName, lastName, email) {
+    function person(firstName, lastName, address) {
         var _this = this;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.address = address;
         this.greet = function () {
             console.log("Greetings " + _this.fullName);
         };
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.address = address;
         this.eyecolor = "blue";
     }
     Object.defineProperty(person.prototype, "fullName", {

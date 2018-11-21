@@ -23,3 +23,20 @@ house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
 
 */
+var House = /** @class */ (function () {
+    function House() {
+        var _this = this;
+        this.rooms = [];
+        this.cars = [];
+        this.addRoom = function (rooms) {
+            _this.rooms.push(rooms);
+        };
+        this.removeRoom = function (rooms) {
+            var roomNumber = _this.rooms.indexOf(rooms);
+            _this.rooms.splice(roomNumber);
+        };
+    }
+    return House;
+}());
+exports.House = House;
+;
