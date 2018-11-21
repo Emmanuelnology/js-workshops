@@ -1,4 +1,4 @@
-import { House } from "./ts9-solution";
+// import { House } from "./ts9-solution";
 
 /* TS9
 
@@ -14,7 +14,7 @@ let house = new House();
 house.addRoom(new Bedroom('Guest')); // Name is guest room
 house.addRoom(new Bathroom('Main bathroom')); // Name is Main Bathroom
 house.addRoom(new LargeRoom('Master')); // Name is Master
-kidsRoom=house.rooms[2];
+kidsRoom=house.room[2];
 house.removeRoom(kidsRoom); 
 house.addCar(new Car('WD13 WEZ')); //Registration is WS13 WEZ
 house.removeCar('WD13WEZ');
@@ -24,17 +24,43 @@ console.log(house.cars);
 
 */
 
-export class House {
-  rooms: Room [] = []
-  cars: Car [] = []
+  export class House {
+  room: Room[] = []
+  cars: Car[] = []
 
-  addRoom = (rooms:Room) => {
-  this.rooms.push(rooms);
+  addRoom = (room:Room) => {
+  this.room.push(room);
   }
 
-  removeRoom = (rooms:Room) => {
-  let  roomNumber = this.rooms.indexOf(rooms);
-    this.rooms.splice(roomNumber) 
+  removeRoom = (room:Room) => {
+  let  roomNumber = this.room.indexOf(room);
+    this.room.splice() 
   }
+
+  addCar = (cars:Car) => {
+    this.cars.push(cars);
+    }
+  
+    removeCar = (cars:Car) => {
+    let  carNumber = this.cars.indexOf(cars);
+      this.cars.splice() 
+    }
 
 };
+
+export class Room{
+  contents:string;
+  constructor(name:string){};
+}
+
+class Bedroom extends Room {
+  contents['Single bed', 'Wardrobe', 'Drawers'];
+}
+
+class LargeRoom extends Room {
+  contents['King sized bed', 'Wardrobe', 'Drawers']
+}
+
+class Bathroom extends Room{
+
+}
