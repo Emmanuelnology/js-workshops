@@ -27,20 +27,16 @@ export class House {
     public rooms:Room[] = [];
     public cars:Car[] = [];
 
-    public addRoom = (roomName:Room) => {
-        this.rooms.push(roomName);
-    }
+    public addRoom = (roomName:Room) => this.rooms.push(roomName);
     public removeRoom = (roomName:Room) => {
         let roomIndex = this.rooms.indexOf(roomName);
         this.rooms.splice(roomIndex, 1);
     }
 
-    public addCar = () => {
-        
-    }
-
-    public removeCar = () => {
-        
+    public addCar = (carReg:Car) => this.cars.push(carReg);
+    public removeCar = (car:Car) => {
+        let carIndex = this.cars.indexOf(car)
+        this.cars.splice(carIndex, 1);
     }
 }
 
@@ -61,8 +57,16 @@ export class Bathroom extends Room {
     public contents = ['Toilet', 'Sink'];
 }
 
-export class Car extends House {
+export class Car {
+    constructor (public registration:string) {}
+    private locked = true;
+    public isLocked = () => {
+        return this.locked
+    }
 
+    public toggleLock = () => {
+        return this.locked = !this.locked;
+    }
 }
 
 let house=new House();

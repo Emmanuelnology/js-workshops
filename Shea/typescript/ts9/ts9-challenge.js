@@ -40,16 +40,15 @@ var House = /** @class */ (function () {
         var _this = this;
         this.rooms = [];
         this.cars = [];
-        this.addRoom = function (roomName) {
-            _this.rooms.push(roomName);
-        };
+        this.addRoom = function (roomName) { return _this.rooms.push(roomName); };
         this.removeRoom = function (roomName) {
             var roomIndex = _this.rooms.indexOf(roomName);
             _this.rooms.splice(roomIndex, 1);
         };
-        this.addCar = function () {
-        };
-        this.removeCar = function () {
+        this.addCar = function (carReg) { return _this.cars.push(carReg); };
+        this.removeCar = function (car) {
+            var carIndex = _this.cars.indexOf(car);
+            _this.cars.splice(carIndex, 1);
         };
     }
     return House;
@@ -92,13 +91,20 @@ var Bathroom = /** @class */ (function (_super) {
     return Bathroom;
 }(Room));
 exports.Bathroom = Bathroom;
-var Car = /** @class */ (function (_super) {
-    __extends(Car, _super);
-    function Car() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var Car = /** @class */ (function () {
+    function Car(registration) {
+        var _this = this;
+        this.registration = registration;
+        this.locked = true;
+        this.isLocked = function () {
+            return _this.locked;
+        };
+        this.toggleLock = function () {
+            return _this.locked = !_this.locked;
+        };
     }
     return Car;
-}(House));
+}());
 exports.Car = Car;
 var house = new House();
 var newBathroom = new Bathroom('Downstairs toilet');
