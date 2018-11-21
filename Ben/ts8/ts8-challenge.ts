@@ -23,14 +23,19 @@ Example friendly summaries:
 
 */
 
-import {Person as PersonData, people} from "./ts8-data";
+import {Person as PersonData} from "./ts8-data";
 
 export class Person {
   public isVegetarian:boolean;
   public name:string;
   public age:number;
   public height:number;
-  constructor(input) {}
+  constructor(inputPerson:PersonData) {
+    this.isVegetarian = inputPerson.isVegetarian;
+    this.name = inputPerson.name;
+    this.age = inputPerson.age;
+    this.height = inputPerson.height;
+  }
   public canFitOnANameCard = ():boolean => this.name.length <= 6;
   public getLifeExpectancy = ():number => this.isVegetarian ? 90 : 95;
   public yearsRemaining = ():number => this.getLifeExpectancy() - this.age;
