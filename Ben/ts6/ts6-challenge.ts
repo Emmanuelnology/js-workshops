@@ -14,13 +14,13 @@ Count the number of times a function is run to return the search
 import { Person, liz} from "./data"
 let counter:number = 0;
 
-export const findByName = (main:Person, name:string):Person => {
+export const findByName = (startingPerson:Person, name:string):Person => {
   counter++;
-  if (main.name === name) return main;
-  else if (!("children" in main)) return undefined;
-  for (const child of main.children) {
-    let value:Person = findByName(child,name);
-    if (value != undefined) return value;
+  if (startingPerson.name === name) return startingPerson;
+  else if (!("children" in startingPerson)) return undefined;
+  for (const child of startingPerson.children) {
+    let found:Person = findByName(child,name);
+    if (found != undefined) return found;
   }
 }
 
