@@ -47,11 +47,9 @@ var Room = /** @class */ (function () {
 exports.Room = Room;
 var Bedroom = /** @class */ (function (_super) {
     __extends(Bedroom, _super);
-    function Bedroom(name) {
-        var _this = _super.call(this, name) || this;
-        _this.name = name;
+    function Bedroom() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.contents = ['Single bed', 'Wardrobe', 'Drawers'];
-        _this.name = name;
         return _this;
     }
     return Bedroom;
@@ -59,11 +57,9 @@ var Bedroom = /** @class */ (function (_super) {
 exports.Bedroom = Bedroom;
 var Bathroom = /** @class */ (function (_super) {
     __extends(Bathroom, _super);
-    function Bathroom(name) {
-        var _this = _super.call(this, name) || this;
-        _this.name = name;
+    function Bathroom() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.contents = ['Toilet', 'Sink'];
-        _this.name = name;
         return _this;
     }
     return Bathroom;
@@ -71,23 +67,24 @@ var Bathroom = /** @class */ (function (_super) {
 exports.Bathroom = Bathroom;
 var LargeRoom = /** @class */ (function (_super) {
     __extends(LargeRoom, _super);
-    function LargeRoom(name) {
-        var _this = _super.call(this, name) || this;
-        _this.name = name;
+    function LargeRoom() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.contents = ['King size bed', 'Wardrobe', 'Drawers'];
-        _this.name = name;
         return _this;
     }
     return LargeRoom;
 }(Room));
 exports.LargeRoom = LargeRoom;
-var Car = /** @class */ (function () {
+var Car = /** @class */ (function (_super) {
+    __extends(Car, _super);
     function Car(length, registration) {
-        this.length = length;
-        this.registration = registration;
+        var _this = _super.call(this, length) || this;
+        _this.length = length;
+        _this.registration = registration;
+        return _this;
     }
     return Car;
-}());
+}(Room));
 exports.Car = Car;
 var House = /** @class */ (function () {
     function House() {
@@ -103,3 +100,4 @@ addRoom = function (room) { return _this.rooms.push(room); };
 removeRoom = function (room) { return _this.rooms.pop(); };
 addCar = function (length, registration) { return _this.cars.push(car); };
 var house = new ts9_solution_1.House();
+house.addRoom();

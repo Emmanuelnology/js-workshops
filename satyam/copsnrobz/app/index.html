@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cops et Robbers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="copsnrobz.js"></script>
+    <script src="cnrfrontend.js"></script>
+    <style>
+    .icon {
+        height: 10vh;
+        width: 10vh;
+        background-position: center;
+    }
+    #icon1{
+        background-image: url("cop.png");
+    }
+    #icon2{
+        background-image: url("rob.png");
+    }
+    </style>
+</head>
+<body class="container text-center">
+    <h1>Cops et Robbers</h1>
+    <div class="row mt-4">
+        <div id="cop" class="col">
+            <h2>Cop</h2>
+            <div id="icon1" class="icon"></div>
+            <div class="progress">
+                <div class="progress-bar bg-primary" style="width: 100%"></div>
+            </div>
+            <p class="display-3">A/S</p>
+        </div>
+        <div id="robber" class="col">
+            <h2>Robber</h2>
+            <div id="icon2" class="icon"></div>
+            <div class="progress">
+                <div class="progress-bar bg-primary" style="width: 100%"></div>
+            </div>
+            <p class="display-3">L/;</p>
+        </div>
+    </div>
+    <p id="result" class="display-1 m-5">Rue Dies</p>
+</body>
+</html>
