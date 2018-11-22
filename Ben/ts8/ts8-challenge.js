@@ -25,7 +25,7 @@ Example friendly summaries:
 */
 exports.__esModule = true;
 var Person = /** @class */ (function () {
-    function Person(input) {
+    function Person(inputPerson) {
         var _this = this;
         this.canFitOnANameCard = function () { return _this.name.length <= 6; };
         this.getLifeExpectancy = function () { return _this.isVegetarian ? 90 : 95; };
@@ -37,6 +37,10 @@ var Person = /** @class */ (function () {
             var deadSummary = _this.yearsRemaining() < 0 ? "should be dead" : "has " + _this.yearsRemaining() + " years to live";
             return _this.name + vegSummary + ", is " + _this.height + "cm tall and " + deadSummary;
         };
+        this.isVegetarian = inputPerson.isVegetarian;
+        this.name = inputPerson.name;
+        this.age = inputPerson.age;
+        this.height = inputPerson.height;
     }
     return Person;
 }());

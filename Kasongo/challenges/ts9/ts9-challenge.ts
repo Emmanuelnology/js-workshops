@@ -20,13 +20,26 @@ house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
 
 */
-
-import { Suite } from '../testRunner';
-import { House, Car, Bedroom, LargeRoom, Bathroom } from "./ts9-solution";
+export class House {
+    rooms:Room[] = [];
+    cars:Car[] = [];
+    addRoom = (room:Room) =>  this.rooms.push(room); 
+    removeRoom = (room:Room) => {
+        let roomID = this.rooms.indexOf(room);
+        this.rooms.splice(roomID, 1);
+    }
+    
+    addCar = (car:Car) => this.cars.push(car); 
+    removeCar = (car:Car) => {
+        let carID = this.cars.indexOf(car);
+        this.rooms.splice(carID, 1);
+    }
+}
 
 export class Room {
     public contents:string[];
-    constructor(public name:string[]){    
+    constructor (public name:string){
+    }      
 }
 
 export class Bedroom extends Room {
@@ -41,28 +54,21 @@ export class LargeRoom extends Room {
     public contents:string[] = ['King size bed', 'Wardrobe', 'Drawers'];
 }
 
-export class Car extends Room {
-    public contents:string[];
-    constructor(length:number, registration:any) {
-        super(length)
-        this.length=length;
-        this.registration=registration;
-    }      
-}
-
-export class House {
-    rooms:Room[] = [];
-    cars:Car[] = [];
-    for room in house {
-
+export class Car {
+    public lock:boolean
+    constructor(public registration:any) {
     }
-    addRoom = (room:Room) =>  this.rooms.push(room);
-
-    removeRoom = (room:Room) => this.rooms.pop();
-    
-    addCar = (length, registration) => this.cars.push(car);
+    public isLocked = () => {
+        return this.lock;
+    } 
+    public toggleLock = () => {
+        this.lock = !this.lock;
+    }
 }
+
 
 let house = new House();
-house.addRoom();
+let bathRoom = new Bathroom('Toilet')
+house.addRoom(bathRoom);
+console.log(house.cars);
 

@@ -57,16 +57,35 @@ const pairsThatSumTo = (integerArray:number[], sum:number) => {
   let pairs=[];
   for (const integer of integerArray) {
     for (const otherInteger of integerArray) {
-      if (integer+otherInteger == sum) {
-        
+      if (integer + otherInteger === sum && integerArray.indexOf(otherInteger) !== integerArray.indexOf(integer)) {
+        pairs.push([integer,otherInteger]);
       }
     }
   }
+  return pairs;
 }
 
+console.log(pairsThatSumTo([1,4,3,2,3,2,5],6));
 
 /*
 How do you find duplicate numbers in an array if it contains multiple duplicates?
+*/
+
+const findDuplicates = (integerArray:number[]) => {
+  let duplicates=[];
+  for (const integer of integerArray) {
+    for (const otherInteger of integerArray) {
+      if (integer - otherInteger === 0 && integerArray.indexOf(otherInteger) !== integerArray.indexOf(integer)) {
+        duplicates.push(integer);
+      }
+    }
+  }
+  return duplicates;
+}
+
+console.log(findDuplicates([1,4,3,2,3,2,5]));
+
+/*
 How is an integer array sorted in place using the quicksort algorithm? (algorithm)
 How do you remove duplicates from an array in place? (solution)
 How do you reverse an array in place in Javascript? (solution)
