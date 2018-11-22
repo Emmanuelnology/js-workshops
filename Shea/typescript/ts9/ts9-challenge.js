@@ -40,24 +40,23 @@ var House = /** @class */ (function () {
         var _this = this;
         this.rooms = [];
         this.cars = [];
-        this.addRoom = function (roomName) {
-            _this.rooms.push(roomName);
+        this.addRoom = function (roomName) { return _this.rooms.push(roomName); };
+        this.removeRoom = function (roomName) {
+            var roomIndex = _this.rooms.indexOf(roomName);
+            _this.rooms.splice(roomIndex, 1);
         };
-        this.removeRoom = function (name) {
-            // this.rooms.pop(name);
-        };
-        this.addCar = function () {
-        };
-        this.removeCar = function () {
+        this.addCar = function (carReg) { return _this.cars.push(carReg); };
+        this.removeCar = function (car) {
+            var carIndex = _this.cars.indexOf(car);
+            _this.cars.splice(carIndex, 1);
         };
     }
     return House;
 }());
 exports.House = House;
 var Room = /** @class */ (function () {
-    function Room() {
-        this.name = this.name;
-        this.contents = this.contents;
+    function Room(name) {
+        this.name = name;
     }
     return Room;
 }());
@@ -65,7 +64,9 @@ exports.Room = Room;
 var Bedroom = /** @class */ (function (_super) {
     __extends(Bedroom, _super);
     function Bedroom() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.contents = ['Single bed', 'Wardrobe', 'Drawers'];
+        return _this;
     }
     return Bedroom;
 }(Room));
@@ -73,7 +74,9 @@ exports.Bedroom = Bedroom;
 var LargeRoom = /** @class */ (function (_super) {
     __extends(LargeRoom, _super);
     function LargeRoom() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.contents = ['King size bed', 'Wardrobe', 'Drawers'];
+        return _this;
     }
     return LargeRoom;
 }(Room));
@@ -81,16 +84,28 @@ exports.LargeRoom = LargeRoom;
 var Bathroom = /** @class */ (function (_super) {
     __extends(Bathroom, _super);
     function Bathroom() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.contents = ['Toilet', 'Sink'];
+        return _this;
     }
     return Bathroom;
 }(Room));
 exports.Bathroom = Bathroom;
-var Car = /** @class */ (function (_super) {
-    __extends(Car, _super);
-    function Car() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var Car = /** @class */ (function () {
+    function Car(registration) {
+        var _this = this;
+        this.registration = registration;
+        this.locked = true;
+        this.isLocked = function () {
+            return _this.locked;
+        };
+        this.toggleLock = function () {
+            return _this.locked = !_this.locked;
+        };
     }
     return Car;
-}(House));
+}());
 exports.Car = Car;
+var house = new House();
+var newBathroom = new Bathroom('Downstairs toilet');
+house.addRoom(newBathroom);
