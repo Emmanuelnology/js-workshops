@@ -1,4 +1,4 @@
-import { liz } from "./data";
+
 
 /* 
 
@@ -12,11 +12,21 @@ Create a function that takes two parameters (person and a search string) and out
 Count the number of times a function is run to return the search
 
 */
+
+import { liz, Person } from "./data";
+let loops = 0;
 //need to create a function that searches the names of the children of liz
-export function findByName(head:Person, name:string) {
-  for (Person of head.children)
- 
+export function findByName(head:Person, name:string):Person {
+  loops++;
+  if(!("children" in head)) return {} as Person;
+  for (let Person of head.children) {
+    if(Person.name===name) return Person;
+    let results = findByName(Person, name)
+    if(results) if (results.name == name) return results
+  }
+ return undefined
 }
+
 export function findDescendants() {
  
 }
@@ -24,3 +34,5 @@ export function findDescendants() {
 export function search(){
   
 }
+
+console.log("Count: " + loops);

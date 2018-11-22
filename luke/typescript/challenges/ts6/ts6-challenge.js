@@ -1,5 +1,4 @@
 "use strict";
-exports.__esModule = true;
 /*
 
 Typescript Algorithm Challenge
@@ -12,12 +11,23 @@ Create a function that takes two parameters (person and a search string) and out
 Count the number of times a function is run to return the search
 
 */
+exports.__esModule = true;
+var loops = 0;
 //need to create a function that searches the names of the children of liz
 function findByName(head, name) {
+    loops++;
+    if (!("children" in head))
+        return {};
     for (var _i = 0, _a = head.children; _i < _a.length; _i++) {
-        Person = _a[_i];
-        ;
+        var Person = _a[_i];
+        if (Person.name === name)
+            return Person;
+        var results = findByName(Person, name);
+        if (results)
+            if (results.name == name)
+                return results;
     }
+    return undefined;
 }
 exports.findByName = findByName;
 function findDescendants() {
@@ -26,3 +36,4 @@ exports.findDescendants = findDescendants;
 function search() {
 }
 exports.search = search;
+console.log("Count: " + loops);
