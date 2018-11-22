@@ -42,16 +42,12 @@ var House = /** @class */ (function () {
         var _this = this;
         this.rooms = [];
         this.cars = [];
-        this.addRoom = function (roomToAdd) {
-            _this.rooms.push(roomToAdd);
-        };
+        this.addRoom = function (roomToAdd) { return _this.rooms.push(roomToAdd); };
         this.removeRoom = function (roomToRemove) {
             var location = _this.rooms.indexOf(roomToRemove);
             _this.rooms.splice(location, 1);
         };
-        this.addCar = function (carToAdd) {
-            _this.cars.push(carToAdd);
-        };
+        this.addCar = function (carToAdd) { return _this.cars.push(carToAdd); };
         this.removeCar = function (carToRemove) {
             var location = _this.cars.indexOf(carToRemove);
             _this.cars.splice(location, 1);
@@ -100,10 +96,10 @@ var Car = /** @class */ (function () {
     function Car(registration) {
         var _this = this;
         this.registration = registration;
+        this.locked = true;
         this.isLocked = function () {
             return _this.locked;
         };
-        this.locked = true;
         this.toggleLock = function () {
             _this.locked = !_this.locked;
         };

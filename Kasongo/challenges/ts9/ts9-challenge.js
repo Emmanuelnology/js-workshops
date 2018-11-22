@@ -1,4 +1,18 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+exports.__esModule = true;
 /* TS9
 
 Object inheritance
@@ -21,23 +35,25 @@ house.cars[0].toggleLock(); //toggles lock for car on and off
 console.log(house.cars);
 
 */
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
+var House = /** @class */ (function () {
+    function House() {
+        var _this = this;
+        this.rooms = [];
+        this.cars = [];
+        this.addRoom = function (room) { return _this.rooms.push(room); };
+        this.removeRoom = function (room) {
+            var roomID = _this.rooms.indexOf(room);
+            _this.rooms.splice(roomID, 1);
+        };
+        this.addCar = function (car) { return _this.cars.push(car); };
+        this.removeCar = function (car) {
+            var carID = _this.cars.indexOf(car);
+            _this.rooms.splice(carID, 1);
+        };
     }
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var _this = this;
-exports.__esModule = true;
-var ts9_solution_1 = require("./ts9-solution");
-exports.House = ts9_solution_1.House;
+    return House;
+}());
+exports.House = House;
 var Room = /** @class */ (function () {
     function Room(name) {
         this.name = name;
@@ -75,6 +91,7 @@ var LargeRoom = /** @class */ (function (_super) {
     return LargeRoom;
 }(Room));
 exports.LargeRoom = LargeRoom;
+<<<<<<< HEAD
 var Car = /** @class */ (function (_super) {
     __extends(Car, _super);
     function Car(length, registration) {
@@ -82,10 +99,23 @@ var Car = /** @class */ (function (_super) {
         _this.length = length;
         _this.registration = registration;
         return _this;
+=======
+var Car = /** @class */ (function () {
+    function Car(registration) {
+        var _this = this;
+        this.registration = registration;
+        this.isLocked = function () {
+            return _this.lock;
+        };
+        this.toggleLock = function () {
+            _this.lock = !_this.lock;
+        };
+>>>>>>> c855ebb415d92ec8c0757f06b8f140efd0370d5d
     }
     return Car;
 }(Room));
 exports.Car = Car;
+<<<<<<< HEAD
 var House = /** @class */ (function () {
     function House() {
         this.rooms = [];
@@ -101,3 +131,9 @@ removeRoom = function (room) { return _this.rooms.pop(); };
 addCar = function (length, registration) { return _this.cars.push(car); };
 var house = new ts9_solution_1.House();
 house.addRoom();
+=======
+var house = new House();
+var bathRoom = new Bathroom('Toilet');
+house.addRoom(bathRoom);
+console.log(house.cars);
+>>>>>>> c855ebb415d92ec8c0757f06b8f140efd0370d5d
