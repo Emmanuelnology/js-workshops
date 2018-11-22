@@ -92,11 +92,9 @@ var LargeRoom = /** @class */ (function (_super) {
 }(Room));
 exports.LargeRoom = LargeRoom;
 var Car = /** @class */ (function () {
-    function Car(car, lock, length) {
+    function Car(registration) {
         var _this = this;
-        this.car = car;
-        this.lock = lock;
-        this.length = length;
+        this.registration = registration;
         this.isLocked = function () {
             return _this.lock;
         };
