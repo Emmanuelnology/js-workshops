@@ -12,29 +12,36 @@
     <script src="cnr-frontend.js"></script>
 </head>
 <body class="container text-center">
-    <div id="blocker" class="js-modal"></div>
-    <div id="js-result-container" class="js-modal">
-        <p id="js-result"></p>
-        <p id="play-again">Chwarae eto</p>
+    <div class="blocker js-option-modal"></div>
+    <div id="js-container" class="js-option-modal">
+        <p>Select language</p>
+        <p id="js-option-welsh">Cymraeg</p>
+        <p id="js-option-english">English</p>
     </div>
-    <h1>Copiau a Robwyr</h1>
+    <div class="blocker js-result-modal"></div>
+    <div id="js-container" class="js-result-modal">
+        <p id="js-result"></p>
+        <p id="js-play-again"></p>
+        <p id="js-swap-language"></p>
+    </div>
+    <h1 class="display-3 font-weight-bold"></h1>
     <div class="row mt-4">
         <div id="cop" class="col">
-            <h2>Cop</h2>
+            <h2 class="display-4 font-weight-normal"></h2>
+            <p class="display-5 m-2 instruction"></p>
             <img src="policeman.png" alt="cop" />
             <div class="progress m-2">
                 <div class="progress-bar"></div>
             </div>
-            <p class="display-4 m-2">Pwyswch A/S</p>
             <p id="warning-message" class="display-4 m-3 text-danger"></p>
         </div>
         <div id="robber" class="col">
-            <h2>Robwr</h2>
-            <img src="robber.jpg" alt="robwr" />
+            <h2 class="display-4 font-weight-normal"></h2>
+            <p class="display-5 m-2 instruction"></p>
+            <img src="robber.jpg" alt="robber" />
             <div class="progress m-2">
                 <div class="progress-bar"></div>
             </div>
-            <p class="display-4 m-2">Pwyswch L/;</p>
             <p id="warning-message" class="display-4 m-3 text-danger"></p>
         </div>
     </div>
