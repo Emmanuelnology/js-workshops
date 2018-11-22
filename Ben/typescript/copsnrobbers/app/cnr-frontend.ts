@@ -1,13 +1,79 @@
-// import { Character } from "./copsnrobbers";
-
 $(document).ready( () => {
+  
+  interface Language {
+    gameTitle:string;
+    copTitle:string;
+    robberTitle:string;
+    copInstruction:string;
+    robberInstruction:string;
+    warningMessage:string;
+    robberDead:string;
+    copDead:string;
+    playAgain:string;
+    swapLang:string;
+  }
+  
+  let english:Language = {
+    gameTitle: "Cops and Robbers",
+    copTitle: "Cop",
+    robberTitle: "Robber",
+    copInstruction: "Press A/S",
+    robberInstruction: "Press L/;",
+    warningMessage: "Warning! Low health!",
+    robberDead: "Robber is dead!",
+    copDead: "Cop is dead",
+    playAgain: "Play again",
+    swapLang: "Chwaraewch yn Gymraeg"
+  }
+  
+  let welsh:Language = {
+    gameTitle: "Copiau a Robwyr",
+    copTitle: "Cop",
+    robberTitle: "Robwr",
+    copInstruction: "Pwyswch A/S",
+    robberInstruction: "Pwyswch L/;",
+    warningMessage: "Rhybudd! Iechyd isel!",
+    robberDead: "Mae robwr yn marw!",
+    copDead: "Mae cop yn marw",
+    playAgain: "Chwaraewch eto",
+    swapLang: "Play in English"
+  }
+  
   let game = new Game ();
-  game.damageAmount = 2;
+  game.damageAmount = 20;
   let cop = new Character ();
   let robber = new Character ();
   
-  $(".js-modal").hide();
-  $("#result").hide();
+  $(".js-option-modal").show();
+  $(".js-result-modal").hide();
+
+  $('#js-option-welsh').click(function(){
+    game.language = welsh;
+    setLanguage(game.language);
+    $(".js-option-modal").hide();
+    game.isActive = true;  
+  })
+  
+  $('#js-option-english').click(function(){
+    game.language = english;
+    setLanguage(game.language);
+    $(".js-option-modal").hide();
+    game.isActive = true;  
+  })
+
+  let swapToLanguage = (lang:Language) => {
+    game.language = lang;
+    setLanguage(game.language);
+    resetGame();
+  }
+  
+  let setLanguage = (lang:Language) => {
+    $("h1").text(lang.gameTitle);
+    $("#cop h2").text(lang.copTitle);  
+    $("#robber h2").text(lang.robberTitle);
+    $("#cop .instruction").text(lang.copInstruction);
+    $("#robber .instruction").text(lang.robberInstruction);
+  }
   
   let updateProgress = (character:Character, progressBarSelector, warningMessageSelector) => {    
     $(progressBarSelector).css("width", character.health + "%");
@@ -16,45 +82,57 @@ $(document).ready( () => {
       $(warningMessageSelector).text("");
     }
     else {
-      $(warningMessageSelector).text("Rhybudd! Iechyd isel!");
+      $(warningMessageSelector).text(game.language.warningMessage);
     }
   }
-
+  
   let resetGame = () => {
-    $(".js-modal").css("display", "none");
-      game.isActive = true;
-      cop.resetHealth();
-      robber.resetHealth();
-      updateProgress(robber, "#robber .progress-bar", "#robber #warning-message");
-      updateProgress(cop, "#cop .progress-bar", "#cop #warning-message");
+    cop.resetHealth();
+    robber.resetHealth();
+    updateProgress(robber, "#robber .progress-bar", "#robber #warning-message");
+    updateProgress(cop, "#cop .progress-bar", "#cop #warning-message");
+    $(".js-result-modal").hide(); 
+    game.isActive = true;
   }
   
-  let stopGame = (message) => {
-    $("#js-result").text(message);
-    $(".js-modal").show();
+  let stopGame = (deadMessage) => {
+    $("#js-result").text(deadMessage);
+    $("#js-play-again").text(game.language.playAgain);    
+    $("#js-swap-language").text(game.language.swapLang);
+    $(".js-result-modal").show();
     game.isActive = false;
-    $('#play-again').click(function(){
-      resetGame();
-    })
   }
   
+  $('#js-play-again').click(function(){
+    resetGame();
+  })
+  
+  $('#js-swap-language').click(function(){
+    if (game.language == english) {
+      swapToLanguage(welsh);
+    }
+    else if (game.language == welsh) {
+      swapToLanguage(english);
+    }
+  })
+
   $("body").keyup( (e) => {
     if (game.isActive){
       if (e.key == "a" || e.key == "A" || e.key == "s" || e.key == "S") {
         cop.shootAt(robber, game.damageAmount);
         updateProgress(robber, "#robber .progress-bar", "#robber #warning-message");
         if (robber.isDead()) {
-          stopGame("Mae robwr yn marw!");
+          stopGame(game.language.robberDeadMessage)
         }
       }
       if (e.key == "l" || e.key == "L" || e.key == ";" || e.key == ":") {
         robber.shootAt(cop, game.damageAmount);
         updateProgress(cop, "#cop .progress-bar", "#cop #warning-message");
         if (cop.isDead()) {
-          stopGame("Mae cop yn marw!");
+          stopGame(game.language.copDeadMessage)
         }
       }
     }
   })
-});
 
+});
