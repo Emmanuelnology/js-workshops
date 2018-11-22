@@ -1,7 +1,8 @@
 class Game {
   public damageAmount:number = 10;
-  public isActive:boolean = true;
+  public isActive:boolean = false;
   public isWelsh:boolean = false;
+  public language;
 }
 
 class Character {
