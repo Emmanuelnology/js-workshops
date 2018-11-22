@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 /*
 
 Typescript Algorithm Challenge
@@ -11,8 +12,12 @@ Create a function that takes two parameters (person and a search string) and out
 Count the number of times a function is run to return the search
 
 */
-exports.__esModule = true;
-function findByName() {
+//need to create a function that searches the names of the children of liz
+function findByName(head, name) {
+    for (var _i = 0, _a = head.children; _i < _a.length; _i++) {
+        Person = _a[_i];
+        ;
+    }
 }
 exports.findByName = findByName;
 function findDescendants() {
