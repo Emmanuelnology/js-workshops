@@ -60,8 +60,14 @@ $(document).ready( () => {
     $(".js-option-modal").hide();
     game.isActive = true;  
   })
+
+  let swapToLanguage = (lang:Language) => {
+    game.language = lang;
+    setLanguage(game.language);
+    resetGame();
+  }
   
-  var setLanguage = (lang:Language) => {
+  let setLanguage = (lang:Language) => {
     $("h1").text(lang.gameTitle);
     $("#cop h2").text(lang.copTitle);  
     $("#robber h2").text(lang.robberTitle);
@@ -103,14 +109,10 @@ $(document).ready( () => {
   
   $('#js-swap-language').click(function(){
     if (game.language == english) {
-      game.language = welsh;
-      setLanguage(game.language);
-      resetGame();
+      swapToLanguage(welsh);
     }
     else if (game.language == welsh) {
-      game.language = english;
-      setLanguage(game.language);
-      resetGame();
+      swapToLanguage(english);
     }
   })
 

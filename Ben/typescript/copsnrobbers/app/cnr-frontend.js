@@ -41,6 +41,11 @@ $(document).ready(function () {
         $(".js-option-modal").hide();
         game.isActive = true;
     });
+    var swapToLanguage = function (lang) {
+        game.language = lang;
+        setLanguage(game.language);
+        resetGame();
+    };
     var setLanguage = function (lang) {
         $("h1").text(lang.gameTitle);
         $("#cop h2").text(lang.copTitle);
@@ -78,14 +83,10 @@ $(document).ready(function () {
     });
     $('#js-swap-language').click(function () {
         if (game.language == english) {
-            game.language = welsh;
-            setLanguage(game.language);
-            resetGame();
+            swapToLanguage(welsh);
         }
         else if (game.language == welsh) {
-            game.language = english;
-            setLanguage(game.language);
-            resetGame();
+            swapToLanguage(english);
         }
     });
     $("body").keyup(function (e) {
