@@ -2,6 +2,7 @@ var Game = /** @class */ (function () {
     function Game() {
         this.damageAmount = 10;
         this.isActive = true;
+        this.isWelsh = false;
     }
     return Game;
 }());

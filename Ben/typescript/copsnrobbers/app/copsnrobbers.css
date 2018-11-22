@@ -25,12 +25,12 @@
   text-align: center;
 }
 
-#play-again {
+#js-play-again {
   text-decoration: underline;
   font-size: 36px;
 }
 
-#play-again:hover {
+#js-play-again:hover {
   cursor: pointer;
 }
 
