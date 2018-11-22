@@ -40,11 +40,19 @@
   cursor: pointer;
 }
 
+
+.js-option-modal img {
+  height: 30px;
+  border: 1px black solid;
+  margin: 0px 7px 5px 7px;
+}
+
 .progress-bar {
   background-color: rgb(0, 255, 0);
   width: 100%;
 }
 
-img {
+#robber img,
+#cop img {
   height: 230px;
 }
