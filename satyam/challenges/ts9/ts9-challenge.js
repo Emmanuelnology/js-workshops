@@ -40,32 +40,53 @@ var House = /** @class */ (function () {
     function House() {
         var _this = this;
         this.rooms = [];
+        this.cars = [];
         this.addRoom = function (roomName) {
             _this.rooms.push(roomName);
-            console.log(_this.rooms);
+        };
+        this.removeRoom = function (roomName) {
+            var roomID = _this.rooms.indexOf(roomName);
+            _this.rooms.splice(roomID, 1);
+        };
+        this.addCar = function (carPlate) {
+            _this.cars.push(carPlate);
+        };
+        this.removeCar = function (carPlate) {
+            var carID = _this.cars.indexOf(carPlate);
+            _this.cars.splice(carID, 1);
         };
     }
     return House;
 }());
 exports.House = House;
-var Room = /** @class */ (function (_super) {
-    __extends(Room, _super);
-    function Room() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return Room;
-}(House));
-exports.Room = Room;
 var Car = /** @class */ (function () {
-    function Car() {
+    function Car(registration) {
+        var _this = this;
+        this.registration = registration;
+        this.locked = true;
+        this.isLocked = function () {
+            return _this.locked;
+        };
+        this.toggleLock = function () {
+            return _this.locked = !_this.locked;
+        };
     }
     return Car;
 }());
 exports.Car = Car;
+var Room = /** @class */ (function () {
+    function Room(name) {
+        this.name = name;
+    }
+    return Room;
+}());
+exports.Room = Room;
 var Bedroom = /** @class */ (function (_super) {
     __extends(Bedroom, _super);
     function Bedroom() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.contents = ['Single bed', 'Wardrobe', 'Drawers'];
+        return _this;
     }
     return Bedroom;
 }(Room));
@@ -73,7 +94,9 @@ exports.Bedroom = Bedroom;
 var LargeRoom = /** @class */ (function (_super) {
     __extends(LargeRoom, _super);
     function LargeRoom() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.contents = ['King size bed', 'Wardrobe', 'Drawers'];
+        return _this;
     }
     return LargeRoom;
 }(Room));
@@ -81,10 +104,10 @@ exports.LargeRoom = LargeRoom;
 var Bathroom = /** @class */ (function (_super) {
     __extends(Bathroom, _super);
     function Bathroom() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.contents = ['Toilet', 'Sink'];
+        return _this;
     }
     return Bathroom;
 }(Room));
 exports.Bathroom = Bathroom;
-var house = new House();
-house.addRoom(new Bedroom('Guest'));

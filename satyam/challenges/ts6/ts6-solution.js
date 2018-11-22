@@ -29,6 +29,7 @@ function findByName(head, name) {
     }
     return undefined;
 }
+exports.findByName = findByName;
 function findDescendants(head) {
     loops++;
     var matches = [];
@@ -42,10 +43,12 @@ function findDescendants(head) {
         }
     return matches;
 }
+exports.findDescendants = findDescendants;
 function search(person, text) {
     var startPerson = findByName(person, text);
     return findDescendants(startPerson);
 }
+exports.search = search;
 console.log(search(data_1.liz, 'Charles'));
 console.log("Count: " + loops);
 //Tests find descendants
