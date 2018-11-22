@@ -57,7 +57,8 @@ export class Car {
 
 export class Room {
   public contents:string[];
-  constructor(public name:string){}
+  constructor(public name:string){
+  }
 }
 
 export class Bathroom  extends Room {
@@ -66,9 +67,13 @@ export class Bathroom  extends Room {
 
 export class Bedroom  extends Room {
   public contents = ['Single bed', 'Wardrobe', 'Drawers'];
+  // public hasKingSizeBed = false;
+  // public numberOfWardrobes = 1;
+  // public hasDrawers=true;
 }
 
 export class LargeRoom  extends Bedroom {
   public contents = ['King size bed', 'Wardrobe', 'Drawers'];
+  // public hasKingSizeBed = true;
 }
 

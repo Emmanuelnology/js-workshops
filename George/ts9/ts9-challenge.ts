@@ -1,5 +1,3 @@
-import { House } from "./ts9-solution";
-
 /* TS9
 
 Object inheritance
@@ -23,63 +21,62 @@ console.log(house.cars);
 
 */
 
+export class House {
+    rooms: Room[] = [];
+    cars: Car[] = [];
 
-class House {
-    rooms: Room[];
-    cars: Car[];;
-    list
-
-    addCar(registrationPlate:string) {
-        let car = new Car(registrationPlate);
-        this.cars.push(car);
+    addCar(carToBeAdded:Car) {
+        this.cars.push(carToBeAdded);
     }
 
-    removeCar(registrationPlateToCheck:string) {
-        for(index in this.cars) {
-            if(this.cars[index].registrationPlate == registrationPlateToCheck){
-                this.cars[index].pop();
-            }
+    removeCar(carToRemove:Car) {
+        for(let index = 0; index < this.cars.length; index++) {
+            if(this.cars[index] == carToRemove)
+               this.cars.splice(index,1);
         }
     }
 
     addRoom(roomToBeAdded:Room) {
-        let room = new Room(roomToBeAdded);
-        this.rooms.push(room);
-
+        this.rooms.push(roomToBeAdded);
     }
 
-    removeRoom() {
-
-    }
-    
+    removeRoom(roomToRemove:Room) {
+        for(let index = 0; index < this.rooms.length; index++) {
+            if(this.rooms[index] == roomToRemove)
+                this.rooms.splice(index,1);
+        }
+    }    
 }
 
-class Room {
+export class Room {
     constructor(public name:string){
 
     }
 }
 
-class Bedroom extends Room{
-    constructor(name:string){
-        super(name);
-    }
+export class Bedroom extends Room{
+    contents =["Single bed", "Wardrobe", "Drawers"];
 }
 
-class Bathroom extends Room{
-    constructor(name:string){
-        super(name);
-    }
+export class Bathroom extends Room{
+    contents = ["Toilet", "Sink"]
 }
 
-class Car {
-    constructor(public registrationPlate:string){
-
-    }
+export class LargeRoom extends Room{
+    contents = ["King size bed", "Wardrobe", "Drawers"]
 }
 
+export class Car {
+    locked = true;
+    constructor(public registration:string){
 
+    }
 
+    isLocked(){
+        return this.locked;
+    }
 
-let house = new House();
-house.addRoom(new Bedroom('Guest'));
+    toggleLock(){
+        this.locked = !this.locked;
+    }
+}

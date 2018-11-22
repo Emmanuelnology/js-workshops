@@ -91,6 +91,9 @@ var Bedroom = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.contents = ['Single bed', 'Wardrobe', 'Drawers'];
         return _this;
+        // public hasKingSizeBed = false;
+        // public numberOfWardrobes = 1;
+        // public hasDrawers=true;
     }
     return Bedroom;
 }(Room));
@@ -101,6 +104,7 @@ var LargeRoom = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.contents = ['King size bed', 'Wardrobe', 'Drawers'];
         return _this;
+        // public hasKingSizeBed = true;
     }
     return LargeRoom;
 }(Bedroom));
