@@ -12,15 +12,21 @@ Count the number of times a function is run to return the search
 */
 import {liz, Person} from './data';
 
-export const findByName = (startingPerson:Person, searchName:string) => {
+let count = 0;
+
+export const findByName = (startingPerson:Person, searchName:string):Person => {
+    count++;
     if (startingPerson.name === searchName) return startingPerson;
-    if (!("children" in startingPerson)) return undefined;
-    for (const child of startingPerson.children) {
-            let recursion:Person = findByName(child, searchName);
-            if (recursion != undefined) return recursion;
+    if (startingPerson.hasOwnProperty('children')) {
+        for (const child of startingPerson.children) {
+                let recursion = findByName(child, searchName);
+                if (recursion != undefined) return recursion;
+        } 
     }
+    return undefined;
 }
 export const findDescendants = (prescendant:Person) => {
+    count++;
     let descendants:string[] = [];
     if (prescendant.hasOwnProperty('children')) {
         for (let child of prescendant.children) {
@@ -31,6 +37,10 @@ export const findDescendants = (prescendant:Person) => {
     return descendants;
 }
 
-export function search(){
-  
+export function search(person:Person, searchString:string) { 
+  let personObject = findByName(person, searchString);
+  return findDescendants(personObject);
 }
+
+console.log(search(liz, 'Charles'));
+console.log(count);

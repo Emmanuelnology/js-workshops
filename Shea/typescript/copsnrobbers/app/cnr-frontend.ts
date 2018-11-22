@@ -2,7 +2,7 @@
 
 $(document).ready(() => {
     let game = new Game;
-    game.damageAmount = 5;
+    game.damageAmount = 20;
     let cop = new Character;
     let robber = new Character;
 
@@ -27,8 +27,9 @@ $(document).ready(() => {
         } 
     }
 
-    let stopGame = (message) => {
+    let stopGame = (message, avatarSelector) => {
         $('#result').text(message).show();
+        $(avatarSelector).css("background-image", "url('dead-guy-icon.PNG')")
         game.isActive=false;
     }
 
@@ -37,12 +38,14 @@ $(document).ready(() => {
             if (e.key=='a'||e.key == 'A'){
                 cop.shootAt(robber, game.damageAmount);
                 updateProgress(robber, "#robber .progress-bar")
-                if (robber.isDead()) stopGame("Robber is Dead");
+                if (robber.isDead()) {
+                    stopGame("Robber is Dead", "#robber-avatar");
+                }
             }
             if (e.key=='l'||e.key == 'L'){
                 robber.shootAt(cop, game.damageAmount);
                 updateProgress(cop, "#cop .progress-bar")
-                if (cop.isDead()) stopGame("Cop is dead");
+                if (cop.isDead()) stopGame("Cop is dead", "#cop-avatar");
             }
         }
     });
