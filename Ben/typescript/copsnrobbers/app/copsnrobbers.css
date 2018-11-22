@@ -1,4 +1,4 @@
-#blocker {
+.blocker {
   display: none;
   background-color: rgb(0, 0, 0, 0.3);
   width: 100%;
@@ -9,10 +9,10 @@
   z-index: 2;
 }
 
-#js-result-container {
+#js-container {
   display: none;
   position: fixed;
-  top: 30%;
+  top: 25%;
   right: 22%;
   width: 56%;
   background-color: white;
@@ -25,12 +25,18 @@
   text-align: center;
 }
 
-#play-again {
+#js-play-again,
+#js-swap-language,
+#js-option-welsh,
+#js-option-english {
   text-decoration: underline;
   font-size: 36px;
 }
 
-#play-again:hover {
+#js-play-again:hover,
+#js-swap-language:hover,
+#js-option-welsh:hover,
+#js-option-english:hover {
   cursor: pointer;
 }
 
@@ -40,5 +46,5 @@
 }
 
 img {
-  height: 250px;
+  height: 230px;
 }
