@@ -10,13 +10,14 @@ Create a function that takes two parameters (person and a search string) and out
 Count the number of times a function is run to return the search
 
 */
+import { liz, Person } from "./data";
 
+export function findByName(liz:Person, name:string):Person {
 
-export function findByName() {
- 
 }
-export function findDescendants() {
- 
+
+export function findDescendants(liz:Person) {
+    
 }
 
 export function search(){
