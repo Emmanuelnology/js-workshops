@@ -27,11 +27,12 @@ export let findByName = (head:Person, name:string):Person  => {
 export let findDescendants = (head:Person) => {
     loops++;
     let descendant:string[] = [];
-    if (head) if ('children' in head)
+    if (head) if ('children' in head) {
         for (let person of head.children ) {
             descendant.push(person.name);
             descendant = descendant.concat(findDescendants(person));   
     }
+}
     return descendant;
 }
 
