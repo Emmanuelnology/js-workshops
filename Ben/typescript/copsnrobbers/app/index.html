@@ -12,16 +12,24 @@
     <script src="cnr-frontend.js"></script>
 </head>
 <body class="container text-center">
-    <div id="blocker" class="js-modal"></div>
-    <div id="js-result-container" class="js-modal">
+    <div class="blocker js-option-modal"></div>
+    <div id="js-container" class="js-option-modal">
+        <p>Select language</p>
+        <p id="js-option-welsh">Cymraeg</p>
+        <p id="js-option-english">English</p>
+    </div>
+    <div class="blocker js-result-modal"></div>
+    <div id="js-container" class="js-result-modal">
         <p id="js-result"></p>
         <p id="js-play-again"></p>
+        <p id="js-swap-language"></p>
     </div>
     <h1 class="display-3 font-weight-bold welsh">Copiau a Robwyr</h1>
     <h1 class="display-3 font-weight-bold english">Cops and Robbers</h1>
     <div class="row mt-4">
         <div id="cop" class="col">
-            <h2 class="display-4 font-weight-normal">Cop</h2>
+            <h2 class="display-4 font-weight-normal welsh">Cop</h2>
+            <h2 class="display-4 font-weight-normal english">Cop</h2>
             <p class="display-5 m-2 welsh">Pwyswch A/S</p>
             <p class="display-5 m-2 english">Press A/S</p>
             <img src="policeman.png" alt="cop" />
