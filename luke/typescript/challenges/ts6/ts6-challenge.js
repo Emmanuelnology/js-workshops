@@ -33,7 +33,9 @@ exports.findByName = findByName;
 function findDescendants() {
 }
 exports.findDescendants = findDescendants;
-function search() {
+function search(person, search) {
+    var searchPerson = findByName(person, search);
+    return searchPerson;
 }
 exports.search = search;
 console.log("Count: " + loops);

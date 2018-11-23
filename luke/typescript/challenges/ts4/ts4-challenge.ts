@@ -107,4 +107,9 @@ export let getSummary=(people)=>{
   let deadMessage = yearsRemaining(people) > 0 ? "has " + yearsRemaining(people) + " years to live":"should be dead" 
   return people.name +  vegetarianMesage+ ", is " + people.height + "cm tall and " + deadMessage;
  // change this line and add others if needed
-}
+};
+
+Example friendly summaries:
+- Steven is a vegetarian, is 100cm tall and has 12 years to live
+- Fred likes meat, is 153cm tall and has 7 years to live
+
