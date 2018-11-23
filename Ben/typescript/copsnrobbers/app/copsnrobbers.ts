@@ -1,8 +1,21 @@
+interface Language {
+  gameTitle:string;
+  copTitle:string;
+  robberTitle:string;
+  copInstruction:string;
+  robberInstruction:string;
+  warningMessage:string;
+  robberDead:string;
+  copDead:string;
+  playAgain:string;
+  swapLang:string;
+}
+
 class Game {
   public damageAmount:number = 10;
   public isActive:boolean = false;
   public isWelsh:boolean = false;
-  public language;
+  public language:Language;
 }
 
 class Character {
