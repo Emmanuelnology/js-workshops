@@ -47,14 +47,14 @@ $(document).ready( () => {
   $(".js-option-modal").show();
   $(".js-result-modal").hide();
 
-  $('#js-option-welsh').click(function(){
+  $('#js-option-welsh').click(function() {
     game.language = welsh;
     setLanguage(game.language);
     $(".js-option-modal").hide();
     game.isActive = true;  
   })
   
-  $('#js-option-english').click(function(){
+  $('#js-option-english').click(function() {
     game.language = english;
     setLanguage(game.language);
     $(".js-option-modal").hide();

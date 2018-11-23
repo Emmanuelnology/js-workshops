@@ -9,10 +9,9 @@
   z-index: 2;
 }
 
-#js-container {
+.js-container {
   display: none;
   position: fixed;
-  top: 25%;
   right: 22%;
   width: 56%;
   background-color: white;
@@ -23,6 +22,16 @@
   color: black;
   padding: 0.5em;
   text-align: center;
+}
+
+#js-option-container {
+  top: 23%;
+  height: 54%;
+}
+
+#js-result-container {
+  top: 30%;
+  height: 40%;
 }
 
 #js-play-again,
@@ -40,11 +49,19 @@
   cursor: pointer;
 }
 
+
+.js-option-modal img {
+  height: 30px;
+  border: 1px black solid;
+  margin: 0px 7px 5px 7px;
+}
+
 .progress-bar {
   background-color: rgb(0, 255, 0);
   width: 100%;
 }
 
-img {
+#robber img,
+#cop img {
   height: 230px;
 }
