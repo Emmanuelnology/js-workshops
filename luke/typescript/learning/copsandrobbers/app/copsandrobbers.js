@@ -19,6 +19,9 @@ var Character = /** @class */ (function () {
     Character.prototype.isHealthy = function () {
         return this.health >= 30;
     };
+    Character.prototype.healthUpdate = function(target) {
+        return this.health - 10;
+    }
     return Character;
 }());
 var Game = /** @class */ (function () {

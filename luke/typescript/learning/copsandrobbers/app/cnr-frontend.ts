@@ -4,6 +4,7 @@ $(document).ready( () => {
   let cop = new Character();
   let robber = new Character();
   $('#result').hide();
+  $('.img-dead').hide();
   
   let updateProgress = (character:Character, progressBarSelector) => {
     $(progressBarSelector).css('width', character.health + "%");
