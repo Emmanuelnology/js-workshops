@@ -2,15 +2,15 @@
 exports.__esModule = true;
 var testRunner_1 = require("../testRunner");
 var ts8_data_1 = require("./ts8-data");
-var ts8_solution_1 = require("./ts8-solution");
+var ts8_challenge_1 = require("./ts8-challenge");
 console.log("\n\nRunning tests...");
 var testSuite = new testRunner_1.Suite('ts8');
-var bob = new ts8_solution_1.Person(ts8_data_1.people[0]);
-var harigon = new ts8_solution_1.Person(ts8_data_1.people[1]);
-var thomas = new ts8_solution_1.Person(ts8_data_1.people[2]);
-var sarah = new ts8_solution_1.Person(ts8_data_1.people[3]);
-var dave = new ts8_solution_1.Person(ts8_data_1.people[5]);
-var doris = new ts8_solution_1.Person(ts8_data_1.people[6]);
+var bob = new ts8_challenge_1.Person(ts8_data_1.people[0]);
+var harigon = new ts8_challenge_1.Person(ts8_data_1.people[1]);
+var thomas = new ts8_challenge_1.Person(ts8_data_1.people[2]);
+var sarah = new ts8_challenge_1.Person(ts8_data_1.people[3]);
+var dave = new ts8_challenge_1.Person(ts8_data_1.people[5]);
+var doris = new ts8_challenge_1.Person(ts8_data_1.people[6]);
 testSuite.assertEqualGroup('Is Vegetarian', [
     {
         compare: bob.isVegetarian,

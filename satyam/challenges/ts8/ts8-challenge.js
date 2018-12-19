@@ -25,13 +25,22 @@ Example friendly summaries:
 */
 exports.__esModule = true;
 var Person = /** @class */ (function () {
-    function Person() {
-        this.canFitOnANameCard = function () { return true; };
-        this.getLifeExpectancy = function () { return true; };
-        this.yearsRemaining = function () { return true; };
-        this.canRideOnARollercoaster = function () { return true; };
-        this.canBuyBeer = function () { return true; };
-        this.getSummary = function () { return true; };
+    function Person(data) {
+        var _this = this;
+        this.canFitOnANameCard = function () { return _this.name.length <= 6; };
+        this.getLifeExpectancy = function () { return _this.isVegetarian ? 90 : 95; };
+        this.yearsRemaining = function () { return _this.getLifeExpectancy() - _this.age; };
+        this.canRideOnARollercoaster = function () { return _this.height >= 120; };
+        this.canBuyBeer = function () { return _this.age >= 18; };
+        this.getSummary = function () {
+            var vegetarianMessage = _this.isVegetarian ? "is a vegetarian" : "likes meat";
+            var yearsToLiveMessage = (_this.yearsRemaining() < 0) ? "should be dead" : "has " + _this.yearsRemaining() + " years to live";
+            return _this.name + " " + vegetarianMessage + ", is " + _this.height + "cm tall and " + yearsToLiveMessage;
+        };
+        this.name = data.name;
+        this.age = data.age;
+        this.height = data.height;
+        this.isVegetarian = data.isVegetarian;
     }
     return Person;
 }());
