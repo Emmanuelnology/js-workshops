@@ -10,27 +10,52 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.js""></script>
   <script src=" copsandrobbers.js"></script>
   <script src="cnr-frontend.js"></script>
+  <link rel="stylesheet" href="../app/main.css">
 </head>
 
 <body class="containter">
-  <h1 style="text-align:center">Cops and Robbers</h1>
+  <h1>Cops 'n' Robbers</h1>
   <div class="row rt-4">
 
     <div class="col" id="cop">
-      <h2 style="text-align:center">Cop</h2>
-      <div class="progress">
-        <div class="progress-bar bg-primary" style="width: 100%"></div>
+      <h2>Cop</h2>
+      <div class="img-alive-cop">
+        <img src="../app/pictures/cop.jpg" alt="cop">
+      </div>
+      <div class="img-dead-cop">
+        <img src="./pictures/chalk.png" alt="">
+      </div>
+      <div class="container">
+          <div class="progress">
+            <div class="progress-bar bg-primary" style="width: 100%"></div>
+          </div>
+          <p class="centered health" id="health-cop"></p>
+        </div>
+      <div class="container2">
+        <img src="./pictures/empty-keyboard-key-vector-1838508.jpg" alt="key-cap" id="key-cap">
+        <p class="display-3 m-3 centered">A</p>
+      </div>
     </div>
-    <p class="display-3 m-3" style="text-align:center">A</p>
-  </div>
 
-  <div class="col" id="robber">
-    <h2 style="text-align:center">Robbers</h2>
-    <div class="progress">
-      <div class="progress-bar bg-primary" style="width: 100%"></div>
+    <div class="col" id="robber">
+      <h2>Robber</h2>
+      <div class="img-alive-robber">
+        <img src="../app/pictures/robber.jpg" alt="robber">
+      </div>
+      <div class="img-dead-robber">
+        <img src="./pictures/chalk.png" alt="">
+      </div>
+      <div class="container">
+        <div class="progress">
+          <div class="progress-bar bg-primary" style="width: 100%"></div>
+        </div>
+        <p class="centered health" id="health-robber"></p>
+      </div>
+      <div class="container2">
+        <img src="./pictures/empty-keyboard-key-vector-1838508.jpg" alt="key-cap" id="key-cap">
+        <p class="display-3 m-3 centered" style="text-align:center">L</p>
+      </div>
     </div>
-    <p class="display-3 m-3" style="text-align:center">L</p>
-  </div>
   </div>
   <p id="result" style="text-align: center; font-size: 30px;"></p>
 </body>

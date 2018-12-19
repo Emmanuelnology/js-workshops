@@ -31,8 +31,9 @@ export function findDescendants() {
  
 }
 
-export function search(){
-  
+export function search(person:Person, search:string){
+  let searchPerson = findByName(person, search);
+  return searchPerson
 }
 
 console.log("Count: " + loops);
